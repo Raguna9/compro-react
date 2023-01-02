@@ -28,7 +28,7 @@ app.use(cors({
     //mengizinkan frontend untuk mengirim request/cookie ke server 
     credentials: true,
     //domain yang diizinkan
-    origin: 'http/localhost:3000'
+    origin: 'http://localhost:3000'
 }));
 
 app.use(express.json());
