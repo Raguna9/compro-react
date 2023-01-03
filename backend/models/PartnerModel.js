@@ -14,9 +14,9 @@ const Partner = db.define('partner',{
     },
     name:{
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         validate:{
-            notEmpty: true,
+            notEmpty: false,
             len: [3, 100]
         }
     },

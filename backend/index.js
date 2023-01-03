@@ -4,11 +4,14 @@ import dotenv from "dotenv";
 import session from "express-session";
 import db from "./config/Database.js";
 import SequelizeStore from "connect-session-sequelize";
+import FileUpload from "express-fileupload";
+
+import PartnerRoute from "./routes/PartnerRoute.js";
 import UserRoute from "./routes/UserRoute.js";
 import BlogRoute from "./routes/BlogRoute.js";
 import EmployeeRoute from "./routes/EmployeeRoute.js";
-import PartnerRoute from "./routes/PartnerRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
+
 dotenv.config();
 
 const app = express();
@@ -32,7 +35,8 @@ app.use(cors({
 }));
 
 app.use(express.json());
-
+app.use(FileUpload());
+app.use(express.static("public"));
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -42,6 +46,8 @@ app.use(session({
         secure: 'auto'
     }
 }));
+
+
 app.use(UserRoute);
 app.use(BlogRoute);
 app.use(EmployeeRoute);
