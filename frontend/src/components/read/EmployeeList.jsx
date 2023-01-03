@@ -3,30 +3,30 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const PartnerList = () => {
-    const [partners, setPartners] = useState([]);
+const EmployeeList = () => {
+    const [employees, setEmployees] = useState([]);
 
     useEffect(() => {
-        getPartners();
+        getEmployees();
     }, []);
 
-    const getPartners = async () => {
-        const response = await axios.get("http://localhost:5000/partners");
-        setPartners(response.data);
+    const getEmployees = async () => {
+        const response = await axios.get("http://localhost:5000/employees");
+        setEmployees(response.data);
     };
 
-    const deletePartner = async (partnerId) => {
-        await axios.delete(`http://localhost:5000/partners/${partnerId}`);
-        getPartners();
+    const deleteEmployee = async (employeeId) => {
+        await axios.delete(`http://localhost:5000/employees/${employeeId}`);
+        getEmployees();
     };
 
 
 
     return (
         <div>
-            <h1 className="title">Partners</h1>
-            <h2 className="subtitle">List of Partners</h2>
-            <Link to="/partners/add" className="button is-primary mb-2">
+            <h1 className="title">Employees</h1>
+            <h2 className="subtitle">List of Employees</h2>
+            <Link to="/employees/add" className="button is-primary mb-2">
                 Add New
             </Link>
             <table className="table is-striped is-fullwidth">
@@ -34,29 +34,37 @@ const PartnerList = () => {
                     <tr>
                         <th>No</th>
                         <th>Name</th>
+                        <th>Department</th>
+                        <th>Gender</th>
+                        <th>Email</th>
+                        <th>No SPPI</th>
                         <th>Image</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {partners.map((partner, index) => (
-                        <tr key={partner.uuid}>
+                    {employees.map((employee, index) => (
+                        <tr key={employee.uuid}>
                             <td>{index + 1}</td>
-                            <td>{partner.name}</td>
+                            <td>{employee.name}</td>
+                            <td>{employee.department}</td>
+                            <td>{employee.gender}</td>
+                            <td>{employee.email}</td>
+                            <td>{employee.sppi}</td>
                             <td>
-                                <figure className="image is-3by1">
-                                    <img src={partner.urlImage} alt="Image" />
+                                <figure className="image is-2by3">
+                                    <img src={employee.urlImage} alt="Image" />
                                 </figure>
                             </td>
                             <td>
                                 <Link
-                                    to={`/partners/edit/${partner.id}`}
+                                    to={`/employees/edit/${employee.id}`}
                                     className="button is-small is-info"
                                 >
                                     Edit
                                 </Link>
                                 <button
-                                    onClick={() => deletePartner(partner.id)}
+                                    onClick={() => deleteEmployee(employee.id)}
                                     className="button is-small is-danger"
                                 >
                                     Delete
@@ -70,4 +78,4 @@ const PartnerList = () => {
     );
 };
 
-export default PartnerList;
+export default EmployeeList;

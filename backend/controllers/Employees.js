@@ -86,7 +86,7 @@ export const updateEmployee = async (req, res) => {
     const gender = req.body.gender;
     const email = req.body.email;
     const sppi = req.body.sppi;
-    const urlImage = `${req.protocol}://${req.get("host")}/images/${fileName}`;
+    const urlImage = `${req.protocol}://${req.get("host")}/images/employees/${fileName}`;
 
     try {
         await Employee.update({ name: name, department: department, gender: gender, email: email, sppi: sppi, image: fileName, urlImage: urlImage }, {

@@ -10,6 +10,9 @@ import EditBlog from "./pages/update/EditBlog";
 import Partners from "./pages/read/Partners";
 import AddPartner from "./pages/create/AddPartner";
 import EditPartner from "./pages/update/EditPartner";
+import Employees from "./pages/read/Employees";
+import AddEmployee from "./pages/create/AddEmployee";
+import EditEmployee from "./pages/update/EditEmployee";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
           <Route path="/partners" element={<Partners />} />
           <Route path="/partners/add" element={<AddPartner />} />
           <Route path="/partners/edit/:id" element={<EditPartner />} />
+          <Route path="/employees" element={<Employees />} />
+          <Route path="/employees/add" element={<AddEmployee />} />
+          <Route path="/employees/edit/:id" element={<EditEmployee />} />
         </Routes>
       </BrowserRouter>
     </div>
