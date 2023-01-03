@@ -7,6 +7,9 @@ import AddUser from "./pages/create/AddUser";
 import EditUser from "./pages/update/EditUser";
 import AddBlog from "./pages/create/AddBlog";
 import EditBlog from "./pages/update/EditBlog";
+import Partners from "./pages/read/Partners";
+import AddPartner from "./pages/create/AddPartner";
+import EditPartner from "./pages/update/EditPartner";
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/add" element={<AddBlog />} />
           <Route path="/blogs/edit/:id" element={<EditBlog />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/partners/add" element={<AddPartner />} />
+          <Route path="/partners/edit/:id" element={<EditPartner />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { IoPerson, IoPricetag, IoHome, IoLogOut } from "react-icons/io5";
+import { IoPerson, IoHome, IoLogOut, } from "react-icons/io5";
+import { BsBank } from "react-icons/bs";
+import { FaBloggerB, FaUserTie } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
 
@@ -27,7 +29,7 @@ const Sidebar = () => {
                     </li>
                     <li>
                         <NavLink to={"/blogs"}>
-                            <IoPricetag /> Blogs
+                            <FaBloggerB /> Blogs
                         </NavLink>
                     </li>
                 </ul>
@@ -39,6 +41,16 @@ const Sidebar = () => {
                                 <NavLink to={"/users"}>
                                     <IoPerson /> Users
                                 </NavLink>
+                                <li>
+                                    <NavLink to={"/employees"}>
+                                        <FaUserTie /> Employees
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={"/partners"}>
+                                        <BsBank /> Partners
+                                    </NavLink>
+                                </li>
                             </li>
                         </ul>
                     </div>

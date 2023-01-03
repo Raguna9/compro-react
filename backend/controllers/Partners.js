@@ -76,8 +76,8 @@ export const updatePartner = async (req, res) => {
             if (err) return res.status(500).json({ msg: err.message });
         });
     }
-    const name = req.body.title;
-    const urlImage = `${req.protocol}://${req.get("host")}/images/${fileName}`;
+    const name = req.body.name;
+    const urlImage = `${req.protocol}://${req.get("host")}/images/partners/${fileName}`;
 
     try {
         await Partner.update({ name: name, image: fileName, urlImage: urlImage }, {
