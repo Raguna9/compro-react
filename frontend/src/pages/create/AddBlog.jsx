@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import Layout from "./Layout";
-import UserList from "../components/UserList";
+import Layout from "../Layout";
+import FormAddBlog from "../../components/create/FormAddBlog";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getMe } from "../features/authSlice";
+import { getMe } from "../../features/authSlice";
 
-const Users = () => {
+const AddBlog = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { isError, user } = useSelector((state) => state.auth);
+    const { isError } = useSelector((state) => state.auth);
 
     useEffect(() => {
         dispatch(getMe());
@@ -18,15 +18,12 @@ const Users = () => {
         if (isError) {
             navigate("/");
         }
-        if (user && user.role !== "admin") {
-            navigate("/dashboard");
-        }
-    }, [isError, user, navigate]);
+    }, [isError, navigate]);
     return (
         <Layout>
-            <UserList />
+            <FormAddBlog />
         </Layout>
     );
 };
 
-export default Users;
+export default AddBlog;

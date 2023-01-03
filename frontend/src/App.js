@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Login from "./components/Login";
-import Users from "./pages/Users";
-import Blogs from "./pages/Blogs";
-import AddUser from "./pages/AddUser";
-import EditUser from "./pages/EditUser";
-import AddBlog from "./pages/AddBlog";
-import EditBlog from "./pages/EditBlog";
+import Users from "./pages/read/Users";
+import Blogs from "./pages/read/Blogs";
+import AddUser from "./pages/create/AddUser";
+import EditUser from "./pages/update/EditUser";
+import AddBlog from "./pages/create/AddBlog";
+import EditBlog from "./pages/update/EditBlog";
 
 function App() {
   return (
