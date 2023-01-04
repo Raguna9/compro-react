@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -5,6 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 const FormEditBlog = () => {
     const [tittle, setTittle] = useState("");
     const [content, setContent] = useState("");
+    const [file, setFile] = useState("");
+    const [preview, setPreview] = useState("");
     const [msg, setMsg] = useState("");
     const navigate = useNavigate();
     const { id } = useParams();
@@ -17,6 +20,8 @@ const FormEditBlog = () => {
                 );
                 setTittle(response.data.tittle);
                 setContent(response.data.content);
+                setFile(response.data.image);
+                setPreview(response.data.urlImage)
             } catch (error) {
                 if (error.response) {
                     setMsg(error.response.data.msg);
@@ -28,17 +33,26 @@ const FormEditBlog = () => {
 
     const updateBlog = async (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("tittle", tittle);
+        formData.append("content", content);
         try {
-            await axios.patch(`http://localhost:5000/blogs/${id}`, {
-                tittle: tittle,
-                content: content,
+            await axios.patch(`http://localhost:5000/blogs/${id}`, formData, {
+                headers: {
+                    "Content-type": "multipart/form-data",
+                },
             });
             navigate("/blogs");
         } catch (error) {
-            if (error.response) {
-                setMsg(error.response.data.msg);
-            }
+            console.log(error);
         }
+    };
+
+    const loadImage = (e) => {
+        const image = e.target.files[0];
+        setFile(image);
+        setPreview(URL.createObjectURL(image));
     };
 
     return (
@@ -74,6 +88,32 @@ const FormEditBlog = () => {
                                     />
                                 </div>
                             </div>
+
+                            <div className="field">
+                                <label className="label">Image</label>
+                                <div className="control">
+                                    <div className="file">
+                                        <label className="file-label">
+                                            <input
+                                                type="file"
+                                                className="file-input"
+                                                onChange={loadImage}
+                                            />
+                                            <span className="file-cta">
+                                                <span className="file-label">Choose a file...</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {preview ? (
+                                <figure className="image is-128x128">
+                                    <img src={preview} alt="Preview Image" />
+                                </figure>
+                            ) : (
+                                ""
+                            )}
 
                             <div className="field">
                                 <div className="control">

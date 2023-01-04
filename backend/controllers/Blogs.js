@@ -1,13 +1,16 @@
 import Blog from "../models/BlogModel.js";
 import User from "../models/UserModel.js";
 import { Op } from "sequelize";
+import Partner from "../models/PartnerModel.js";
+import path from "path";
+import fs from "fs";
 
 export const getBlogs = async (req, res) => {
     try {
         let response;
         if (req.role === "admin") {
             response = await Blog.findAll({
-                attributes: ['uuid', 'tittle', 'content'],
+                attributes: ['uuid', 'tittle', 'content', 'urlImage'],
                 include: [{
                     model: User,
                     attributes: ['name', 'email']
@@ -15,7 +18,7 @@ export const getBlogs = async (req, res) => {
             });
         } else {
             response = await Blog.findAll({
-                attributes: ['uuid', 'tittle', 'content'],
+                attributes: ['uuid', 'tittle', 'content', 'urlImage'],
                 where: {
                     userId: req.userId
                 },
@@ -42,7 +45,7 @@ export const getBlogById = async (req, res) => {
         let response;
         if (req.role === "admin") {
             response = await Blog.findOne({
-                attributes: ['uuid', 'tittle', 'content'],
+                attributes: ['uuid', 'tittle', 'content', 'urlImage'],
                 where: {
                     id: blog.id
                 },
@@ -53,7 +56,7 @@ export const getBlogById = async (req, res) => {
             });
         } else {
             response = await Blog.findOne({
-                attributes: ['uuid', 'tittle', 'content'],
+                attributes: ['uuid', 'tittle', 'content', 'urlImage'],
                 where: {
                     [Op.and]: [{ id: blog.id }, { userId: req.userId }]
                 },
@@ -70,17 +73,29 @@ export const getBlogById = async (req, res) => {
 }
 
 export const createBlog = async (req, res) => {
-    const { tittle, content } = req.body;
-    try {
-        await Blog.create({
-            tittle: tittle,
-            content: content,
-            userId: req.userId
-        });
-        res.status(201).json({ msg: "Blog Created Successfuly" });
-    } catch (error) {
-        res.status(500).json({ msg: error.message });
-    }
+    if (req.files === null) return res.status(400).json({ msg: "No File Uploaded" });
+    const tittle = req.body.tittle;
+    const content = req.body.content;
+
+    const file = req.files.file;
+    const fileSize = file.data.length;
+    const ext = path.extname(file.name);
+    const fileName = file.md5 + ext;
+    const urlImage = `${req.protocol}://${req.get("host")}/images/blogs/${fileName}`;
+    const allowedType = ['.png', '.jpg', '.jpeg'];
+
+    if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images" });
+    if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5 MB" });
+
+    file.mv(`./public/images/blogs/${fileName}`, async (err) => {
+        if (err) return res.status(500).json({ msg: err.message });
+        try {
+            await Blog.create({ tittle: tittle, content: content, image: fileName, urlImage: urlImage, userId: req.userId });
+            res.status(201).json({ msg: "Blogs Created Successfuly" });
+        } catch (error) {
+            console.log(error.message);
+        }
+    })
 }
 
 export const updateBlog = async (req, res) => {
@@ -91,16 +106,40 @@ export const updateBlog = async (req, res) => {
             }
         });
         if (!blog) return res.status(404).json({ msg: "Data tidak ditemukan" });
-        const { tittle, content} = req.body;
+
+        let fileName = "";
+        if (req.files === null) {
+            fileName = blog.image;
+        } else {
+            const file = req.files.file;
+            const fileSize = file.data.length;
+            const ext = path.extname(file.name);
+            fileName = file.md5 + ext;
+            const allowedType = ['.png', '.jpg', '.jpeg'];
+
+            if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images" });
+            if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5 MB" });
+
+            const filepath = `./public/images/blogs/${partner.image}`;
+            fs.unlinkSync(filepath);
+
+            file.mv(`./public/images/blogs/${fileName}`, (err) => {
+                if (err) return res.status(500).json({ msg: err.message });
+            });
+        }
+        const tittle = req.body.tittle;
+        const content = req.body.content;
+        const urlImage = `${req.protocol}://${req.get("host")}/images/blogs/${fileName}`;
+
         if (req.role === "admin") {
-            await Blog.update({ tittle, content }, {
+            await Blog.update({ tittle: tittle, content: content, image: fileName, urlImage: urlImage }, {
                 where: {
                     id: blog.id
                 }
             });
         } else {
             if (req.userId !== blog.userId) return res.status(403).json({ msg: "Akses terlarang" });
-            await Blog.update({ tittle, content }, {
+            await Blog.update({ tittle: tittle, content: content, image: fileName, urlImage: urlImage }, {
                 where: {
                     [Op.and]: [{ id: blog.id }, { userId: req.userId }]
                 }
@@ -120,8 +159,10 @@ export const deleteBlog = async (req, res) => {
             }
         });
         if (!blog) return res.status(404).json({ msg: "Data tidak ditemukan" });
-        const { tittle, content } = req.body;
+
         if (req.role === "admin") {
+            const filepath = `./public/images/blogs/${blog.image}`;
+            fs.unlinkSync(filepath);
             await Blog.destroy({
                 where: {
                     id: blog.id
@@ -129,6 +170,8 @@ export const deleteBlog = async (req, res) => {
             });
         } else {
             if (req.userId !== blog.userId) return res.status(403).json({ msg: "Akses terlarang" });
+            const filepath = `./public/images/blogs/${blog.image}`;
+            fs.unlinkSync(filepath);
             await Blog.destroy({
                 where: {
                     [Op.and]: [{ id: blog.id }, { userId: req.userId }]

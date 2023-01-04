@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 const Welcome = () => {
     const { user } = useSelector((state) => state.auth);
+
     return (
         <div>
             <h1 className="title">Dashboard</h1>

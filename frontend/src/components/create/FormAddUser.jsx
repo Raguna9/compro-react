@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 const FormAddUser = () => {
     const [name, setName] = useState("");
@@ -21,11 +25,19 @@ const FormAddUser = () => {
                 confPassword: confPassword,
                 role: role,
             });
+            // toast.success('Form berhasil dikirim!', {
+            //     position: toast.POSITION.TOP_RIGHT
+            // });
             navigate("/users");
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data.msg);
+                toast.error('Form tidak boleh kosong!!', {
+                    position: toast.POSITION.TOP_RIGHT,
+                    autoClose: 2000
+                });
             }
+            
         }
     };
     return (
@@ -104,6 +116,7 @@ const FormAddUser = () => {
                                     <button type="submit" className="button is-success">
                                         Save
                                     </button>
+                                    <ToastContainer/>
                                 </div>
                             </div>
                         </form>

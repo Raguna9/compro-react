@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { LoginUser, reset } from "../features/authSlice";
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -14,6 +16,9 @@ const Login = () => {
 
     useEffect(() => {
         if (user || isSuccess) {
+            // toast.success('Berhasil login!', {
+            //     position: toast.POSITION.TOP_RIGHT
+            //   });
             navigate("/dashboard");
         }
         dispatch(reset());
@@ -64,6 +69,7 @@ const Login = () => {
                                     >
                                         {isLoading ? "Loading..." : "Login"}
                                     </button>
+                                    {/* <ToastContainer/> */}
                                 </div>
                             </form>
                         </div>

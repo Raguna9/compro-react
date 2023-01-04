@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -32,6 +33,7 @@ const BlogList = () => {
                         <th>No</th>
                         <th>Tittle</th>
                         <th>Content</th>
+                        <th>Image</th>
                         <th>Created By</th>
                         <th>Actions</th>
                     </tr>
@@ -42,6 +44,11 @@ const BlogList = () => {
                             <td>{index + 1}</td>
                             <td>{blog.tittle}</td>
                             <td>{blog.content}</td>
+                            <td>
+                                <figure className="image is-1by1">
+                                    <img src={blog.urlImage} alt="Image" />
+                                </figure>
+                            </td>
                             <td>{blog.user.name}</td>
                             <td>
                                 <Link

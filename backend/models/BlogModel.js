@@ -27,6 +27,20 @@ const Blogs = db.define('blog', {
             notEmpty: true
         }
     },
+    image:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate:{
+            notEmpty: true
+        }
+    },
+    urlImage:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate:{
+            notEmpty: true
+        }
+    },
     userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -40,5 +54,10 @@ const Blogs = db.define('blog', {
 
 Users.hasMany(Blogs);
 Blogs.belongsTo(Users, { foreignKey: 'userId' });
+
+
+// (async()=>{
+//     await db.sync();
+// })();
 
 export default Blogs;

@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FormAddEmployee = () => {
     const [name, setName] = useState("");
@@ -31,6 +33,10 @@ const FormAddEmployee = () => {
             navigate("/employees");
         } catch (error) {
             console.log(error);
+            toast.error('Form tidak boleh kosong!', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 2000
+            });
         }
     };
 
@@ -139,6 +145,7 @@ const FormAddEmployee = () => {
                                     <button type="submit" className="button is-success">
                                         Save
                                     </button>
+                                    <ToastContainer/>
                                 </div>
                             </div>
                         </form>

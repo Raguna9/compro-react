@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FormAddPartner = () => {
     const [name, setName] = useState("");
@@ -20,10 +22,19 @@ const FormAddPartner = () => {
                     "Content-type": "multipart/form-data",
                 },
             });
-            navigate("/");
+            toast.success('Form berhasil dikirim!', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 2000,
+                onClose: () => navigate("/partners"),
+            });
+            
         } catch (error) {
             console.log(error);
-        }
+            toast.error('Form tidak boleh kosong!', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 2000
+            });
+        }      
     };
 
     const loadImage = (e) => {
@@ -84,6 +95,7 @@ const FormAddPartner = () => {
                                     <button type="submit" className="button is-success">
                                         Save
                                     </button>
+                                    <ToastContainer/>
                                 </div>
                             </div>
                         </form>

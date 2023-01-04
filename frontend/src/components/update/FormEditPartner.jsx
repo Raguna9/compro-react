@@ -37,7 +37,7 @@ const FormEditPartner = () => {
                     "Content-type": "multipart/form-data",
                 },
             });
-            navigate("/");
+            navigate("/partners");
         } catch (error) {
             console.log(error);
         }
