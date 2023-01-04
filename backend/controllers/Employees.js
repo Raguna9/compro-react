@@ -35,7 +35,8 @@ export const createEmployee = async (req, res) => {
     const file = req.files.file;
     const fileSize = file.data.length;
     const ext = path.extname(file.name);
-    const fileName = file.md5 + ext;
+    const date = new Date();
+    const fileName = `${date.getHours()}${date.getMinutes()}${date.getSeconds()}${file.md5}` + ext;
     const urlImage = `${req.protocol}://${req.get("host")}/images/employees/${fileName}`;
     const allowedType = ['.png', '.jpg', '.jpeg'];
 
@@ -68,14 +69,18 @@ export const updateEmployee = async (req, res) => {
         const file = req.files.file;
         const fileSize = file.data.length;
         const ext = path.extname(file.name);
-        fileName = file.md5 + ext;
+        const date = new Date();
+        fileName = `${date.getHours()}${date.getMinutes()}${date.getSeconds()}${file.md5}` + ext;
         const allowedType = ['.png', '.jpg', '.jpeg'];
 
         if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images" });
         if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5 MB" });
 
+
         const filepath = `./public/images/employees/${employee.image}`;
-        fs.unlinkSync(filepath);
+        if (fs.existsSync(filepath)) {
+            fs.unlinkSync(filepath);
+        }
 
         file.mv(`./public/images/employees/${fileName}`, (err) => {
             if (err) return res.status(500).json({ msg: err.message });
@@ -110,7 +115,9 @@ export const deleteEmployee = async (req, res) => {
 
     try {
         const filepath = `./public/images/employees/${employee.image}`;
-        fs.unlinkSync(filepath);
+        if (fs.existsSync(filepath)) {
+            fs.unlinkSync(filepath);
+        }
         await Employee.destroy({
             where: {
                 id: req.params.id

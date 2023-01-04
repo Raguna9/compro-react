@@ -78,7 +78,7 @@ const FormAddEmployee = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="field">
+                            {/* <div className="field">
                                 <label className="label">Gender</label>
                                 <div className="control">
                                     <input
@@ -88,6 +88,20 @@ const FormAddEmployee = () => {
                                         onChange={(e) => setGender(e.target.value)}
                                         placeholder="Gender"
                                     />
+                                </div>
+                            </div> */}
+                            <div className="field">
+                                <label className="label">Gender</label>
+                                <div className="control">
+                                    <div className="select is-fullwidth">
+                                        <select
+                                            value={gender}
+                                            onChange={(e) => setGender(e.target.value)}
+                                        >
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div className="field">

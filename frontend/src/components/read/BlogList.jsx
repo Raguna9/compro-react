@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BlogList = () => {
     const [blogs, setBlogs] = useState([]);
@@ -17,6 +19,10 @@ const BlogList = () => {
 
     const deleteBlog = async (blogId) => {
         await axios.delete(`http://localhost:5000/blogs/${blogId}`);
+        toast.success('Data Deleted!', {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 2000
+        });
         getBlogs();
     };
 
@@ -63,6 +69,7 @@ const BlogList = () => {
                                 >
                                     Delete
                                 </button>
+                                <ToastContainer/>
                             </td>
                         </tr>
                     ))}

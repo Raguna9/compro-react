@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -16,6 +18,10 @@ const UserList = () => {
 
     const deleteUser = async (userId) => {
         await axios.delete(`http://localhost:5000/users/${userId}`);
+        toast.success('Data Deleted!', {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 2000
+        });
         getUsers();
     };
 
@@ -56,6 +62,7 @@ const UserList = () => {
                                 >
                                     Delete
                                 </button>
+                                <ToastContainer/>
                             </td>
                         </tr>
                     ))}

@@ -80,7 +80,8 @@ export const createBlog = async (req, res) => {
     const file = req.files.file;
     const fileSize = file.data.length;
     const ext = path.extname(file.name);
-    const fileName = file.md5 + ext;
+    const date = new Date();
+    const fileName = `${date.getHours()}${date.getMinutes()}${date.getSeconds()}${file.md5}` + ext;
     const urlImage = `${req.protocol}://${req.get("host")}/images/blogs/${fileName}`;
     const allowedType = ['.png', '.jpg', '.jpeg'];
 
@@ -114,14 +115,17 @@ export const updateBlog = async (req, res) => {
             const file = req.files.file;
             const fileSize = file.data.length;
             const ext = path.extname(file.name);
-            fileName = file.md5 + ext;
+            const date = new Date();
+            fileName = `${date.getHours()}${date.getMinutes()}${date.getSeconds()}${file.md5}` + ext;
             const allowedType = ['.png', '.jpg', '.jpeg'];
 
             if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images" });
             if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5 MB" });
 
             const filepath = `./public/images/blogs/${partner.image}`;
-            fs.unlinkSync(filepath);
+            if (fs.existsSync(filepath)) {
+                fs.unlinkSync(filepath);
+            }
 
             file.mv(`./public/images/blogs/${fileName}`, (err) => {
                 if (err) return res.status(500).json({ msg: err.message });
@@ -162,7 +166,9 @@ export const deleteBlog = async (req, res) => {
 
         if (req.role === "admin") {
             const filepath = `./public/images/blogs/${blog.image}`;
-            fs.unlinkSync(filepath);
+            if (fs.existsSync(filepath)) {
+                fs.unlinkSync(filepath);
+            }
             await Blog.destroy({
                 where: {
                     id: blog.id
