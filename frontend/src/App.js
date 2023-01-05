@@ -14,12 +14,22 @@ import Employees from "./pages/read/Employees";
 import AddEmployee from "./pages/create/AddEmployee";
 import EditEmployee from "./pages/update/EditEmployee";
 
+//client
+import Main from "./pages/Main"
+// import PublicNavbar from "./pages/PublicNavbar";
+
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
+          {/* client */}
+          <Route path="/" element={<Main />} />
+          {/* <Route path="/" element={<PublicNavbar />} /> */}
+
+
+          {/* admin */}
+          <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/users" element={<Users />} />
           <Route path="/users/add" element={<AddUser />} />
