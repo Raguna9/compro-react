@@ -48,6 +48,9 @@ const FormEditPartner = () => {
         setFile(image);
         setPreview(URL.createObjectURL(image));
     };
+    const handleCancle = async (e) => {
+        navigate("/partners");
+    };
 
     return (
         <div>
@@ -100,6 +103,9 @@ const FormEditPartner = () => {
                                 <div className="control">
                                     <button type="submit" className="button is-success">
                                         Update
+                                    </button>
+                                    <button type="submit" className="button is-danger ml-2" onClick={handleCancle}>
+                                        Cancel
                                     </button>
                                 </div>
                             </div>

@@ -55,6 +55,10 @@ const FormEditBlog = () => {
         setPreview(URL.createObjectURL(image));
     };
 
+    const handleCancle = async (e) => {
+        navigate("/blogs");
+    };
+
     return (
         <div>
             <h1 className="title">Blogs</h1>
@@ -79,13 +83,13 @@ const FormEditBlog = () => {
                             <div className="field">
                                 <label className="label">Content</label>
                                 <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
+                                    <textarea
+                                        class="textarea"
                                         value={content}
                                         onChange={(e) => setContent(e.target.value)}
                                         placeholder="Content"
-                                    />
+                                        rows="10">
+                                    </textarea>
                                 </div>
                             </div>
 
@@ -119,6 +123,9 @@ const FormEditBlog = () => {
                                 <div className="control">
                                     <button type="submit" className="button is-success">
                                         Update
+                                    </button>
+                                    <button type="submit" className="button is-danger ml-2" onClick={handleCancle}>
+                                        Cancel
                                     </button>
                                 </div>
                             </div>

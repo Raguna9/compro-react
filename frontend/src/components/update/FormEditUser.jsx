@@ -45,6 +45,10 @@ const FormEditUser = () => {
             }
         }
     };
+    const handleCancle = async (e) => {
+        navigate("/users");
+    };
+    
     return (
         <div>
             <h1 className="title">Users</h1>
@@ -120,6 +124,9 @@ const FormEditUser = () => {
                                 <div className="control">
                                     <button type="submit" className="button is-success">
                                         Update
+                                    </button>
+                                    <button type="submit" className="button is-danger ml-2" onClick={handleCancle}>
+                                        Cancel
                                     </button>
                                 </div>
                             </div>
