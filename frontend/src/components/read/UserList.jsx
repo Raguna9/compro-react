@@ -17,12 +17,17 @@ const UserList = () => {
     };
 
     const deleteUser = async (userId) => {
-        await axios.delete(`http://localhost:5000/users/${userId}`);
-        toast.success('Data Deleted!', {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 2000
-        });
-        getUsers();
+        if (window.confirm("Delete confirmation")) {
+            // lakukan sesuatu jika pengguna mengklik tombol "OK"
+            await axios.delete(`http://localhost:5000/users/${userId}`);
+            toast.info('Data Deleted!', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 2000
+            });
+            getUsers();
+        } else {
+            // lakukan sesuatu jika pengguna mengklik tombol "Cancel"
+        }
     };
 
     return (
@@ -58,11 +63,11 @@ const UserList = () => {
                                 </Link>
                                 <button
                                     onClick={() => deleteUser(user.uuid)}
-                                    className="button is-small is-danger"
+                                    className="button is-small is-danger ml-1"
                                 >
                                     Delete
                                 </button>
-                                <ToastContainer/>
+                                <ToastContainer />
                             </td>
                         </tr>
                     ))}

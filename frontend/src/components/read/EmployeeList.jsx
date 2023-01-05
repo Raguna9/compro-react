@@ -71,7 +71,7 @@ const EmployeeList = () => {
                                 </Link>
                                 <button
                                     onClick={() => deleteEmployee(employee.id)}
-                                    className="button is-small is-danger"
+                                    className="button is-small is-danger ml-1"
                                 >
                                     Delete
                                 </button>

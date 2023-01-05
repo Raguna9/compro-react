@@ -63,7 +63,7 @@ const PartnerList = () => {
                                 </Link>
                                 <button
                                     onClick={() => deletePartner(partner.id)}
-                                    className="button is-small is-danger"
+                                    className="button is-small is-danger ml-1"
                                 >
                                     Delete
                                 </button>
