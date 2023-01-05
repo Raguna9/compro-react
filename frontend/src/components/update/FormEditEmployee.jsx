@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const FormEditEmployee = () => {
     const [name, setName] = useState("");
     const [department, setDepartment] = useState("");
-    const [gender, setGender] = useState("");
+    const [gender, setGender] = useState("Laki-Laki");
     const [email, setEmail] = useState("");
     const [sppi, setSPPI] = useState("");
     const [file, setFile] = useState("");
@@ -61,6 +61,10 @@ const FormEditEmployee = () => {
         setPreview(URL.createObjectURL(image));
     };
 
+    const handleCancle = async (e) => {
+        navigate("/employees");
+    };
+
     return (
         <div>
             <h1 className="title">Employees</h1>
@@ -97,13 +101,15 @@ const FormEditEmployee = () => {
                             <div className="field">
                                 <label className="label">Gender</label>
                                 <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={gender}
-                                        onChange={(e) => setGender(e.target.value)}
-                                        placeholder="Gender"
-                                    />
+                                    <div className="select is-fullwidth">
+                                        <select
+                                            value={gender}
+                                            onChange={(e) => setGender(e.target.value)}
+                                        >
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div className="field">
@@ -158,8 +164,11 @@ const FormEditEmployee = () => {
 
                             <div className="field">
                                 <div className="control">
-                                    <button type="submit" className="button is-success">
+                                    <button type="submit" className="button is-success mt-6">
                                         Update
+                                    </button>
+                                    <button type="submit" className="button is-danger ml-2 mt-6" onClick={handleCancle}>
+                                        Cancel
                                     </button>
                                 </div>
                             </div>

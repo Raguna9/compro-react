@@ -156,7 +156,7 @@ const FormAddEmployee = () => {
 
                             <div className="field">
                                 <div className="control">
-                                    <button type="submit" className="button is-success">
+                                    <button type="submit" className="button is-success mt-6">
                                         Save
                                     </button>
                                     <ToastContainer/>
