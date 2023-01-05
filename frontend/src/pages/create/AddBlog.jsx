@@ -16,7 +16,7 @@ const AddBlog = () => {
 
     useEffect(() => {
         if (isError) {
-            navigate("/");
+            navigate("/login");
         }
     }, [isError, navigate]);
     return (
