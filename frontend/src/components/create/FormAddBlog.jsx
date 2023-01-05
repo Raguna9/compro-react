@@ -32,7 +32,7 @@ const FormAddBlog = () => {
                 position: toast.POSITION.TOP_RIGHT,
                 autoClose: 2000
             });
-        }    
+        }
     };
 
     const loadImage = (e) => {
@@ -65,13 +65,13 @@ const FormAddBlog = () => {
                             <div className="field">
                                 <label className="label">Content</label>
                                 <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
+                                    <textarea
+                                        class="textarea"
                                         value={content}
                                         onChange={(e) => setContent(e.target.value)}
                                         placeholder="Content"
-                                    />
+                                        rows="10">
+                                    </textarea>
                                 </div>
                             </div>
                             <div className="field">
