@@ -14,12 +14,12 @@ const Sidebar = () => {
     const logout = () => {
         dispatch(LogOut());
         dispatch(reset());
-        navigate("/");
+        navigate("/login");
     };
 
     return (
         <div>
-            <aside className="menu pl-2 has-shadow">
+            <aside className="menu mt-2 pl-2 has-shadow">
                 <p className="menu-label">General</p>
                 <ul className="menu-list">
                     <li>
