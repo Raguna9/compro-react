@@ -7,7 +7,7 @@ const PublicFooter = () => {
 
     return (
         <div>
-            <footer class="footer has-background-dark has-text-white-ter">
+            <footer class="footer has-background-info-dark has-text-white-ter" id="footer">
                 <div class="container">
                     <div class="columns">
                         <div class="column is-4">

@@ -1,69 +1,116 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-scroll";
+import { GrContact } from "react-icons/gr";
+
 
 const PublicNavbar = () => {
+    const [isActive, setIsActive] = useState(false);
+
+    const colorWhite = { color: 'white' };
+
 
     return (
         <div>
             <nav class="navbar is-info is-fixed-top" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                    
-                    <Link to={`/login`}>
-                    <a class="navbar-item">
-                        <h1 className="pt-3 is-hoverable" style={{ fontFamily: "'Bungee', sans-serif", color: "white" }}>PT. Global Litigation Nusantara</h1>
-                    </a>
+                <div class="navbar-brand ml-2">
+                    <Link to={`/`}>
+                        <a class="navbar-item">
+                            <h1
+                                className="title is-4 has-text-white-ter pt-1"
+                            // style={{ 
+                            //     fontFamily: "'Bungee', sans-serif", 
+                            //     color: "white" 
+                            // }}
+                            >
+                                PT. Global Litigation Nusantara
+                            </h1>
+                        </a>
                     </Link>
 
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <a
+                        role="button"
+                        class={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
+                        aria-label="menu"
+                        aria-expanded="false"
+                        data-target="navbarBasicExample"
+                        onClick={() => setIsActive(!isActive)}
+                    >
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                     </a>
                 </div>
-
-                <div id="navbarBasicExample" class="navbar-menu">
-                    <div class="navbar-end">
-                        <a class="navbar-item">
-                            Beranda
-                        </a>
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">
-                                Informasi
+                <div id="navbarBasicExample" class={`navbar-menu ${isActive ? 'is-active' : ''}`}>
+                    <div class="navbar-end mr-2">
+                        {window.location.pathname === '/' ? (
+                            <Link className="navbar-item" to="home" spy={true} smooth={true} offset={0} duration={500}>
+                                Beranda
+                            </Link>
+                        ) : (
+                            <a className="navbar-item" onClick={() => window.location.assign('/')}>
+                                Beranda
                             </a>
-                            <div class="navbar-dropdown">
-                                <a class="navbar-item">
+                        )}
+
+
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <Link class="navbar-link">
+                                Informasi
+                            </Link>
+                            <div class="navbar-dropdown has-background-info-light">
+                                <Link class="navbar-item" onClick={() => window.location.assign('aboutpages')}>
                                     Tentang Perusahaan
-                                </a>
-                                <a class="navbar-item">
+                                </Link>
+                                <Link class="navbar-item" onClick={() => window.location.assign('employeepages')}>
                                     Karyawan
-                                </a>
-                                <a class="navbar-item">
+                                </Link>
+                                <Link class="navbar-item" onClick={() => window.location.assign('mitrapages')}>
                                     Mitra Kerja
-                                </a>
-                                <hr class="navbar-divider" />
-                                <a class="navbar-item">
-                                    Kontak
-                                </a>
+                                </Link>
                             </div>
                         </div>
-                        <a class="navbar-item">
-                            Layanan
-                        </a>
-                        <a class="navbar-item">
-                            Blog
-                        </a>
 
-                        
-                        <div class="navbar-item">
-                                <Link
-                                    to={`/login`}
-                                    className="button is-primary"
-                                >
-                                    Log In
-                                </Link>
-                        </div>
+                        {window.location.pathname === '/' ? (
+                            <Link className="navbar-item" to="layanan" spy={true} smooth={true} offset={-50} duration={500}>
+                                Layanan
+                            </Link>
+                        ) : (
+                            <a className="navbar-item" onClick={() => window.location.assign('/')}>
+                                Layanan
+                            </a>
+                        )}
+
+                        {window.location.pathname === '/' ? (
+                            <Link className="navbar-item" to="gallery" spy={true} smooth={true} offset={-50} duration={500}>
+                                Gallery
+                            </Link>
+                        ) : (
+                            <a className="navbar-item" onClick={() => window.location.assign('gallerypages')}>
+                                Gallery
+                            </a>
+                        )}
+
+                        {window.location.pathname === '/' ? (
+                            <Link className="navbar-item" to="blog" spy={true} smooth={true} offset={-50} duration={500}>
+                                Blog
+                            </Link>
+                        ) : (
+                            <a className="navbar-item" onClick={() => window.location.assign('blogpages')}>
+                                Blog
+                            </a>
+                        )}
+
+                        {window.location.pathname === '/' ? (
+                            <Link class="navbar-item" to="footer" spy={true} smooth={true} offset={-50} duration={500}>
+                                <GrContact style={colorWhite} />
+                            </Link>
+                        ) : (
+                            <a className="navbar-item" onClick={() => window.location.assign('contactpages')}>
+                                <GrContact style={colorWhite} />
+                            </a>
+                        )}
                     </div>
                 </div>
             </nav>

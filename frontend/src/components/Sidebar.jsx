@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoPerson, IoHome, IoLogOut, } from "react-icons/io5";
 import { BsBank } from "react-icons/bs";
+// import { TfiArrowCircleRight } from "react-icons/tfi";
 import { FaBloggerB, FaUserTie } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
@@ -21,6 +22,7 @@ const Sidebar = () => {
         <div>
             <aside className="menu mt-2 pl-2 has-shadow">
                 <p className="menu-label">General</p>
+
                 <ul className="menu-list">
                     <li>
                         <NavLink to={"/dashboard"}>
@@ -37,20 +39,18 @@ const Sidebar = () => {
                     <div>
                         <p className="menu-label">Admin</p>
                         <ul className="menu-list">
+                            <NavLink to={"/users"}>
+                                <IoPerson /> Users
+                            </NavLink>
                             <li>
-                                <NavLink to={"/users"}>
-                                    <IoPerson /> Users
+                                <NavLink to={"/employees"}>
+                                    <FaUserTie /> Employees
                                 </NavLink>
-                                <li>
-                                    <NavLink to={"/employees"}>
-                                        <FaUserTie /> Employees
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to={"/partners"}>
-                                        <BsBank /> Partners
-                                    </NavLink>
-                                </li>
+                            </li>
+                            <li>
+                                <NavLink to={"/partners"}>
+                                    <BsBank /> Partners
+                                </NavLink>
                             </li>
                         </ul>
                     </div>

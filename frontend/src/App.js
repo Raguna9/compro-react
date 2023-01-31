@@ -15,7 +15,8 @@ import AddEmployee from "./pages/create/AddEmployee";
 import EditEmployee from "./pages/update/EditEmployee";
 
 //client
-import Main from "./pages/Main"
+import Main from "./pages/website/Main"
+import BlogPages from "./pages/website/BlogPages";
 // import PublicNavbar from "./pages/PublicNavbar";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           {/* client */}
           <Route path="/" element={<Main />} />
+          <Route path="/blogpages" element={<BlogPages />} />
           {/* <Route path="/" element={<PublicNavbar />} /> */}
 
 

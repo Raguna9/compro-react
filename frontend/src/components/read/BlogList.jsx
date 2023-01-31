@@ -25,6 +25,10 @@ const BlogList = () => {
         });
         getBlogs();
     };
+    const styles = {
+        width: "200px",
+        height: "40%"
+    }
 
     return (
         <div>
@@ -44,13 +48,13 @@ const BlogList = () => {
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style={{height: "40%"}}>
                     {blogs.map((blog, index) => (
                         <tr key={blog.uuid}>
                             <td>{index + 1}</td>
-                            <td>{blog.tittle}</td>
-                            <td>{blog.content}</td>
-                            <td>
+                            <td style={styles}>{blog.tittle}</td>
+                            <td style={styles}>{blog.content}</td>
+                            <td style={styles}>
                                 <figure className="image is-1by1">
                                     <img src={blog.urlImage} alt="Image" />
                                 </figure>

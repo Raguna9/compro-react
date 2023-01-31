@@ -4,7 +4,7 @@ const Layanan = () => {
 
     return (
         <div>
-            <section id="services" class="section">
+            <section id="layanan" class="section has-background-grey-lighter">
                 <div class="container">
                     <h1 class="title has-text-centered">Professional Security for Your Fiduciary Assets</h1>
                     <h2 class="subtitle has-text-centered">
