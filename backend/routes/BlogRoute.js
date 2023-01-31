@@ -4,7 +4,9 @@ import {
     getBlogById,
     createBlog,
     updateBlog,
-    deleteBlog
+    deleteBlog,
+    getListBlogs,
+    getListBlogById
 } from "../controllers/Blogs.js";
 import { verifyUser } from "../middleware/AuthUser.js";
 
@@ -16,5 +18,8 @@ router.get('/blogs/:id', verifyUser, getBlogById);
 router.post('/blogs', verifyUser, createBlog);
 router.patch('/blogs/:id', verifyUser, updateBlog);
 router.delete('/blogs/:id', verifyUser, deleteBlog);
+
+router.get('/listblogs', getListBlogs);
+router.get('/listblogs/:id', getListBlogById);
 
 export default router;

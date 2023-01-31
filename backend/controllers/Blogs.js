@@ -10,7 +10,7 @@ export const getBlogs = async (req, res) => {
         let response;
         if (req.role === "admin") {
             response = await Blog.findAll({
-                attributes: ['uuid', 'tittle', 'content', 'urlImage'],
+                attributes: ['uuid', 'tittle', 'content', 'urlImage', 'userId', 'updatedAt'],
                 include: [{
                     model: User,
                     attributes: ['name', 'email']
@@ -18,7 +18,7 @@ export const getBlogs = async (req, res) => {
             });
         } else {
             response = await Blog.findAll({
-                attributes: ['uuid', 'tittle', 'content', 'urlImage'],
+                attributes: ['uuid', 'tittle', 'content', 'urlImage', 'userId', 'updatedAt'],
                 where: {
                     userId: req.userId
                 },
@@ -45,7 +45,7 @@ export const getBlogById = async (req, res) => {
         let response;
         if (req.role === "admin") {
             response = await Blog.findOne({
-                attributes: ['uuid', 'tittle', 'content', 'urlImage'],
+                attributes: ['uuid', 'tittle', 'content', 'urlImage', 'userId', 'updatedAt'],
                 where: {
                     id: blog.id
                 },
@@ -56,7 +56,7 @@ export const getBlogById = async (req, res) => {
             });
         } else {
             response = await Blog.findOne({
-                attributes: ['uuid', 'tittle', 'content', 'urlImage'],
+                attributes: ['uuid', 'tittle', 'content', 'urlImage', 'userId', 'updatedAt'],
                 where: {
                     [Op.and]: [{ id: blog.id }, { userId: req.userId }]
                 },
@@ -122,7 +122,7 @@ export const updateBlog = async (req, res) => {
             if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images" });
             if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5 MB" });
 
-            const filepath = `./public/images/blogs/${partner.image}`;
+            const filepath = `./public/images/blogs/${blog.image}`;
             if (fs.existsSync(filepath)) {
                 fs.unlinkSync(filepath);
             }
@@ -185,6 +185,42 @@ export const deleteBlog = async (req, res) => {
             });
         }
         res.status(200).json({ msg: "Blog deleted successfuly" });
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+}
+
+
+//public
+export const getListBlogs = async (req, res) => {
+    try {
+        let response;
+        response = await Blog.findAll({
+            attributes: ['uuid', 'tittle', 'content', 'urlImage', 'userId', 'updatedAt']
+        });
+
+        res.status(200).json(response);
+    }catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+}
+
+export const getListBlogById = async (req, res) => {
+    try {
+        const blog = await Blog.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
+        if (!blog) return res.status(404).json({ msg: "Data tidak ditemukan" });
+        let response;
+        response = await Blog.findOne({
+            attributes: ['uuid', 'tittle', 'content', 'urlImage', 'userId', 'updatedAt'],
+            where: {
+                id: blog.id
+            }
+        });
+        res.status(200).json(response);
     } catch (error) {
         res.status(500).json({ msg: error.message });
     }

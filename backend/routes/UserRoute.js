@@ -16,4 +16,7 @@ router.post('/users', verifyUser, adminOnly, createUser);
 router.patch('/users/:id', verifyUser, adminOnly, updateUser);
 router.delete('/users/:id', verifyUser, adminOnly, deleteUser);
 
+router.get('/listusers', getUsers);
+router.get('/listusers/:id', getUserById);
+
 export default router;
