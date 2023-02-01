@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const ExternalEmployee = () => {
     const [externalEmployees, setExternalEmployees] = useState([]);
     const [activeImage, setActiveImage] = useState(null);
+    const [isOpen, setIsOpen] = useState(null);
 
     useEffect(() => {
         axios.get('http://localhost:5000/externalEmployees')
@@ -26,12 +28,25 @@ const ExternalEmployee = () => {
                             <p className="title is-4">{externalEmployee.name}</p>
                             <p className="subtitle is-6">{externalEmployee.email}</p>
                             <p className="title is-5">{externalEmployee.department}</p>
-                            <a href={externalEmployee.sppi}>{externalEmployee.sppi}</a>
-                            <p className="content">You can choose a specific size for each viewport width. You simply need to append the viewport width to the size modifier.</p>
+                            <p>No. SPPI <a href="#" onClick={() => setIsOpen(externalEmployee.sppi)}>{externalEmployee.sppi}</a></p>
                         </div>
                     </div>
                 </div>
             ))}
+
+            {isOpen &&
+                <div className="modal is-active">
+                    <div className="modal-background" onClick={() => setIsOpen(null)} />
+                    <div className="modal-content">
+                        <p className="image">
+                            <img src={`http://localhost:5000/images/sppi/${isOpen}.jpg`} alt={isOpen} />
+                        </p>
+                    </div>
+                    <button className="modal-close is-large" aria-label="close"
+                        onClick={() => setIsOpen(null)} />
+                </div>
+            }
+
             {activeImage &&
                 <div className="modal is-active">
                     <div className="modal-background" onClick={() => setActiveImage(null)} />

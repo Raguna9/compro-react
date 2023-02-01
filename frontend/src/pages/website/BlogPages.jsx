@@ -3,6 +3,7 @@ import axios from 'axios';
 import moment from 'moment';
 import PublicNavbar from "../../components/websites/PublicNavbar";
 import PublicFooter from "../../components/websites/PublicFooter";
+import BackToTop from '../../utils/BackToTop';
 
 function BlogPages() {
   const [blogs, setBlogs] = useState([]);
@@ -65,6 +66,7 @@ function BlogPages() {
               </p>
             </div>
           ))}
+          <BackToTop/>
         </div>
       </section>
       <PublicFooter />
