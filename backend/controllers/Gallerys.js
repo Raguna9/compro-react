@@ -26,7 +26,7 @@ export const getGalleryById = async (req, res) => {
 
 export const createGallery = async (req, res) => {
     if (req.files === null) return res.status(400).json({ msg: "No File Uploaded" });
-    const description = req.body.name;
+    const description = req.body.description;
 
     const file = req.files.file;
     const fileSize = file.data.length;
