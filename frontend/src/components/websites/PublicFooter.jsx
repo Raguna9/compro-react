@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 // import { Link } from "react-router-dom";
+import { AiTwotoneMail, AiFillPhone } from "react-icons/ai";
 
 const PublicFooter = () => {
 
@@ -12,7 +13,7 @@ const PublicFooter = () => {
                     <h1 className="title has-text-white-ter has-text-centered">Hubungi Kami</h1>
                     <p className="subtitle  has-text-centered has-text-primary">PT. Global Litigation Nusantara</p>
                     <div class="columns is-centered has-text-white-ter">
-                        <div class="column is-4" style={{height: '100px'}}>
+                        <div class="column is-4" style={{ height: '100px' }}>
                             <p>
                                 Jalan Raya Sikur - Mataram km. 41
                             </p>
@@ -24,10 +25,10 @@ const PublicFooter = () => {
                             </p>
                             <br />
                             <p>
-                                (0376)2992597
+                                <AiFillPhone /> (0376)2992597
                             </p>
                             <p>
-                                globallitigationnusantara@gmail.com
+                                <AiTwotoneMail /> globallitigationnusantara@gmail.com
                             </p>
                         </div>
                         <div class="column is-4">
@@ -39,8 +40,8 @@ const PublicFooter = () => {
 
                 </div>
             </footer>
-            <p className="has-background-info-dark has-text-centered has-text-white pb-3">
-                2023. PT.Global Litigation Nusantara
+            <p className="has-background-info-dark has-text-centered has-text-white pb-3 is-size-7">
+                © 2023 PT. Global Litigation Nusantara
             </p>
         </div>
     );

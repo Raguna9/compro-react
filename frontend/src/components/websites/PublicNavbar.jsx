@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll";
 import { GrContact } from "react-icons/gr";
+// import "../../assets/logo/gtnlogo.jpg";
 
 
 const PublicNavbar = () => {
@@ -26,6 +27,7 @@ const PublicNavbar = () => {
                             >
                                 PT. Global Litigation Nusantara
                             </h1>
+                            {/* <img src="gtnlogo.jpg" alt="Logo GTN" /> */}
                         </a>
                     </Link>
 
