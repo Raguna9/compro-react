@@ -1,21 +1,40 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate, useParams } from "react-router-dom";
 
-const FormAddEmployee = () => {
+const FormEditExternalEmployee = () => {
     const [name, setName] = useState("");
-    const [department, setDepartment] = useState("");
+    const [department, setDepartment] = useState("Profesional Collector");
     const [gender, setGender] = useState("Laki-Laki");
     const [email, setEmail] = useState("");
     const [sppi, setSPPI] = useState("");
     const [file, setFile] = useState("");
     const [preview, setPreview] = useState("");
     const navigate = useNavigate();
+    const { id } = useParams();
 
-    const saveEmployee = async (e) => {
+    useEffect(() => {
+        const getExternalEmployeeById = async () => {
+            try {
+                const response = await axios.get(
+                    `http://localhost:5000/externalEmployees/${id}`
+                );
+                setName(response.data.name);
+                setDepartment(response.data.department);
+                setGender(response.data.gender);
+                setEmail(response.data.email);
+                setSPPI(response.data.sppi);
+                setFile(response.data.image);
+                setPreview(response.data.urlImage)
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getExternalEmployeeById();
+    }, [id]);
+
+    const updateExternalEmployee = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("file", file);
@@ -25,18 +44,14 @@ const FormAddEmployee = () => {
         formData.append("email", email);
         formData.append("sppi", sppi);
         try {
-            await axios.post("http://localhost:5000/employees", formData, {
+            await axios.patch(`http://localhost:5000/externalEmployees/${id}`, formData, {
                 headers: {
                     "Content-type": "multipart/form-data",
                 },
             });
-            navigate("/employees");
+            navigate("/externalEmployees");
         } catch (error) {
             console.log(error);
-            toast.error('Form tidak boleh kosong!', {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 2000
-            });
         }
     };
 
@@ -44,16 +59,21 @@ const FormAddEmployee = () => {
         const image = e.target.files[0];
         setFile(image);
         setPreview(URL.createObjectURL(image));
-    }
+    };
+
+    const handleCancle = async (e) => {
+        navigate("/externalEmployees");
+    };
 
     return (
         <div>
-            <h1 className="title">Employees</h1>
-            <h2 className="subtitle">Add New Employee</h2>
+            <h1 className="title">ExternalEmployees</h1>
+            <h2 className="subtitle">Add New ExternalEmployee</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">
-                        <form onSubmit={saveEmployee}>
+                        <form onSubmit={updateExternalEmployee}>
+                            {/* <p className="has-text-centered">{msg}</p> */}
                             <div className="field">
                                 <label className="label">Name</label>
                                 <div className="control">
@@ -76,6 +96,15 @@ const FormAddEmployee = () => {
                                         onChange={(e) => setDepartment(e.target.value)}
                                         placeholder="Department"
                                     />
+                                    <div className="select is-fullwidth">
+                                        <select
+                                            value={department}
+                                            onChange={(e) => setDepartment(e.target.value)}
+                                        >
+                                            <option value="Profesional Collector">Profesional Collector</option>
+                                            <option value="Visitor">Visitor</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div className="field">
@@ -145,9 +174,11 @@ const FormAddEmployee = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success mt-6">
-                                        Save
+                                        Update
                                     </button>
-                                    <ToastContainer/>
+                                    <button type="submit" className="button is-danger ml-2 mt-6" onClick={handleCancle}>
+                                        Cancel
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -158,4 +189,4 @@ const FormAddEmployee = () => {
     );
 };
 
-export default FormAddEmployee;
+export default FormEditExternalEmployee;

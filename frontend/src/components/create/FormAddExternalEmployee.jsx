@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const FormAddEmployee = () => {
+const FormAddExternalEmployee = () => {
     const [name, setName] = useState("");
-    const [department, setDepartment] = useState("");
+    const [department, setDepartment] = useState("Profesional Collector");
     const [gender, setGender] = useState("Laki-Laki");
     const [email, setEmail] = useState("");
     const [sppi, setSPPI] = useState("");
@@ -15,7 +15,7 @@ const FormAddEmployee = () => {
     const [preview, setPreview] = useState("");
     const navigate = useNavigate();
 
-    const saveEmployee = async (e) => {
+    const saveExternalEmployee = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("file", file);
@@ -25,12 +25,12 @@ const FormAddEmployee = () => {
         formData.append("email", email);
         formData.append("sppi", sppi);
         try {
-            await axios.post("http://localhost:5000/employees", formData, {
+            await axios.post("http://localhost:5000/externalEmployees", formData, {
                 headers: {
                     "Content-type": "multipart/form-data",
                 },
             });
-            navigate("/employees");
+            navigate("/externalEmployees");
         } catch (error) {
             console.log(error);
             toast.error('Form tidak boleh kosong!', {
@@ -48,12 +48,12 @@ const FormAddEmployee = () => {
 
     return (
         <div>
-            <h1 className="title">Employees</h1>
-            <h2 className="subtitle">Add New Employee</h2>
+            <h1 className="title">ExternalEmployees</h1>
+            <h2 className="subtitle">Add New ExternalEmployee</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">
-                        <form onSubmit={saveEmployee}>
+                        <form onSubmit={saveExternalEmployee}>
                             <div className="field">
                                 <label className="label">Name</label>
                                 <div className="control">
@@ -69,13 +69,15 @@ const FormAddEmployee = () => {
                             <div className="field">
                                 <label className="label">Department</label>
                                 <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={department}
-                                        onChange={(e) => setDepartment(e.target.value)}
-                                        placeholder="Department"
-                                    />
+                                    <div className="select is-fullwidth">
+                                        <select
+                                            value={department}
+                                            onChange={(e) => setDepartment(e.target.value)}
+                                        >
+                                            <option value="Profesional Collector">Profesional Collector</option>
+                                            <option value="Visitor">Visitor</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div className="field">
@@ -158,4 +160,4 @@ const FormAddEmployee = () => {
     );
 };
 
-export default FormAddEmployee;
+export default FormAddExternalEmployee;
