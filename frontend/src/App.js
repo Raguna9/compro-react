@@ -20,6 +20,7 @@ import EditGallery from "./pages/update/EditGallery";
 //client
 import Main from "./pages/website/Main"
 import BlogPages from "./pages/website/BlogPages";
+import GalleryPages from "./pages/website/GalleryPages";
 // import PublicNavbar from "./pages/PublicNavbar";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           {/* client */}
           <Route path="/" element={<Main />} />
           <Route path="/blogpages" element={<BlogPages />} />
+          <Route path="/gallerypages" element={<GalleryPages />} />
           {/* <Route path="/" element={<PublicNavbar />} /> */}
 
 

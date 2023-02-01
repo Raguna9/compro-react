@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const EmployeeList = () => {
     const [employees, setEmployees] = useState([]);
@@ -18,12 +16,12 @@ const EmployeeList = () => {
     };
 
     const deleteEmployee = async (employeeId) => {
-        await axios.delete(`http://localhost:5000/employees/${employeeId}`);
-        toast.success('Data Deleted!', {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 2000
-        });
-        getEmployees();
+        const confirmDelete = window.confirm('Apakah Anda yakin ingin menghapus data ini?');
+
+        if (confirmDelete) {
+            await axios.delete(`http://localhost:5000/employees/${employeeId}`);
+            getEmployees();
+        }
     };
 
 
@@ -75,7 +73,6 @@ const EmployeeList = () => {
                                 >
                                     Delete
                                 </button>
-                                <ToastContainer/>
                             </td>
                         </tr>
                     ))}

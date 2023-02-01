@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const GalleryList = () => {
     const [gallerys, setGallerys] = useState([]);
@@ -18,13 +16,15 @@ const GalleryList = () => {
     };
 
     const deleteGallery = async (galleryId) => {
-        await axios.delete(`http://localhost:5000/gallerys/${galleryId}`);
-        toast.success('Data Deleted!', {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 2000
-        });
-        getGallerys();
-    };
+        const confirmDelete = window.confirm('Apakah Anda yakin ingin menghapus data ini?');
+      
+        if (confirmDelete) {
+          await axios.delete(`http://localhost:5000/gallerys/${galleryId}`);
+          getGallerys();
+        }
+      };
+      
+    
 
 
 
@@ -67,8 +67,6 @@ const GalleryList = () => {
                                 >
                                     Delete
                                 </button>
-                                <ToastContainer/>
-
                             </td>
                         </tr>
                     ))}

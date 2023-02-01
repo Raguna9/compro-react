@@ -28,6 +28,7 @@ const Gallery = () => {
                             </figure>
                         </div>
                     </div>
+                    <a href="gallerypages" className="button is-primary">Selengkapnya</a>
                 </div>
             </section>
 

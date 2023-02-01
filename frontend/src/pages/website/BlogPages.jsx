@@ -5,22 +5,6 @@ import PublicNavbar from "../../components/websites/PublicNavbar";
 import PublicFooter from "../../components/websites/PublicFooter";
 
 function BlogPages() {
-  // const [blogs, setBlogs] = useState([]);
-  // const [users, setUsers] = useState('')
-
-  // useEffect(() => {
-  //   axios.get('http://localhost:5000/listblogs')
-  //     .then(response => setBlogs(response.data))
-  //     .catch(error => console.error(error));
-
-  //   // Mengambil data users
-  //   const userId = blogs.userId;
-  //   axios
-  //     .get(`http://localhost:5000/listusers/${userId}`)
-  //     .then((response) => {
-  //       setUsers(response.data);
-  //     });
-  // }, []);
   const [blogs, setBlogs] = useState([]);
   const [users, setUsers] = useState({});
 

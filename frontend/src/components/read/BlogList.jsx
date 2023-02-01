@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const BlogList = () => {
     const [blogs, setBlogs] = useState([]);
@@ -18,12 +16,31 @@ const BlogList = () => {
     };
 
     const deleteBlog = async (blogId) => {
-        await axios.delete(`http://localhost:5000/blogs/${blogId}`);
-        toast.success('Data Deleted!', {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 2000
-        });
-        getBlogs();
+        const confirmDelete = window.confirm(
+            `
+                <div class="modal is-active">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                    <p class="modal-card-title">Konfirmasi Hapus</p>
+                    <button class="delete" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body">
+                    Apakah Anda yakin ingin menghapus data ini?
+                    </section>
+                    <footer class="modal-card-foot">
+                    <button class="button is-danger" onclick="document.querySelector('.modal').classList.remove('is-active')">Tidak</button>
+                    <button class="button is-success" onclick="window.confirmDelete()">Ya</button>
+                    </footer>
+                </div>
+                </div>
+            `
+        );
+
+        if (confirmDelete) {
+            await axios.delete(`http://localhost:5000/blogs/${blogId}`);
+            getBlogs();
+        }
     };
     const styles = {
         width: "200px",
@@ -48,7 +65,7 @@ const BlogList = () => {
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody style={{height: "40%"}}>
+                <tbody style={{ height: "40%" }}>
                     {blogs.map((blog, index) => (
                         <tr key={blog.uuid}>
                             <td>{index + 1}</td>
@@ -73,7 +90,6 @@ const BlogList = () => {
                                 >
                                     Delete
                                 </button>
-                                <ToastContainer/>
                             </td>
                         </tr>
                     ))}
