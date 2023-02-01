@@ -11,6 +11,7 @@ import UserRoute from "./routes/UserRoute.js";
 import BlogRoute from "./routes/BlogRoute.js";
 import EmployeeRoute from "./routes/EmployeeRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
+import GalleryRoute from "./routes/GalleryRoute.js";
 
 dotenv.config();
 
@@ -53,6 +54,7 @@ app.use(BlogRoute);
 app.use(EmployeeRoute);
 app.use(PartnerRoute);
 app.use(AuthRoute);
+app.use(GalleryRoute);
 
 //membuat tabel session
 // store.sync();

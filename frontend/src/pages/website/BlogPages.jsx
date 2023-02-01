@@ -31,22 +31,24 @@ function BlogPages() {
   }, []);
 
   useEffect(() => {
+    if (!blogs.length) return;
+
     const userIds = new Set(blogs.map(blog => blog.userId));
     const promises = Array.from(userIds).map(userId =>
       axios.get(`http://localhost:5000/listusers/${userId}`)
+        .then(({ data }) => data)
     );
 
     Promise.all(promises)
-      .then(responses => {
-        const usersData = responses.reduce((acc, { data }) => ({
+      .then(usersData => {
+        const usersDataObject = usersData.reduce((acc, data) => ({
           ...acc,
           [data.id]: data
         }), {});
-        setUsers(usersData);
-      });
+        setUsers(usersDataObject);
+      })
+      .catch(error => console.error(error));
   }, [blogs]);
-
-
 
 
 
@@ -64,7 +66,7 @@ function BlogPages() {
               <p className="title is-4">
                 {blog.tittle}
               </p>
-              <p className="subtitle is-6">{users && <span>{users.name}</span>}
+              <p className="subtitle is-6"><span>{users[blog.userId]?.name}</span>
                 <span> ({moment(blog.updatedAt).format('MMMM Do YYYY, h:mm:ss a')})</span>
               </p>
               <figure className="image is-4by3">

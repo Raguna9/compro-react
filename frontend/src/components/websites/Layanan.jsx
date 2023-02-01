@@ -13,7 +13,7 @@ const Layanan = () => {
 
                     <div class="columns is-vcentered">
                         <div class="column is-4">
-                            <div class="card has-background-light">
+                            <div class="card has-background-light" style={{height: '230px'}}>
                                 <div class="card-content">
                                     <h3 class="title is-4">Surveillance and Monitoring</h3>
                                     <p>
@@ -24,7 +24,7 @@ const Layanan = () => {
                         </div>
 
                         <div class="column is-4">
-                            <div class="card has-background-light">
+                            <div class="card has-background-light" style={{height: '230px'}}>
                                 <div class="card-content">
                                     <h3 class="title is-4">Risk Assessment and Management</h3>
                                     <p>
@@ -35,7 +35,7 @@ const Layanan = () => {
                         </div>
 
                         <div class="column is-4">
-                            <div class="card has-background-light">
+                            <div class="card has-background-light" style={{height: '230px'}}>
                                 <div class="card-content">
                                     <h3 class="title is-4">Security Consulting</h3>
                                     <p>

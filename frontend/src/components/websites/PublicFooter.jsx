@@ -7,34 +7,41 @@ const PublicFooter = () => {
 
     return (
         <div>
-            <footer class="footer has-background-info-dark has-text-white-ter" id="footer">
+            <footer class="footer has-background-info-dark" id="footer">
                 <div class="container">
-                    <div class="columns">
-                        <div class="column is-4">
-                            <h3 class="title is-3 has-text-white-ter">Tentang Kami</h3>
+                    <h1 className="title has-text-white-ter has-text-centered">Hubungi Kami</h1>
+                    <p className="subtitle  has-text-centered has-text-primary">PT. Global Litigation Nusantara</p>
+                    <div class="columns is-centered has-text-white-ter">
+                        <div class="column is-4" style={{height: '100px'}}>
                             <p>
-                                Kami adalah perusahaan jasa pengamanan aset fidusia yang telah berpengalaman selama bertahun-tahun dalam menangani keamanan aset para pelanggan kami.
+                                Jalan Raya Sikur - Mataram km. 41
+                            </p>
+                            <p>
+                                Lombok Timur
+                            </p>
+                            <p>
+                                Nusa Tenggara Barat 83662
+                            </p>
+                            <br />
+                            <p>
+                                (0376)2992597
+                            </p>
+                            <p>
+                                globallitigationnusantara@gmail.com
                             </p>
                         </div>
                         <div class="column is-4">
-                            <h3 class="title is-3 has-text-white-ter">Layanan Kami</h3>
-                            <ul>
-                                <li>Surveillance and Monitoring</li>
-                                <li>Risk Assessment and Management</li>
-                                <li>Security Consulting</li>
-                            </ul>
-                        </div>
-                        <div class="column is-4">
-                            <h3 class="title is-3 has-text-white-ter">Kontak Kami</h3>
                             <p>
-                                Telp: (123) 456-7890<br />
-                                Email: info@securitycompany.com
+                                Jika memiliki pertanyaan silakan menghubungi kami melalui beberapa jalur yang tertera.
                             </p>
                         </div>
                     </div>
+
                 </div>
             </footer>
-
+            <p className="has-background-info-dark has-text-centered has-text-white pb-3">
+                2023. PT.Global Litigation Nusantara
+            </p>
         </div>
     );
 };
