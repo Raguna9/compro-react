@@ -10,6 +10,7 @@ import PartnerRoute from "./routes/PartnerRoute.js";
 import UserRoute from "./routes/UserRoute.js";
 import BlogRoute from "./routes/BlogRoute.js";
 import EmployeeRoute from "./routes/EmployeeRoute.js";
+import ExternalEmployeeRoute from "./routes/ExternalEmployeeRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
 import GalleryRoute from "./routes/GalleryRoute.js";
 
@@ -52,6 +53,7 @@ app.use(session({
 app.use(UserRoute);
 app.use(BlogRoute);
 app.use(EmployeeRoute);
+app.use(ExternalEmployeeRoute);
 app.use(PartnerRoute);
 app.use(AuthRoute);
 app.use(GalleryRoute);
