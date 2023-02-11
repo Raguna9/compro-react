@@ -1,7 +1,6 @@
 import Blog from "../models/BlogModel.js";
 import User from "../models/UserModel.js";
 import { Op } from "sequelize";
-import Partner from "../models/PartnerModel.js";
 import path from "path";
 import fs from "fs";
 

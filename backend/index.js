@@ -13,6 +13,7 @@ import EmployeeRoute from "./routes/EmployeeRoute.js";
 import ExternalEmployeeRoute from "./routes/ExternalEmployeeRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
 import GalleryRoute from "./routes/GalleryRoute.js";
+import FAQRoute from "./routes/FAQRoute.js";
 
 dotenv.config();
 
@@ -57,6 +58,7 @@ app.use(ExternalEmployeeRoute);
 app.use(PartnerRoute);
 app.use(AuthRoute);
 app.use(GalleryRoute);
+app.use(FAQRoute);
 
 //membuat tabel session
 // store.sync();

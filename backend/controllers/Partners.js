@@ -53,7 +53,7 @@ export const createPartner = async (req, res) => {
 export const updatePartner = async (req, res) => {
     const partner = await Partner.findOne({
         where: {
-            id: req.params.id
+            uuid: req.params.id
         }
     });
     if (!partner) return res.status(404).json({ msg: "No Data Found" });
@@ -87,7 +87,7 @@ export const updatePartner = async (req, res) => {
     try {
         await Partner.update({ name: name, image: fileName, urlImage: urlImage }, {
             where: {
-                id: req.params.id
+                id: partner.id
             }
         });
         res.status(200).json({ msg: "Partner Updated Successfuly" });
@@ -99,7 +99,7 @@ export const updatePartner = async (req, res) => {
 export const deletePartner = async (req, res) => {
     const partner = await Partner.findOne({
         where: {
-            id: req.params.id
+            uuid: req.params.id
         }
     });
     if (!partner) return res.status(404).json({ msg: "No Data Found" });
@@ -111,7 +111,7 @@ export const deletePartner = async (req, res) => {
         }
         await Partner.destroy({
             where: {
-                id: req.params.id
+                id: partner.id
             }
         });
         res.status(200).json({ msg: "Partner Deleted Successfuly" });
