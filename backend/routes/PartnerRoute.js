@@ -6,13 +6,14 @@ import {
     updatePartner,
     deletePartner
 } from "../controllers/Partners.js";
+import { verifyUser, adminOnly } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 
-router.get('/partners', getPartners);
-router.get('/partners/:id', getPartnerById);
-router.post('/partners', createPartner);
-router.patch('/partners/:id', updatePartner);
-router.delete('/partners/:id', deletePartner);
+router.get('/partners', verifyUser, adminOnly, getPartners);
+router.get('/partners/:id', verifyUser, adminOnly, getPartnerById);
+router.post('/partners', verifyUser, adminOnly, createPartner);
+router.patch('/partners/:id', verifyUser, adminOnly, updatePartner);
+router.delete('/partners/:id', verifyUser, adminOnly, deletePartner);
 
 export default router;
