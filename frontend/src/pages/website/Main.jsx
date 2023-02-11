@@ -6,6 +6,7 @@ import Gallery from "../../components/websites/Gallery";
 import PublicFooter from "../../components/websites/PublicFooter";
 import Blog from "../../components/websites/Blog";
 import BackToTop from '../../utils/BackToTop';
+import PesanFaq from '../../components/websites/PesanFaq';
 // import { BsArrowUpCircle } from "react-icons/bs";
 
 
@@ -20,6 +21,7 @@ const Main = () => {
             <Layanan />
             <Gallery />
             <Blog />
+            <PesanFaq />
             <PublicFooter />
         </React.Fragment>
     );

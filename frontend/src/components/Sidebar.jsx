@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoPerson, IoHome, IoLogOut, } from "react-icons/io5";
 import { BsBank } from "react-icons/bs";
-import { RiGalleryFill } from "react-icons/ri";
+import { RiGalleryFill, RiQuestionAnswerLine } from "react-icons/ri";
 import { FaBloggerB, FaUserTie, FaUserFriends } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
@@ -32,6 +32,11 @@ const Sidebar = () => {
                     <li>
                         <NavLink to={"/blogs"}>
                             <FaBloggerB /> Blogs
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/faqs"}>
+                            <RiQuestionAnswerLine /> FAQs
                         </NavLink>
                     </li>
                 </ul>

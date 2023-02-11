@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const FormAddExternalEmployee = () => {
     const [name, setName] = useState("");
-    const [department, setDepartment] = useState("Profesional Collector");
+    const [department, setDepartment] = useState("Professional Collector");
     const [gender, setGender] = useState("Laki-Laki");
     const [email, setEmail] = useState("");
     const [sppi, setSPPI] = useState("");
@@ -74,7 +74,7 @@ const FormAddExternalEmployee = () => {
                                             value={department}
                                             onChange={(e) => setDepartment(e.target.value)}
                                         >
-                                            <option value="Profesional Collector">Profesional Collector</option>
+                                            <option value="Professional Collector">Professional Collector</option>
                                             <option value="Visitor">Visitor</option>
                                         </select>
                                     </div>

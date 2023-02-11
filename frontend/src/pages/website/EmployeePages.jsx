@@ -17,7 +17,7 @@ const EmployeePages = () => {
                     <h1 className="title has-text-centered mt-5">Our Employee</h1>
 
                     <div>
-                        <nav className="navbar mb-4" style={{'z-index': "2"}}>
+                        <nav className="navbar mb-4" style={{zIndex: "2"}}>
                             <div className="navbar-menu">
                                 <a href="/" className="button is-primary mt-2">Back to Homepage</a>
                                 <div className="navbar-end">

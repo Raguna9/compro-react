@@ -84,7 +84,7 @@ const FormEditBlog = () => {
                                 <label className="label">Content</label>
                                 <div className="control">
                                     <textarea
-                                        class="textarea"
+                                        className="textarea"
                                         value={content}
                                         onChange={(e) => setContent(e.target.value)}
                                         placeholder="Content"

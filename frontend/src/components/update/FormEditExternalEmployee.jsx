@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const FormEditExternalEmployee = () => {
     const [name, setName] = useState("");
-    const [department, setDepartment] = useState("Profesional Collector");
+    const [department, setDepartment] = useState("Professional Collector");
     const [gender, setGender] = useState("Laki-Laki");
     const [email, setEmail] = useState("");
     const [sppi, setSPPI] = useState("");
@@ -89,19 +89,12 @@ const FormEditExternalEmployee = () => {
                             <div className="field">
                                 <label className="label">Department</label>
                                 <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={department}
-                                        onChange={(e) => setDepartment(e.target.value)}
-                                        placeholder="Department"
-                                    />
                                     <div className="select is-fullwidth">
                                         <select
                                             value={department}
                                             onChange={(e) => setDepartment(e.target.value)}
                                         >
-                                            <option value="Profesional Collector">Profesional Collector</option>
+                                            <option value="Professional Collector">Professional Collector</option>
                                             <option value="Visitor">Visitor</option>
                                         </select>
                                     </div>

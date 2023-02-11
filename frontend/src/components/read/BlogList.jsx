@@ -18,19 +18,19 @@ const BlogList = () => {
     const deleteBlog = async (blogId) => {
         const confirmDelete = window.confirm(
             `
-                <div class="modal is-active">
-                <div class="modal-background"></div>
-                <div class="modal-card">
-                    <header class="modal-card-head">
-                    <p class="modal-card-title">Konfirmasi Hapus</p>
-                    <button class="delete" aria-label="close"></button>
+                <div className="modal is-active">
+                <div className="modal-background"></div>
+                <div className="modal-card">
+                    <header className="modal-card-head">
+                    <p className="modal-card-title">Konfirmasi Hapus</p>
+                    <button className="delete" aria-label="close"></button>
                     </header>
-                    <section class="modal-card-body">
+                    <section className="modal-card-body">
                     Apakah Anda yakin ingin menghapus data ini?
                     </section>
-                    <footer class="modal-card-foot">
-                    <button class="button is-danger" onclick="document.querySelector('.modal').classList.remove('is-active')">Tidak</button>
-                    <button class="button is-success" onclick="window.confirmDelete()">Ya</button>
+                    <footer className="modal-card-foot">
+                    <button className="button is-danger" onclick="document.querySelector('.modal').classList.remove('is-active')">Tidak</button>
+                    <button className="button is-success" onclick="window.confirmDelete()">Ya</button>
                     </footer>
                 </div>
                 </div>
@@ -42,10 +42,6 @@ const BlogList = () => {
             getBlogs();
         }
     };
-    const styles = {
-        width: "200px",
-        height: "40%"
-    }
 
     return (
         <div>
@@ -54,7 +50,7 @@ const BlogList = () => {
             <Link to="/blogs/add" className="button is-primary mb-2">
                 Add New
             </Link>
-            <table className="table is-striped is-fullwidth">
+            <table className="table is-striped is-fullwidth has-shadow" style={{ tableLayout: "auto" }}>
                 <thead>
                     <tr>
                         <th>No</th>
@@ -65,19 +61,26 @@ const BlogList = () => {
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody style={{ height: "40%" }}>
-                    {blogs.map((blog, index) => (
+
+                {blogs.map((blog, index) => (
+                    <tbody
+                    // style={{ height: "300px", display: "", overflow: "hidden", wordBreak: "break-all" }}
+                    >
                         <tr key={blog.uuid}>
                             <td>{index + 1}</td>
-                            <td style={styles}>{blog.tittle}</td>
-                            <td style={styles}>{blog.content}</td>
-                            <td style={styles}>
-                                <figure className="image is-1by1">
+                            <td>{blog.tittle}</td>
+                            <td
+                            // style={{ width: "300px" }}
+                            >{blog.content}</td>
+                            <td
+                            // style={{ width: "200px" }}
+                            >
+                                <figure className="image">
                                     <img src={blog.urlImage} alt="Image" />
                                 </figure>
                             </td>
                             <td>{blog.user.name}</td>
-                            <td>
+                            <td style={{ width: "150px" }} s>
                                 <Link
                                     to={`/blogs/edit/${blog.uuid}`}
                                     className="button is-small is-info"
@@ -92,8 +95,8 @@ const BlogList = () => {
                                 </button>
                             </td>
                         </tr>
-                    ))}
-                </tbody>
+                    </tbody>
+                ))}
             </table>
         </div>
     );

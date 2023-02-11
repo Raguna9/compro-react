@@ -14,10 +14,10 @@ const PublicNavbar = () => {
 
     return (
         <div>
-            <nav class="navbar is-info is-fixed-top" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand ml-2">
+            <nav className="navbar is-info is-fixed-top" role="navigation" aria-label="main navigation">
+                <div className="navbar-brand ml-2">
                     <Link to={`/`}>
-                        <a class="navbar-item">
+                        <span className="navbar-item">
                             <h1
                                 className="title is-4 has-text-white-ter pt-1"
                             // style={{ 
@@ -28,12 +28,12 @@ const PublicNavbar = () => {
                                 PT. Global Litigation Nusantara
                             </h1>
                             {/* <img src="gtnlogo.jpg" alt="Logo GTN" /> */}
-                        </a>
+                        </span>
                     </Link>
 
                     <a
                         role="button"
-                        class={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
+                        className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
                         aria-label="menu"
                         aria-expanded="false"
                         data-target="navbarBasicExample"
@@ -44,8 +44,8 @@ const PublicNavbar = () => {
                         <span aria-hidden="true"></span>
                     </a>
                 </div>
-                <div id="navbarBasicExample" class={`navbar-menu ${isActive ? 'is-active' : ''}`}>
-                    <div class="navbar-end mr-2">
+                <div id="navbarBasicExample" className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
+                    <div className="navbar-end mr-2">
                         {window.location.pathname === '/' ? (
                             <Link className="navbar-item" to="home" spy={true} smooth={true} offset={0} duration={500}>
                                 Beranda
@@ -57,20 +57,18 @@ const PublicNavbar = () => {
                         )}
 
 
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <Link class="navbar-link">
-                                Informasi
-                            </Link>
-                            <div class="navbar-dropdown has-background-info-light">
-                                <Link class="navbar-item" onClick={() => window.location.assign('aboutpages')}>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <a className="navbar-link">Informasi</a>
+                            <div className="navbar-dropdown has-background-info-light">
+                                <a className="navbar-item" onClick={() => window.location.assign('aboutpages')}>
                                     Tentang Perusahaan
-                                </Link>
-                                <Link class="navbar-item" onClick={() => window.location.assign('employeepages')}>
+                                </a>
+                                <a className="navbar-item" onClick={() => window.location.assign('employeepages')}>
                                     Karyawan
-                                </Link>
-                                <Link class="navbar-item" onClick={() => window.location.assign('mitrapages')}>
+                                </a>
+                                <a className="navbar-item" onClick={() => window.location.assign('mitrapages')}>
                                     Mitra Kerja
-                                </Link>
+                                </a>
                             </div>
                         </div>
 
@@ -105,7 +103,7 @@ const PublicNavbar = () => {
                         )}
 
                         {window.location.pathname === '/' ? (
-                            <Link class="navbar-item" to="footer" spy={true} smooth={true} offset={-50} duration={500}>
+                            <Link className="navbar-item" to="faq" spy={true} smooth={true} offset={-50} duration={500}>
                                 <GrContact style={colorWhite} />
                             </Link>
                         ) : (

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import img from "../../assets/images/hr_08.png";
 
 const Home = () => {
 
@@ -24,7 +25,7 @@ const Home = () => {
                         </div>
                         <div className="column is-align-content-center">
                             <figure className="image pr-6" style={{ width: '552px', height: '420px' }}>
-                                <img src="https://img.freepik.com/free-vector/recruiting-agency-isometric-illustration-coworkers-candidate-employer-3d-cartoon-characters-headhunting-human-resources-department_575670-1091.jpg?w=740&t=st=1672926798~exp=1672927398~hmac=49f623789e956e78c6f0660b26141c684f93a107431f6432480a58f45bf2aab0" alt="Nego" />
+                                <img src={img} alt="Nego" />
                             </figure>
                         </div>
                     </div>

@@ -13,21 +13,14 @@ const Gallery = () => {
 
     return (
         <div>
-            <section id="gallery" class="section">
-                <div class="container">
-                    <h1 class="title has-text-centered">Gallery</h1>
-                    <h2 class="subtitle has-text-centered">
+            <section id="gallery" className="section has-background-grey-lighter">
+                <div className="container">
+                    <h1 className="title has-text-centered">Gallery</h1>
+                    <h2 className="subtitle has-text-centered">
                         Berikut ini adalah beberapa gambar yang menggambarkan layanan kami.
                     </h2>
 
-                    <div class="columns is-multiline">
-                        {/* {gallery.slice(0, 3).map((gallery, index) => (
-                            <div class="column is-4" key={index}>
-                                <figure class="image is-3by2">
-                                    <img src={gallery.urlImage} alt={gallery.description} onClick={() => setActiveImage(gallery.urlImage)} />
-                                </figure>
-                            </div>
-                        ))} */}
+                    <div className="columns is-multiline">
                         {gallery.slice(0, 3).map((gallery, index) => (
                             <div key={index} className="column is-one-third">
                                 <div className="card has-background-light">
@@ -60,8 +53,7 @@ const Gallery = () => {
                     }
                 </div>
             </section>
-
-
+            {/* <hr className='hr' style={{ width: "50%", margin: "auto" }} /> */}
         </div>
     );
 };

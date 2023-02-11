@@ -29,7 +29,8 @@ const BackToTop = () => {
                             position: "fixed",
                             bottom: "20px",
                             right: "20px",
-                            'z-index': "2"
+                            zIndex: "2",
+                            cursor: "pointer"
                         }}>
                     </BsArrowUpCircle >
                 )}

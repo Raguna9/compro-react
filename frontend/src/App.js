@@ -19,6 +19,9 @@ import EditExternalEmployee from "./pages/update/EditExternalEmployee";
 import Gallery from "./pages/read/Gallerys";
 import AddGallery from "./pages/create/AddGallery";
 import EditGallery from "./pages/update/EditGallery";
+import FAQ from "./pages/read/FAQs";
+import AddFAQ from "./pages/create/AddFAQ";
+import EditFAQ from "./pages/update/EditFAQ";
 
 //client
 import Main from "./pages/website/Main"
@@ -61,6 +64,10 @@ function App() {
           <Route path="/gallerys" element={<Gallery />} />
           <Route path="/gallerys/add" element={<AddGallery />} />
           <Route path="/gallerys/edit/:id" element={<EditGallery />} />
+          <Route path="/faqs" element={<FAQ />} />
+          <Route path="/faqs/add" element={<AddFAQ />} />
+          <Route path="/faqs/edit/:id" element={<EditFAQ />} />
+          
         </Routes>
       </BrowserRouter>
     </div>

@@ -8,12 +8,12 @@ const PublicFooter = () => {
 
     return (
         <div>
-            <footer class="footer has-background-info-dark" id="footer">
-                <div class="container">
+            <footer className="footer has-background-info-dark">
+                <div className="container">
                     <h1 className="title has-text-white-ter has-text-centered">Hubungi Kami</h1>
-                    <p className="subtitle  has-text-centered has-text-primary">PT. Global Litigation Nusantara</p>
-                    <div class="columns is-centered has-text-white-ter">
-                        <div class="column is-4" style={{ height: '100px' }}>
+                    {/* <p className="subtitle  has-text-centered has-text-primary">PT. Global Litigation Nusantara</p> */}
+                    <div className="columns is-centered has-text-white-ter">
+                        <div className="column is-4" style={{ height: '100px' }}>
                             <p>
                                 Jalan Raya Sikur - Mataram km. 41
                             </p>
@@ -31,7 +31,7 @@ const PublicFooter = () => {
                                 <AiTwotoneMail /> globallitigationnusantara@gmail.com
                             </p>
                         </div>
-                        <div class="column is-4">
+                        <div className="column is-4">
                             <p>
                                 Jika memiliki pertanyaan silakan menghubungi kami melalui beberapa jalur yang tertera.
                             </p>
