@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoPerson, IoHome, IoLogOut, } from "react-icons/io5";
-import { BsBank } from "react-icons/bs";
+import { BsBank, BsChatLeftTextFill } from "react-icons/bs";
 import { RiGalleryFill, RiQuestionAnswerLine } from "react-icons/ri";
 import { FaBloggerB, FaUserTie, FaUserFriends } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
@@ -32,6 +32,11 @@ const Sidebar = () => {
                     <li>
                         <NavLink to={"/blogs"}>
                             <FaBloggerB /> Blogs
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/inboxs"}>
+                            <BsChatLeftTextFill /> Inboxs
                         </NavLink>
                     </li>
                     <li>

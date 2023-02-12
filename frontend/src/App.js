@@ -22,6 +22,7 @@ import EditGallery from "./pages/update/EditGallery";
 import FAQ from "./pages/read/FAQs";
 import AddFAQ from "./pages/create/AddFAQ";
 import EditFAQ from "./pages/update/EditFAQ";
+import Inbox from "./pages/read/Inboxs";
 
 //client
 import Main from "./pages/website/Main"
@@ -64,6 +65,7 @@ function App() {
           <Route path="/gallerys" element={<Gallery />} />
           <Route path="/gallerys/add" element={<AddGallery />} />
           <Route path="/gallerys/edit/:id" element={<EditGallery />} />
+          <Route path="/inboxs" element={<Inbox />} />
           <Route path="/faqs" element={<FAQ />} />
           <Route path="/faqs/add" element={<AddFAQ />} />
           <Route path="/faqs/edit/:id" element={<EditFAQ />} />
