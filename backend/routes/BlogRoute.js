@@ -6,7 +6,8 @@ import {
     updateBlog,
     deleteBlog,
     getListBlogs,
-    getListBlogById
+    getListBlogById,
+    getBlogCount
 } from "../controllers/Blogs.js";
 import { verifyUser } from "../middleware/AuthUser.js";
 
@@ -14,6 +15,7 @@ import { verifyUser } from "../middleware/AuthUser.js";
 const router = express.Router();
 
 router.get('/blogs', verifyUser, getBlogs);
+router.get('/blogs/count', getBlogCount);
 router.get('/blogs/:id', verifyUser, getBlogById);
 router.post('/blogs', verifyUser, createBlog);
 router.patch('/blogs/:id', verifyUser, updateBlog);

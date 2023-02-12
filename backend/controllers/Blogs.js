@@ -33,6 +33,15 @@ export const getBlogs = async (req, res) => {
     }
 }
 
+export const getBlogCount = async (req, res) => {
+    try {
+        const count = await Blog.count();
+        return res.status(200).json({ count });
+    } catch (error) {
+        return res.status(500).json({ msg: "Terjadi kesalahan saat mengambil jumlah data" });
+    }
+};
+
 export const getBlogById = async (req, res) => {
     try {
         const blog = await Blog.findOne({

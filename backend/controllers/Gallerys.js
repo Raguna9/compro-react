@@ -11,6 +11,15 @@ export const getGallerys = async (req, res) => {
     }
 }
 
+export const getGalleryCount = async (req, res) => {
+    try {
+        const count = await Gallery.count();
+        return res.status(200).json({ count });
+    } catch (error) {
+        return res.status(500).json({ msg: "Terjadi kesalahan saat mengambil jumlah data" });
+    }
+};
+
 export const getGalleryById = async (req, res) => {
     try {
         const response = await Gallery.findOne({

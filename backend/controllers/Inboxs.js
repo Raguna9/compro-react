@@ -9,6 +9,15 @@ export const getInboxs = async (req, res) => {
     }
 }
 
+export const getInboxCount = async (req, res) => {
+    try {
+        const count = await Inbox.count();
+        return res.status(200).json({ count });
+    } catch (error) {
+        return res.status(500).json({ msg: "Terjadi kesalahan saat mengambil jumlah data" });
+    }
+};
+
 export const getInboxById = async (req, res) => {
     try {
         const response = await Inbox.findOne({
