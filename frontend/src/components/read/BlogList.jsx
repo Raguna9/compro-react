@@ -18,22 +18,7 @@ const BlogList = () => {
     const deleteBlog = async (blogId) => {
         const confirmDelete = window.confirm(
             `
-                <div className="modal is-active">
-                <div className="modal-background"></div>
-                <div className="modal-card">
-                    <header className="modal-card-head">
-                    <p className="modal-card-title">Konfirmasi Hapus</p>
-                    <button className="delete" aria-label="close"></button>
-                    </header>
-                    <section className="modal-card-body">
-                    Apakah Anda yakin ingin menghapus data ini?
-                    </section>
-                    <footer className="modal-card-foot">
-                    <button className="button is-danger" onclick="document.querySelector('.modal').classList.remove('is-active')">Tidak</button>
-                    <button className="button is-success" onclick="window.confirmDelete()">Ya</button>
-                    </footer>
-                </div>
-                </div>
+            Konfirmasi Delete
             `
         );
 
@@ -64,9 +49,10 @@ const BlogList = () => {
 
                 {blogs.map((blog, index) => (
                     <tbody
+                    key={blog.uuid}
                     // style={{ height: "300px", display: "", overflow: "hidden", wordBreak: "break-all" }}
                     >
-                        <tr key={blog.uuid}>
+                        <tr>
                             <td>{index + 1}</td>
                             <td>{blog.tittle}</td>
                             <td
@@ -80,7 +66,7 @@ const BlogList = () => {
                                 </figure>
                             </td>
                             <td>{blog.user.name}</td>
-                            <td style={{ width: "150px" }} s>
+                            <td style={{ width: "150px" }}>
                                 <Link
                                     to={`/blogs/edit/${blog.uuid}`}
                                     className="button is-small is-info"

@@ -15,12 +15,11 @@ const UserList = () => {
     };
 
     const deleteUser = async (userId) => {
-        if (window.confirm("Delete confirmation")) {
-            // lakukan sesuatu jika pengguna mengklik tombol "OK"
+        const confirmDelete = window.confirm(`Apakah Anda yakin ingin menghapus data ini?`);
+
+        if (confirmDelete) {
             await axios.delete(`http://localhost:5000/users/${userId}`);
             getUsers();
-        } else {
-            // lakukan sesuatu jika pengguna mengklik tombol "Cancel"
         }
     };
 
