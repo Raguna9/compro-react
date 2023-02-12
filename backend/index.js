@@ -14,6 +14,7 @@ import ExternalEmployeeRoute from "./routes/ExternalEmployeeRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
 import GalleryRoute from "./routes/GalleryRoute.js";
 import FAQRoute from "./routes/FAQRoute.js";
+import InboxRoute from "./routes/InboxRoute.js";
 
 dotenv.config();
 
@@ -59,6 +60,7 @@ app.use(PartnerRoute);
 app.use(AuthRoute);
 app.use(GalleryRoute);
 app.use(FAQRoute);
+app.use(InboxRoute);
 
 //membuat tabel session
 // store.sync();
