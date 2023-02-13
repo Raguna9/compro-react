@@ -29,6 +29,7 @@ import Main from "./pages/website/Main"
 import BlogPages from "./pages/website/BlogPages";
 import GalleryPages from "./pages/website/GalleryPages";
 import EmployeePages from "./pages/website/EmployeePages";
+import FAQPages from "./pages/website/FAQPages";
 // import PublicNavbar from "./pages/PublicNavbar";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/blogpages" element={<BlogPages />} />
           <Route path="/gallerypages" element={<GalleryPages />} />
           <Route path="/employeepages" element={<EmployeePages />} />
+          <Route path="/faqpages" element={<FAQPages />} />
           {/* <Route path="/" element={<PublicNavbar />} /> */}
 
 

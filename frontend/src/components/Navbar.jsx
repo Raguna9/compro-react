@@ -20,9 +20,6 @@ const Navbar = () => {
             // lakukan sesuatu jika pengguna mengklik tombol "Cancel"
         }
     };
-    const website = () => {
-        navigate('/');
-    };
 
     return (
         <div>
@@ -55,9 +52,13 @@ const Navbar = () => {
                     <div className="navbar-end">
                         <div className="navbar-item">
                             <div className="buttons">
-                                <button onClick={website} className="button is-link">
-                                    See Website
-                                </button>
+                                <a
+                                    href={`/`}
+                                    className="button is-link"
+                                    target="_blank" rel="noreferrer"
+                                >
+                                    Website
+                                </a>
                                 <button onClick={logout} className="button is-light">
                                     Log out
                                 </button>

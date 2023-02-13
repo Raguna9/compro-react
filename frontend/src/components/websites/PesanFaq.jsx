@@ -140,7 +140,7 @@ const PesanFaq = () => {
                                             )}
                                         </div>
                                     ))}
-                                    <a href="gallerypages" className="button is-primary is-fullwidth mt-4">Selengkapnya</a>
+                                    <a href="faqpages" className="button is-primary is-fullwidth mt-4">Selengkapnya</a>
 
                                 </div>
                             </div>

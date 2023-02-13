@@ -33,7 +33,7 @@ export const createPartner = async (req, res) => {
     const date = new Date();
     const fileName = `${date.getHours()}${date.getMinutes()}${date.getSeconds()}${file.md5}` + ext;
     const urlImage = `${req.protocol}://${req.get("host")}/images/partners/${fileName}`;
-    const allowedType = ['.png', '.jpg', '.jpeg'];
+    const allowedType = ['.png', '.jpg', '.jpeg', `.svg`, `.jfif`];
 
 
     if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images" });
@@ -53,7 +53,7 @@ export const createPartner = async (req, res) => {
 export const updatePartner = async (req, res) => {
     const partner = await Partner.findOne({
         where: {
-            uuid: req.params.id
+            id: req.params.id
         }
     });
     if (!partner) return res.status(404).json({ msg: "No Data Found" });
@@ -67,7 +67,7 @@ export const updatePartner = async (req, res) => {
         const ext = path.extname(file.name);
         const date = new Date();
         fileName = `${date.getHours()}${date.getMinutes()}${date.getSeconds()}${file.md5}` + ext;
-        const allowedType = ['.png', '.jpg', '.jpeg'];
+        const allowedType = ['.png', '.jpg', '.jpeg', `.svg`, `.jfif`];
 
         if (!allowedType.includes(ext.toLowerCase())) return res.status(422).json({ msg: "Invalid Images" });
         if (fileSize > 5000000) return res.status(422).json({ msg: "Image must be less than 5 MB" });

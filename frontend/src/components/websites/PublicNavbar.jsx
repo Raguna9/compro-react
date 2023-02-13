@@ -66,9 +66,9 @@ const PublicNavbar = () => {
                                 <a className="navbar-item" onClick={() => window.location.assign('employeepages')}>
                                     Karyawan
                                 </a>
-                                <a className="navbar-item" onClick={() => window.location.assign('mitrapages')}>
+                                <Link className="navbar-item"  to="partner" spy={true} smooth={true} offset={-50} duration={500}>
                                     Mitra Kerja
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
@@ -107,7 +107,7 @@ const PublicNavbar = () => {
                                 <GrContact style={colorWhite} />
                             </Link>
                         ) : (
-                            <a className="navbar-item" onClick={() => window.location.assign('contactpages')}>
+                            <a className="navbar-item" onClick={() => window.location.assign('/')}>
                                 <GrContact style={colorWhite} />
                             </a>
                         )}

@@ -7,6 +7,7 @@ import PublicFooter from "../../components/websites/PublicFooter";
 import Blog from "../../components/websites/Blog";
 import BackToTop from '../../utils/BackToTop';
 import PesanFaq from '../../components/websites/PesanFaq';
+import Partner from '../../components/websites/Partner';
 // import { BsArrowUpCircle } from "react-icons/bs";
 
 
@@ -22,6 +23,7 @@ const Main = () => {
             <Gallery />
             <Blog />
             <PesanFaq />
+            <Partner />
             <PublicFooter />
         </React.Fragment>
     );
