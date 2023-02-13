@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -17,14 +16,14 @@ const GalleryList = () => {
 
     const deleteGallery = async (galleryId) => {
         const confirmDelete = window.confirm('Apakah Anda yakin ingin menghapus data ini?');
-      
+
         if (confirmDelete) {
-          await axios.delete(`http://localhost:5000/gallerys/${galleryId}`);
-          getGallerys();
+            await axios.delete(`http://localhost:5000/gallerys/${galleryId}`);
+            getGallerys();
         }
-      };
-      
-    
+    };
+
+
 
 
 
@@ -49,7 +48,7 @@ const GalleryList = () => {
                         <tr key={gallery.uuid}>
                             <td>{index + 1}</td>
                             <td>
-                                <figure className="image is-3by1">
+                                <figure className="image is-3by2">
                                     <img src={gallery.urlImage} alt="Image" />
                                 </figure>
                             </td>

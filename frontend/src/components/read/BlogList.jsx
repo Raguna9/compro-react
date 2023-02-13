@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -16,12 +15,8 @@ const BlogList = () => {
     };
 
     const deleteBlog = async (blogId) => {
-        const confirmDelete = window.confirm(
-            `
-            Konfirmasi Delete
-            `
-        );
-
+        const confirmDelete = window.confirm('Apakah Anda yakin ingin menghapus data ini?');
+        
         if (confirmDelete) {
             await axios.delete(`http://localhost:5000/blogs/${blogId}`);
             getBlogs();
@@ -50,19 +45,14 @@ const BlogList = () => {
                 {blogs.map((blog, index) => (
                     <tbody
                     key={blog.uuid}
-                    // style={{ height: "300px", display: "", overflow: "hidden", wordBreak: "break-all" }}
                     >
                         <tr>
                             <td>{index + 1}</td>
                             <td>{blog.tittle}</td>
-                            <td
-                            // style={{ width: "300px" }}
-                            >{blog.content}</td>
-                            <td
-                            // style={{ width: "200px" }}
-                            >
+                            <td>{blog.content}</td>
+                            <td>
                                 <figure className="image">
-                                    <img src={blog.urlImage} alt="Image" />
+                                    <img src={blog.urlImage} alt={blog.tittle} />
                                 </figure>
                             </td>
                             <td>{blog.user.name}</td>

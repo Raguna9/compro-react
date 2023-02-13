@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -24,8 +23,6 @@ const ExternalEmployeeList = () => {
         }
     };
 
-
-
     return (
         <div>
             <h1 className="title">ExternalEmployees</h1>
@@ -50,14 +47,14 @@ const ExternalEmployeeList = () => {
                     {externalEmployees.map((externalEmployee, index) => (
                         <tr key={externalEmployee.uuid}>
                             <td>{index + 1}</td>
-                            <td>{externalEmployee.name}</td>
-                            <td>{externalEmployee.department}</td>
+                            <td style={{ width: "120px" }}>{externalEmployee.name}</td>
+                            <td style={{ width: "100px" }}>{externalEmployee.department}</td>
                             <td>{externalEmployee.gender}</td>
                             <td>{externalEmployee.email}</td>
                             <td>{externalEmployee.sppi}</td>
                             <td>
-                                <figure className="image is-2by3">
-                                    <img src={externalEmployee.urlImage} alt="Image" />
+                                <figure className="image is-3by4">
+                                    <img src={externalEmployee.urlImage} alt={externalEmployee.name} />
                                 </figure>
                             </td>
                             <td>

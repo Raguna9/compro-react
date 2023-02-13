@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -49,7 +48,7 @@ const PartnerList = () => {
                             <td>{partner.name}</td>
                             <td>
                                 <figure className="image is-3by1">
-                                    <img src={partner.urlImage} alt="Image" />
+                                    <img src={partner.urlImage} alt={partner.name} />
                                 </figure>
                             </td>
                             <td>

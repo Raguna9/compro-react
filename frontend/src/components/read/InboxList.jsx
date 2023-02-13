@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from 'moment';
@@ -16,11 +15,7 @@ const InboxList = () => {
     };
 
     const deleteInbox = async (inboxId) => {
-        const confirmDelete = window.confirm(
-            `
-                Konfirmasi Delete
-            `
-        );
+        const confirmDelete = window.confirm('Apakah Anda yakin ingin menghapus data ini?');
 
         if (confirmDelete) {
             await axios.delete(`http://localhost:5000/inboxs/${inboxId}`);
@@ -45,19 +40,12 @@ const InboxList = () => {
                 </thead>
 
                 {inboxs.map((inbox, index) => (
-                    <tbody
-                        key={inbox.uuid}
-                    // style={{ height: "300px", display: "", overflow: "hidden", wordBreak: "break-all" }}
-                    >
+                    <tbody key={inbox.uuid}>
                         <tr>
                             <td>{index + 1}</td>
                             <td>{inbox.email}</td>
-                            <td
-                            // style={{ width: "300px" }}
-                            >{inbox.subject}</td>
-                            <td
-                            // style={{ width: "300px" }}
-                            >{inbox.messageContent}</td>
+                            <td>{inbox.subject}</td>
+                            <td>{inbox.messageContent}</td>
                             <td>{moment(inbox.updatedAt).format('Do MMMM YYYY, h:mm:ss a')}</td>
                             <td style={{ width: "150px" }}>
                                 <a

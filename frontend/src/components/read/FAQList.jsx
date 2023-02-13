@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -16,11 +15,7 @@ const FAQList = () => {
     };
 
     const deleteFAQ = async (faqId) => {
-        const confirmDelete = window.confirm(
-            `
-            Konfirmasi Delete
-            `
-        );
+        const confirmDelete = window.confirm('Apakah Anda yakin ingin menghapus data ini?');
 
         if (confirmDelete) {
             await axios.delete(`http://localhost:5000/faqs/${faqId}`);
@@ -46,16 +41,11 @@ const FAQList = () => {
                 </thead>
 
                 {faqs.map((faq, index) => (
-                    <tbody
-                    key={faq.uuid}
-                    // style={{ height: "300px", display: "", overflow: "hidden", wordBreak: "break-all" }}
-                    >
+                    <tbody key={faq.uuid}>
                         <tr>
                             <td>{index + 1}</td>
                             <td>{faq.question}</td>
-                            <td
-                            // style={{ width: "300px" }}
-                            >{faq.answer}</td>
+                            <td>{faq.answer}</td>
                             <td style={{ width: "150px" }}>
                                 <Link
                                     to={`/faqs/edit/${faq.id}`}
