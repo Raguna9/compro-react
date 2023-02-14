@@ -24,9 +24,9 @@ export const getUserCount = async (req, res) => {
 export const getUserById = async (req, res) => {
     try {
         const response = await User.findOne({
-            attributes: ['uuid', 'name', 'email', 'role'],
+            attributes: ['id', 'uuid', 'name', 'email', 'role'],
             where: {
-                uuid: req.params.id
+                id: req.params.id
             }
         });
         res.status(200).json(response);

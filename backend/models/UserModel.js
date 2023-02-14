@@ -38,7 +38,10 @@ const Users = db.define('users',{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
-            notEmpty: true
+            notEmpty: {
+                args: true,
+                msg: "Password tidak boleh kosong"
+            }
         }
     },
     role:{

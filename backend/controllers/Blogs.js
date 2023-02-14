@@ -204,7 +204,7 @@ export const getListBlogs = async (req, res) => {
     try {
         let response;
         response = await Blog.findAll({
-            attributes: ['uuid', 'tittle', 'content', 'urlImage', 'userId', 'updatedAt']
+            attributes: ['id', 'uuid', 'tittle', 'content', 'urlImage', 'userId', 'updatedAt']
         });
 
         res.status(200).json(response);
@@ -223,7 +223,7 @@ export const getListBlogById = async (req, res) => {
         if (!blog) return res.status(404).json({ msg: "Data tidak ditemukan" });
         let response;
         response = await Blog.findOne({
-            attributes: ['uuid', 'tittle', 'content', 'urlImage', 'userId', 'updatedAt'],
+            attributes: ['id', 'uuid', 'tittle', 'content', 'urlImage', 'userId', 'updatedAt'],
             where: {
                 id: blog.id
             }
