@@ -16,19 +16,29 @@ const ExternalEmployee = () => {
     return (
         <div className="columns is-multiline">
             {externalEmployees.map(externalEmployee => (
-                <div key={externalEmployee.id} className="column is-one-third">
+                <div key={externalEmployee.id} className="column is-3">
                     <div className="card">
-                        <div className="card-image">
-                            <figure className="image is-3by2 has-text-centered">
-                                <img src={externalEmployee.urlImage} alt={externalEmployee.description}
-                                    onClick={() => setActiveImage(externalEmployee.urlImage)} />
-                            </figure>
-                        </div>
+                        <figure
+                            className="image"
+                            style={{ position: "relative", backgroundColor: "#E80510" }}
+                        >
+                            <img
+                                src={externalEmployee.urlImage}
+                                // className="is-rounded"
+                                alt={externalEmployee.description}
+                                // onClick={() => setActiveImage(externalEmployee.urlImage)}
+                            // style={{ objectFit: "cover" }}
+                            />
+                        </figure>
                         <div className="card-content">
-                            <p className="title is-4">{externalEmployee.name}</p>
-                            <p className="subtitle is-6">{externalEmployee.email}</p>
-                            <p className="title is-5">{externalEmployee.department}</p>
-                            <p>No. SPPI <a href="#" onClick={() => setIsOpen(externalEmployee.sppi)}>{externalEmployee.sppi}</a></p>
+                            <p style={{ fontSize: "14px", fontWeight: "bold" }}>{externalEmployee.name}</p>
+                            <p style={{ fontSize: "10px" }}>{externalEmployee.email}</p>
+                            <p className='pt-2' style={{ fontSize: "12px" }}>{externalEmployee.department}</p>
+                            <span style={{ fontSize: "10px" }}>
+                                <p>No. SPPI
+                                    <a className='pl-1' href="#" onClick={() => setIsOpen(externalEmployee.sppi)}>{externalEmployee.sppi}</a>
+                                </p>
+                            </span>
                         </div>
                     </div>
                 </div>

@@ -19,19 +19,29 @@ const Employee = () => {
         <div className='has-has-background-grey-light'>
             <div className="columns is-multiline">
                 {employees.map(employee => (
-                    <div key={employee.id} className="column is-one-third">
+                    <div key={employee.id} className="column is-3">
                         <div className="card">
-                            <div className="card-image">
-                                <figure className="image is-3by2 has-text-centered">
-                                    <img src={employee.urlImage} alt={employee.description}
-                                        onClick={() => setActiveImage(employee.urlImage)} />
-                                </figure>
-                            </div>
+                            <figure
+                                className="image"
+                                style={{ position: "relative", backgroundColor: "#E80510" }}
+                            >
+                                <img
+                                    src={employee.urlImage}
+                                    // className="is-rounded"
+                                    alt={employee.description}
+                                    // onClick={() => setActiveImage(employee.urlImage)}
+                                // style={{ objectFit: "cover" }}
+                                />
+                            </figure>
                             <div className="card-content">
-                                <p className="title is-4">{employee.name}</p>
-                                <p className="subtitle is-6">{employee.email}</p>
-                                <p className="title is-5">{employee.department}</p>
-                                <p>No. SPPI <a href="#" onClick={() => setIsOpen(employee.sppi)}>{employee.sppi}</a></p>
+                                <p style={{ fontSize: "14px", fontWeight: "bold" }}>{employee.name}</p>
+                                <p style={{ fontSize: "10px" }}>{employee.email}</p>
+                                <p className='pt-2' style={{ fontSize: "12px" }}>{employee.department}</p>
+                                <span style={{ fontSize: "10px" }}>
+                                    <p>No. SPPI
+                                        <a className='pl-1' href="#" onClick={() => setIsOpen(employee.sppi)}>{employee.sppi}</a>
+                                    </p>
+                                </span>
                             </div>
                         </div>
                     </div>
