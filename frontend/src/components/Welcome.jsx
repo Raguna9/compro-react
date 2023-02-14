@@ -6,7 +6,12 @@ const Welcome = () => {
     const { user } = useSelector((state) => state.auth);
     const [countInbox, setCountInbox] = useState(0);
     const [countBlog, setCountBlog] = useState(0);
+    const [countExternalEmployee, setCountExternalEmployee] = useState(0);
+    const [countEmployee, setCountEmployee] = useState(0);
     const [countGallery, setCountGallery] = useState(0);
+    const [countFAQ, setCountFAQ] = useState(0);
+    const [countUser, setCountUser] = useState(0);
+    const [countPartner, setCountPartner] = useState(0);
 
     const getCount = async () => {
         try {
@@ -14,6 +19,16 @@ const Welcome = () => {
             setCountInbox(responseInbox.data.count);
             const responseBlog = await axios.get("http://localhost:5000/blogs/count");
             setCountBlog(responseBlog.data.count);
+            const responseExternalEmployee = await axios.get("http://localhost:5000/externalEmployees/count");
+            setCountExternalEmployee(responseExternalEmployee.data.count);
+            const responseEmployee = await axios.get("http://localhost:5000/employees/count");
+            setCountEmployee(responseEmployee.data.count);
+            const responseUser = await axios.get("http://localhost:5000/users/count");
+            setCountUser(responseUser.data.count);
+            const responseFAQ = await axios.get("http://localhost:5000/faqs/count");
+            setCountFAQ(responseFAQ.data.count);
+            const responsePartner = await axios.get("http://localhost:5000/partners/count");
+            setCountPartner(responsePartner.data.count);
             const responseGallery = await axios.get("http://localhost:5000/gallerys/count");
             setCountGallery(responseGallery.data.count);
         } catch (error) {
@@ -35,57 +50,105 @@ const Welcome = () => {
             <div className="container mr-2">
                 <div className="columns is-multiline">
                     <div className="column is-3">
-                        {/* <h1 className="title has-text-centered">Pesan</h1> */}
-                        <div className="card has-background-info">
+                        <div className="card has-background-danger-dark" style={{height: '150px'}}>
                             <div className="card-content">
                                 <div className="content" style={{ height: "160px" }}>
-                                    <div className="has-text-centered pt-5">
-                                        <h1 className="title has-text-white-ter">{countInbox}</h1>
-                                        <h2 className="title has-text-white-ter">Total Inbox</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="column is-3">
-                        {/* <h1 className="title has-text-centered">FAQ</h1> */}
-                        <div className="card has-background-primary">
-                            <div className="card-content">
-                                <div className="content" style={{ height: "160px" }}>
-                                    <div className="has-text-centered pt-5">
-                                        <h1 className="title has-text-white-ter">15</h1>
-                                        <h2 className="title has-text-white-ter">Total Pengunjung</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="column is-3">
-                        {/* <h1 className="title has-text-centered">FAQ</h1> */}
-                        <div className="card has-background-success">
-                            <div className="card-content">
-                                <div className="content" style={{ height: "160px" }}>
-                                    <div className="has-text-centered pt-5">
+                                    <div className="has-text-centered">
                                         <h1 className="title has-text-white-ter">{countBlog}</h1>
-                                        <h2 className="title has-text-white-ter">Total Blog</h2>
+                                        <h4 className="title has-text-white-ter">Total Blog</h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="column is-3">
-                        {/* <h1 className="title has-text-centered">FAQ</h1> */}
-                        <div className="card has-background-danger">
+                        <div className="card has-background-info"style={{height: '150px'}}>
                             <div className="card-content">
                                 <div className="content" style={{ height: "160px" }}>
-                                    <div className="has-text-centered pt-5">
-                                        <h1 className="title has-text-white-ter">{countGallery}</h1>
-                                        <h2 className="title has-text-white-ter">Total Gallery</h2>
+                                    <div className="has-text-centered">
+                                        <h1 className="title has-text-white-ter">{countInbox}</h1>
+                                        <h4 className="title has-text-white-ter">Total Inbox</h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div className="column is-3">
+                        <div className="card has-background-success"style={{height: '150px'}}>
+                            <div className="card-content">
+                                <div className="content" style={{ height: "160px" }}>
+                                    <div className="has-text-centered">
+                                        <h1 className="title has-text-white-ter">{countFAQ}</h1>
+                                        <h4 className="title has-text-white-ter">Total FAQ</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {user && user.role === "admin" && (
+                        <>
+                        <div className="column is-3">
+                                <div className="card has-background-info-dark"style={{height: '150px'}}>
+                            <div className="card-content">
+                                <div className="content" style={{ height: "160px" }}>
+                                    <div className="has-text-centered">
+                                                <h1 className="title has-text-white-ter">{countEmployee}</h1>
+                                                <h4 className="title has-text-white-ter">Total Internal Employee</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="column is-3">
+                                <div className="card has-background-danger"style={{height: '150px'}}>
+                            <div className="card-content">
+                                <div className="content" style={{ height: "160px" }}>
+                                    <div className="has-text-centered">
+                                                <h1 className="title has-text-white-ter">{countExternalEmployee}</h1>
+                                                <h4 className="title has-text-white-ter">Total External Employee</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="column is-3">
+                                <div className="card has-background-grey"style={{height: '150px'}}>
+                            <div className="card-content">
+                                <div className="content" style={{ height: "160px" }}>
+                                    <div className="has-text-centered">
+                                                <h1 className="title has-text-white-ter">{countPartner}</h1>
+                                                <h4 className="title has-text-white-ter">Total Partner</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="column is-3">
+                                <div className="card has-background-grey-dark"style={{height: '150px'}}>
+                            <div className="card-content">
+                                <div className="content" style={{ height: "160px" }}>
+                                    <div className="has-text-centered">
+                                                <h1 className="title has-text-white-ter">{countUser}</h1>
+                                                <h4 className="title has-text-white-ter">Total User</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="column is-3">
+                                <div className="card has-background-success-dark"style={{height: '150px'}}>
+                            <div className="card-content">
+                                <div className="content" style={{ height: "160px" }}>
+                                    <div className="has-text-centered">
+                                                <h1 className="title has-text-white-ter">{countGallery}</h1>
+                                                <h4 className="title has-text-white-ter">Total Gallery</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
         </div>
