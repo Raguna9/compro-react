@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 
 const FormEditUser = () => {
     const [name, setName] = useState("");
@@ -42,6 +43,10 @@ const FormEditUser = () => {
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data.msg);
+                toast.error(`${msg}`, {
+                    position: toast.POSITION.TOP_RIGHT,
+                    autoClose: 2000
+                });
             }
         }
     };
@@ -57,7 +62,6 @@ const FormEditUser = () => {
                 <div className="card-content">
                     <div className="content">
                         <form onSubmit={updateUser}>
-                            <p className="has-text-centered">{msg}</p>
                             <div className="field">
                                 <label className="label">Name</label>
                                 <div className="control">
@@ -128,6 +132,7 @@ const FormEditUser = () => {
                                     <button type="submit" className="button is-danger ml-2" onClick={handleCancle}>
                                         Cancel
                                     </button>
+                                    <ToastContainer limit={1}/>
                                 </div>
                             </div>
                         </form>

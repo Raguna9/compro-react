@@ -2,12 +2,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 
 const FormEditPartner = () => {
     const [name, setName] = useState("");
     const [file, setFile] = useState("");
     const [preview, setPreview] = useState("");
     const navigate = useNavigate();
+    const [msg, setMsg] = useState("");
     const { id } = useParams();
 
     useEffect(() => {
@@ -39,7 +41,13 @@ const FormEditPartner = () => {
             });
             navigate("/partners");
         } catch (error) {
-            console.log(error);
+            if (error.response) {
+                setMsg(error.response.data.msg);
+                toast.error(`${msg}`, {
+                    position: toast.POSITION.TOP_RIGHT,
+                    autoClose: 2000
+                });
+            }
         }
     };
 
@@ -107,6 +115,7 @@ const FormEditPartner = () => {
                                     <button type="submit" className="button is-danger ml-2" onClick={handleCancle}>
                                         Cancel
                                     </button>
+                                    <ToastContainer limit={1}/>
                                 </div>
                             </div>
                         </form>
