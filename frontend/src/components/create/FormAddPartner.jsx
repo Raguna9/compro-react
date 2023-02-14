@@ -9,6 +9,8 @@ const FormAddPartner = () => {
     const [name, setName] = useState("");
     const [file, setFile] = useState("");
     const [preview, setPreview] = useState("");
+    const [msg, setMsg] = useState("");
+
     const navigate = useNavigate();
 
     const savePartner = async (e) => {
@@ -22,18 +24,15 @@ const FormAddPartner = () => {
                     "Content-type": "multipart/form-data",
                 },
             });
-            toast.success('Form berhasil dikirim!', {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 2000,
-                onClose: () => navigate("/partners"),
-            });
-            
+            navigate("/partners")
         } catch (error) {
-            console.log(error);
-            toast.error('Form tidak boleh kosong!', {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 2000
-            });
+            if (error.response) {
+                setMsg(error.response.data.msg);
+                toast.error(`${msg}`, {
+                    position: toast.POSITION.TOP_RIGHT,
+                    autoClose: 2000
+                });
+            }
         }      
     };
 
@@ -95,7 +94,7 @@ const FormAddPartner = () => {
                                     <button type="submit" className="button is-success">
                                         Save
                                     </button>
-                                    <ToastContainer/>
+                                    <ToastContainer limit={1}/>
                                 </div>
                             </div>
                         </form>

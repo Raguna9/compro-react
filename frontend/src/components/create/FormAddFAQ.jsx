@@ -70,7 +70,7 @@ const FormAddFAQ = () => {
                                     <button type="submit" className="button is-success">
                                         Save
                                     </button>
-                                    <ToastContainer />
+                                    <ToastContainer limit={1}/>
                                 </div>
                             </div>
                         </form>
