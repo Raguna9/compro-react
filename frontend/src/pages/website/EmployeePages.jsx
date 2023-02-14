@@ -7,46 +7,34 @@ import Employee from "../../components/websites/karyawan/Employee";
 import ExternalEmployee from "../../components/websites/karyawan/ExternalEmployee";
 
 const EmployeePages = () => {
-    const [currentComponent, setCurrentComponent] = useState('internal');
+    const [activeTab, setActiveTab] = useState('internal');
 
     return (
         <React.Fragment>
             <PublicNavbar />
-            <div className="section">
-                <div className="container">
-                    <h1 className="title has-text-centered mt-5">Our Employee</h1>
-
-                    <div>
-                        <nav className="navbar mb-4" style={{ zIndex: "2" }}>
-                            <a
-                                className={`navbar-item ${currentComponent === 'internal' ? 'is-active' : ''} has-text-centered`}
-                                style={{
-                                    background: currentComponent === 'internal' ? '#0F172A' : 'none',
-                                    borderRadius: "1em",
-                                    color: currentComponent === 'internal' ? 'white' : 'black'
-                                }}
-                                onClick={() => setCurrentComponent('internal')}
+            <section className="section" >
+                <div className="container mt-6">
+                    <h1 className="title">Tenaga Kerja</h1>
+                    <div className="tabs is-centered">
+                        <ul>
+                            <li
+                                className={activeTab === 'internal' ? 'is-active' : ''}
+                                onClick={() => setActiveTab('internal')}
                             >
-                                Internal Employee
-                            </a>
-                            <a
-                                className={`navbar-item ${currentComponent === 'external' ? 'is-active' : ''} has-text-centered`}
-                                style={{
-                                    background: currentComponent === 'external' ? '#0F172A' : 'none',
-                                    borderRadius: "1em",
-                                    color: currentComponent === 'external' ? 'white' : 'black'
-                                }}
-                                onClick={() => setCurrentComponent('external')}
+                                <a>Internal</a>
+                            </li>
+                            <li
+                                className={activeTab === 'eksternal' ? 'is-active' : ''}
+                                onClick={() => setActiveTab('eksternal')}
                             >
-                                External Employee
-                            </a>
-                        </nav>
-
-                        {currentComponent === 'internal' && <Employee />}
-                        {currentComponent === 'external' && <ExternalEmployee />}
+                                <a>External</a>
+                            </li>
+                        </ul>
                     </div>
+                    {activeTab === 'internal' && <Employee />}
+                    {activeTab === 'eksternal' && <ExternalEmployee />}
                 </div>
-            </div>
+            </section>
             <PublicFooter />
         </React.Fragment>
     );
