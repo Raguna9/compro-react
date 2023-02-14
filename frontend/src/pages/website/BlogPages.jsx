@@ -67,28 +67,6 @@ function BlogPages() {
           </form>
         </div>
 
-        {/* <div className="container">
-          {blogs.map(blog => (
-            <div key={blog.id} className="box">
-              <p className="title is-4">{blog.tittle}</p>
-              <p className="subtitle is-6">
-                {users.map((user) => {
-                  if (user.id === blog.userId) {
-                    return <span key={user.id}>{user.name}</span>;
-                  } else {
-                    return null;
-                  }
-                })}
-                <span> ({moment(blog.updatedAt).format('MMMM Do YYYY, h:mm:ss a')})</span>
-              </p>
-              <figure className="image is-4by3">
-                <img src={blog.urlImage} alt={blog.tittle} />
-              </figure>
-              <p className="content">{blog.content}</p>
-            </div>
-          ))}
-          <BackToTop />
-        </div> */}
         <div className="container">
           {blogs.map((blog) => (
             <div key={blog.id} className="box">
@@ -109,6 +87,7 @@ function BlogPages() {
               <p className="content">{blog.content}</p>
             </div>
           ))}
+          <BackToTop />
         </div>
       </section>
       <PublicFooter />
