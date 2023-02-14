@@ -12,12 +12,21 @@ export const getUsers = async (req, res) => {
     }
 }
 
+export const getUserCount = async (req, res) => {
+    try {
+        const count = await User.count();
+        return res.status(200).json({ count });
+    } catch (error) {
+        return res.status(500).json({ msg: "Terjadi kesalahan saat mengambil jumlah data" });
+    }
+};
+
 export const getUserById = async (req, res) => {
     try {
         const response = await User.findOne({
             attributes: ['uuid', 'name', 'email', 'role'],
             where: {
-                id: req.params.id
+                uuid: req.params.id
             }
         });
         res.status(200).json(response);
@@ -39,7 +48,11 @@ export const createUser = async (req, res) => {
         });
         res.status(201).json({ msg: "Register Berhasil" });
     } catch (error) {
-        res.status(400).json({ msg: error.message });
+        let message = error.message;
+        if (message.includes("Validation error:")) {
+            message = message.split("Validation error: ")[1];
+        }
+        res.status(400).json({ msg: message });
     }
 }
 
@@ -71,7 +84,11 @@ export const updateUser = async (req, res) => {
         });
         res.status(200).json({ msg: "User Updated" });
     } catch (error) {
-        res.status(400).json({ msg: error.message });
+        let message = error.message;
+        if (message.includes("Validation error:")) {
+            message = message.split("Validation error: ")[1];
+        }
+        res.status(400).json({ msg: message });
     }
 }
 

@@ -17,28 +17,40 @@ const Blogs = db.define('blog', {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                args: true,
+                msg: "Title tidak boleh kosong"
+            }
         }
     },
     content: {
         type: DataTypes.TEXT,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                args: true,
+                msg: "Content tidak boleh kosong"
+            }
         }
     },
-    image:{
+    image: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate:{
-            notEmpty: true
+        validate: {
+            notEmpty: {
+                args: true,
+                msg: "Image tidak boleh kosong"
+            }
         }
     },
-    urlImage:{
+    urlImage: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate:{
-            notEmpty: true
+        validate: {
+            notEmpty: {
+                args: true,
+                msg: "Image tidak boleh kosong"
+            }
         }
     },
     userId: {
@@ -46,6 +58,10 @@ const Blogs = db.define('blog', {
         allowNull: false,
         validate: {
             notEmpty: true
+        },
+        references: {
+            model: 'User',
+            key: 'id'
         }
     }
 }, {

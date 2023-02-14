@@ -16,7 +16,10 @@ const Partner = db.define('partner',{
         type: DataTypes.STRING,
         allowNull: true,
         validate:{
-            notEmpty: false,
+            notEmpty: {
+                args: true,
+                msg: "Nama tidak boleh kosong"
+            },
             len: [3, 100]
         }
     },
@@ -24,14 +27,20 @@ const Partner = db.define('partner',{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
-            notEmpty: true
+            notEmpty: {
+                args: true,
+                msg: "Image tidak boleh kosong"
+            }
         }
     },
     urlImage:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
-            notEmpty: true
+            notEmpty: {
+                args: true,
+                msg: "Image tidak boleh kosong"
+            }
         }
     }
 },{

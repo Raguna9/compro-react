@@ -16,7 +16,10 @@ const Users = db.define('users',{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
-            notEmpty: true,
+            notEmpty: {
+                args: true,
+                msg: "Nama tidak boleh kosong"
+            },
             len: [3, 100]
         }
     },
@@ -25,7 +28,10 @@ const Users = db.define('users',{
         allowNull: false,
         validate:{
             notEmpty: true,
-            isEmail: true
+            isEmail: {
+                args: true,
+                msg: "Email tidak valid"
+            }
         }
     },
     password:{

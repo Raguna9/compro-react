@@ -16,22 +16,34 @@ const INBOX = db.define('inbox',{
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true,
-            isEmail: true
+            notEmpty: {
+                args: true,
+                msg: "Email tidak boleh kosong"
+            },
+            isEmail: {
+                args: true,
+                msg: "Email tidak valid"
+            }
         }
     },
     subject: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                args: true,
+                msg: "Subject tidak boleh kosong"
+            }
         }
     },
     messageContent: {
         type: DataTypes.TEXT,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                args: true,
+                msg: "Pesan tidak boleh kosong"
+            }
         }
     }
 },{

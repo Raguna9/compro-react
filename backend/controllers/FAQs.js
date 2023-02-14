@@ -9,6 +9,15 @@ export const getFAQs = async (req, res) => {
     }
 }
 
+export const getFAQCount = async (req, res) => {
+    try {
+        const count = await FAQ.count();
+        return res.status(200).json({ count });
+    } catch (error) {
+        return res.status(500).json({ msg: "Terjadi kesalahan saat mengambil jumlah data" });
+    }
+};
+
 export const getFAQById = async (req, res) => {
     try {
         const response = await FAQ.findOne({

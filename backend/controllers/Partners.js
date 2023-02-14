@@ -11,6 +11,15 @@ export const getPartners = async (req, res) => {
     }
 }
 
+export const getPartnerCount = async (req, res) => {
+    try {
+        const count = await Partner.count();
+        return res.status(200).json({ count });
+    } catch (error) {
+        return res.status(500).json({ msg: "Terjadi kesalahan saat mengambil jumlah data" });
+    }
+};
+
 export const getPartnerById = async (req, res) => {
     try {
         const response = await Partner.findOne({
@@ -45,7 +54,11 @@ export const createPartner = async (req, res) => {
             await Partner.create({ name: name, image: fileName, urlImage: urlImage });
             res.status(201).json({ msg: "Partner Created Successfuly" });
         } catch (error) {
-            console.log(error.message);
+            let message = error.message;
+            if (message.includes("Validation error:")) {
+                message = message.split("Validation error: ")[1];
+            }
+            res.status(400).json({ msg: message });
         }
     })
 }
@@ -92,7 +105,11 @@ export const updatePartner = async (req, res) => {
         });
         res.status(200).json({ msg: "Partner Updated Successfuly" });
     } catch (error) {
-        console.log(error.message);
+        let message = error.message;
+        if (message.includes("Validation error:")) {
+            message = message.split("Validation error: ")[1];
+        }
+        res.status(400).json({ msg: message });
     }
 }
 

@@ -1,14 +1,14 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 
-const {DataTypes} = Sequelize;
+const { DataTypes } = Sequelize;
 
-const FAQ = db.define('faq',{
-    uuid:{
+const FAQ = db.define('faq', {
+    uuid: {
         type: DataTypes.STRING,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
-        validate:{
+        validate: {
             notEmpty: true
         }
     },
@@ -16,17 +16,23 @@ const FAQ = db.define('faq',{
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                args: true,
+                msg: "Question tidak boleh kosong"
+            }
         }
     },
     answer: {
         type: DataTypes.TEXT,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                args: true,
+                msg: "Answer tidak boleh kosong"
+            }
         }
     }
-},{
+}, {
     freezeTableName: true
 });
 

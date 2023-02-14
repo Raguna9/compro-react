@@ -11,6 +11,15 @@ export const getEmployees = async (req, res) => {
     }
 }
 
+export const getEmployeeCount = async (req, res) => {
+    try {
+        const count = await Employee.count();
+        return res.status(200).json({ count });
+    } catch (error) {
+        return res.status(500).json({ msg: "Terjadi kesalahan saat mengambil jumlah data" });
+    }
+};
+
 export const getEmployeeById = async (req, res) => {
     try {
         const response = await Employee.findOne({

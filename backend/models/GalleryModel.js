@@ -16,21 +16,30 @@ const Gallery = db.define('gallery', {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                args: true,
+                msg: "Image tidak boleh kosong"
+            }
         }
     },
     urlImage: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                args: true,
+                msg: "Image tidak boleh kosong"
+            }
         }
     },
     description: {
         type: DataTypes.TEXT,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                args: true,
+                msg: "Deskripsi tidak boleh kosong"
+            }
         }
     }
 }, {
