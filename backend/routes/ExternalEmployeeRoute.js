@@ -4,13 +4,15 @@ import {
     getExternalEmployeeById,
     createExternalEmployee,
     updateExternalEmployee,
-    deleteExternalEmployee
+    deleteExternalEmployee,
+    getExternalEmployeeCount
 } from "../controllers/ExternalEmployees.js";
 import { verifyUser, adminOnly } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 
 router.get('/externalEmployees', verifyUser, adminOnly, getExternalEmployees);
+router.get('/externalEmployees/count', getExternalEmployeeCount);
 router.get('/externalEmployees/:id', verifyUser, adminOnly, getExternalEmployeeById);
 router.post('/externalEmployees', verifyUser, adminOnly, createExternalEmployee);
 router.patch('/externalEmployees/:id', verifyUser, adminOnly, updateExternalEmployee);
