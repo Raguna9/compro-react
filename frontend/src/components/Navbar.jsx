@@ -12,13 +12,10 @@ const Navbar = () => {
 
     const logout = () => {
         if (window.confirm("Are you sure for logout?")) {
-            // lakukan sesuatu jika pengguna mengklik tombol "OK"
             dispatch(LogOut());
             dispatch(reset());
             navigate("/login");
-        } else {
-            // lakukan sesuatu jika pengguna mengklik tombol "Cancel"
-        }
+        } 
     };
 
     return (
