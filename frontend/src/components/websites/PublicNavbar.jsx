@@ -64,7 +64,7 @@ const PublicNavbar = () => {
                                     Tentang Perusahaan
                                 </a>
                                 <a className="navbar-item" onClick={() => window.location.assign('employeepages')}>
-                                    Karyawan
+                                    Tenaga Kerja
                                 </a>
                                 {window.location.pathname === '/' ? (
                                     <Link className="navbar-item" to="partner" spy={true} smooth={true} offset={-50} duration={500}>

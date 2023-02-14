@@ -30,7 +30,7 @@ import BlogPages from "./pages/website/BlogPages";
 import GalleryPages from "./pages/website/GalleryPages";
 import EmployeePages from "./pages/website/EmployeePages";
 import FAQPages from "./pages/website/FAQPages";
-// import PublicNavbar from "./pages/PublicNavbar";
+import AboutCompanyPages from "./pages/website/AboutCompanyPages";
 
 function App() {
   return (
@@ -43,6 +43,7 @@ function App() {
           <Route path="/gallerypages" element={<GalleryPages />} />
           <Route path="/employeepages" element={<EmployeePages />} />
           <Route path="/faqpages" element={<FAQPages />} />
+          <Route path="/aboutpages" element={<AboutCompanyPages />} />
           {/* <Route path="/" element={<PublicNavbar />} /> */}
 
 
