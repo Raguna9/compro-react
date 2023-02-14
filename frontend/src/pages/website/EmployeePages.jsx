@@ -17,26 +17,29 @@ const EmployeePages = () => {
                     <h1 className="title has-text-centered mt-5">Our Employee</h1>
 
                     <div>
-                        <nav className="navbar mb-4" style={{zIndex: "2"}}>
-                            <div className="navbar-menu">
-                                <a href="/" className="button is-primary mt-2">Back to Homepage</a>
-                                <div className="navbar-end">
-                                    <a
-                                        className={`navbar-item ${currentComponent === 'internal' ? 'is-active' : ''}`}
-                                        style={{ background: currentComponent === 'internal' ? '#f5f5f5' : 'none' }}
-                                        onClick={() => setCurrentComponent('internal')}
-                                    >
-                                        Internal Employee
-                                    </a>
-                                    <a
-                                        className={`navbar-item ${currentComponent === 'external' ? 'is-active' : ''}`}
-                                        style={{ background: currentComponent === 'external' ? '#f5f5f5' : 'none' }}
-                                        onClick={() => setCurrentComponent('external')}
-                                    >
-                                        External Employee
-                                    </a>
-                                </div>
-                            </div>
+                        <nav className="navbar mb-4" style={{ zIndex: "2" }}>
+                            <a
+                                className={`navbar-item ${currentComponent === 'internal' ? 'is-active' : ''} has-text-centered`}
+                                style={{
+                                    background: currentComponent === 'internal' ? '#0F172A' : 'none',
+                                    borderRadius: "1em",
+                                    color: currentComponent === 'internal' ? 'white' : 'black'
+                                }}
+                                onClick={() => setCurrentComponent('internal')}
+                            >
+                                Internal Employee
+                            </a>
+                            <a
+                                className={`navbar-item ${currentComponent === 'external' ? 'is-active' : ''} has-text-centered`}
+                                style={{
+                                    background: currentComponent === 'external' ? '#0F172A' : 'none',
+                                    borderRadius: "1em",
+                                    color: currentComponent === 'external' ? 'white' : 'black'
+                                }}
+                                onClick={() => setCurrentComponent('external')}
+                            >
+                                External Employee
+                            </a>
                         </nav>
 
                         {currentComponent === 'internal' && <Employee />}
