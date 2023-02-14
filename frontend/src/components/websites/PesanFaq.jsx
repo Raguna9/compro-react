@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -9,10 +8,6 @@ const PesanFaq = () => {
     const [subject, setSubject] = useState("");
     const [messageContent, setMessageContent] = useState("");
     const [msg, setMsg] = useState("");
-    const navigate = useNavigate();
-
-    const [showAnswers, setShowAnswers] = useState({});
-    const [activeQuestion, setActiveQuestion] = useState(-1);
     const [faq, setFAQs] = useState([]);
 
     const saveInbox = async (e) => {
@@ -23,9 +18,6 @@ const PesanFaq = () => {
                 subject: subject,
                 messageContent: messageContent
             });
-    setEmail("");
-    setSubject("");
-    setMessageContent("");
             toast.success('Pesan berhasil dikirim!', {
                 position: toast.POSITION.TOP_RIGHT,
                 autoClose: 2000
@@ -33,20 +25,12 @@ const PesanFaq = () => {
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data.msg);
-                toast.error('Form tidak boleh kosong!!', {
+                toast.error(`${msg}`, {
                     position: toast.POSITION.TOP_RIGHT,
                     autoClose: 2000
                 });
             }
         }
-    };
-
-    const handleClick = (index) => {
-        setActiveQuestion(index === activeQuestion ? -1 : index);
-        setShowAnswers({
-            ...showAnswers,
-            [index]: !showAnswers[index],
-        });
     };
 
     useEffect(() => {
@@ -60,7 +44,6 @@ const PesanFaq = () => {
             <div className="container">
                 <div className="columns is-multiline">
                     <div className="column is-8">
-                        {/* <h1 className="title has-text-centered">Pesan</h1> */}
                         <div className="card has-background-light">
                             <div className="card-content">
                                 <div className="content">
@@ -74,7 +57,7 @@ const PesanFaq = () => {
                                                     className="input"
                                                     value={email}
                                                     onChange={(e) => setEmail(e.target.value)}
-                                                    placeholder="Tittle"
+                                                    placeholder="example@gmail.com"
                                                 />
                                             </div>
                                         </div>
@@ -86,7 +69,7 @@ const PesanFaq = () => {
                                                     className="input"
                                                     value={subject}
                                                     onChange={(e) => setSubject(e.target.value)}
-                                                    placeholder="Tittle"
+                                                    placeholder="Subject"
                                                 />
                                             </div>
                                         </div>
@@ -97,7 +80,7 @@ const PesanFaq = () => {
                                                     className="textarea"
                                                     value={messageContent}
                                                     onChange={(e) => setMessageContent(e.target.value)}
-                                                    placeholder="Content"
+                                                    placeholder="Isi Pesan"
                                                     rows="10">
                                                 </textarea>
                                             </div>
@@ -109,7 +92,7 @@ const PesanFaq = () => {
                                                     Kirim
                                                 </button>
 
-                                                <ToastContainer />
+                                                <ToastContainer limit={1}/>
                                             </div>
                                         </div>
                                     </form>
@@ -118,29 +101,18 @@ const PesanFaq = () => {
                         </div>
                     </div>
                     <div className="column is-4">
-                        {/* <h1 className="title has-text-centered">FAQ</h1> */}
                         <div className="card has-background-light">
                             <div className="card-content">
                                 <div className="content" style={{ height: "562px" }}>
                                     <h4 className="subtitle has-text-centered">Frequently Ask Questions</h4>
-                                    <hr />
-                                    {faq.map((faq, index) => (
-                                        <div key={index}>
-                                            <h2 className="subtitle">
-                                                <button
-                                                    className="button is-primary is-fullwidth is-outlined is-block is-flex"
-                                                    onClick={() => handleClick(index)}
-                                                    style={{ margin: "0" }}
-                                                >
-                                                    {faq.question}
-                                                </button>
+                                    {faq.slice(0, 1).map((faq, index) => (
+                                        <div className="pt-3" key={index}>
+                                            <h2 className="subtitle is-6">
                                             </h2>
-                                            {index === activeQuestion && (
-                                                <p>{faq.answer}</p>
-                                            )}
+                                            <p style={{ fontSize: '15px', textAlign: 'justify', textJustify: 'inter-word' }}>{faq.answer}</p>
                                         </div>
                                     ))}
-                                    <a href="faqpages" className="button is-primary is-fullwidth mt-4">Selengkapnya</a>
+                                    <a href="faqpages" className="button is-primary is-fullwidth mt-4">Lihat Semua FAQ</a>
 
                                 </div>
                             </div>
