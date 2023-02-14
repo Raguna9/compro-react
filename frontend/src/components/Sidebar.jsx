@@ -13,74 +13,96 @@ const Sidebar = () => {
     const { user } = useSelector((state) => state.auth);
 
     const logout = () => {
-        dispatch(LogOut());
-        dispatch(reset());
-        navigate("/login");
+        if (window.confirm("Are you sure for logout?")) {
+            dispatch(LogOut());
+            dispatch(reset());
+            navigate("/login");
+        } 
     };
 
     return (
         <div>
             <aside className="menu mt-2 pl-2 has-shadow">
-                <p className="menu-label">General</p>
+                <span className="menu-label">General</span>
 
                 <ul className="menu-list">
                     <li>
                         <NavLink to={"/dashboard"}>
-                            <IoHome /> Dashboard
+                            <span style={{ fontSize: '14px' }}>
+                                <IoHome /> Dashboard
+                            </span>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to={"/blogs"}>
-                            <FaBloggerB /> Blogs
+                            <span style={{ fontSize: '14px' }}>
+                                <FaBloggerB /> Blogs
+                            </span>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to={"/inboxs"}>
-                            <BsChatLeftTextFill /> Inboxs
+                            <span style={{ fontSize: '14px' }}>
+                                <BsChatLeftTextFill /> Inboxs
+                            </span>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to={"/faqs"}>
-                            <RiQuestionAnswerLine /> FAQs
+                            <span style={{ fontSize: '14px' }}>
+                                <RiQuestionAnswerLine /> FAQs
+                            </span>
                         </NavLink>
                     </li>
                 </ul>
                 {user && user.role === "admin" && (
                     <div>
-                        <p className="menu-label">Admin</p>
+                        <span className="menu-label">Admin</span>
                         <ul className="menu-list">
                             <NavLink to={"/users"}>
-                                <IoPerson /> Users
+                                <span style={{ fontSize: '14px' }}>
+                                    <IoPerson /> Users
+                                </span>
                             </NavLink>
                             <li>
                                 <NavLink to={"/employees"}>
-                                    <FaUserTie /> Employees
+                                    <span style={{ fontSize: '14px' }}>
+                                        <FaUserTie /> Employees
+                                    </span>
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to={"/externalemployees"}>
-                                    <FaUserFriends /> External Employees
+                                    <span style={{ fontSize: '14px' }}>
+                                        <FaUserFriends /> External Employees
+                                    </span>
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to={"/partners"}>
-                                    <BsBank /> Partners
+                                    <span style={{ fontSize: '14px' }}>
+                                        <BsBank /> Partners
+                                    </span>
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to={"/gallerys"}>
-                                    <RiGalleryFill /> Gallery
+                                    <span style={{ fontSize: '14px' }}>
+                                        <RiGalleryFill /> Gallery
+                                    </span>
                                 </NavLink>
                             </li>
                         </ul>
                     </div>
                 )}
 
-                <p className="menu-label">Settings</p>
+                <span className="menu-label">Settings</span>
                 <ul className="menu-list">
                     <li>
                         <button onClick={logout} className="button is-white">
-                            <IoLogOut /> Logout
+                            <span style={{ fontSize: '14px' }}>
+                                <IoLogOut /> Logout
+                            </span>
                         </button>
                     </li>
                 </ul>
