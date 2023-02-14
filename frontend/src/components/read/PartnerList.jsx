@@ -26,7 +26,7 @@ const PartnerList = () => {
 
 
     return (
-        <div>
+        <div className="container mr-2">
             <h1 className="title">Partners</h1>
             <h2 className="subtitle">List of Partners</h2>
             <Link to="/partners/add" className="button is-primary mb-2">

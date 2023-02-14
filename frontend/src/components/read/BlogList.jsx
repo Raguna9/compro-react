@@ -24,7 +24,7 @@ const BlogList = () => {
     };
 
     return (
-        <div>
+        <div className="container mr-2">
             <h1 className="title">Blogs</h1>
             <h2 className="subtitle">List of Blogs</h2>
             <Link to="/blogs/add" className="button is-primary mb-2">
@@ -51,7 +51,7 @@ const BlogList = () => {
                             <td>{blog.tittle}</td>
                             <td>{blog.content}</td>
                             <td>
-                                <figure className="image">
+                                <figure className="image is-3by2">
                                     <img src={blog.urlImage} alt={blog.tittle} />
                                 </figure>
                             </td>

@@ -24,9 +24,9 @@ const ExternalEmployeeList = () => {
     };
 
     return (
-        <div>
-            <h1 className="title">ExternalEmployees</h1>
-            <h2 className="subtitle">List of ExternalEmployees</h2>
+        <div className="container mr-2">
+            <h1 className="title">External Employees</h1>
+            <h2 className="subtitle">List of External Employees</h2>
             <Link to="/externalEmployees/add" className="button is-primary mb-2">
                 Add New
             </Link>

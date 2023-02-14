@@ -24,7 +24,7 @@ const InboxList = () => {
     };
 
     return (
-        <div>
+        <div className="container mr-2">
             <h1 className="title">Inboxs</h1>
             <h2 className="subtitle">List of Inboxs</h2>
             <table className="table is-striped is-fullwidth has-shadow" style={{ tableLayout: "auto" }}>

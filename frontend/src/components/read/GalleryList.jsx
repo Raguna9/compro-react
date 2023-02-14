@@ -23,12 +23,8 @@ const GalleryList = () => {
         }
     };
 
-
-
-
-
     return (
-        <div>
+        <div className="container mr-2">
             <h1 className="title">Gallerys</h1>
             <h2 className="subtitle">List of Gallerys</h2>
             <Link to="/gallerys/add" className="button is-primary mb-2">
@@ -49,7 +45,7 @@ const GalleryList = () => {
                             <td>{index + 1}</td>
                             <td>
                                 <figure className="image is-3by2">
-                                    <img src={gallery.urlImage} alt="Image" />
+                                    <img src={gallery.urlImage} alt={gallery.uuid} />
                                 </figure>
                             </td>
                             <td>{gallery.description}</td>

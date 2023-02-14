@@ -23,10 +23,8 @@ const EmployeeList = () => {
         }
     };
 
-
-
     return (
-        <div>
+        <div className="container mr-2">
             <h1 className="title">Employees</h1>
             <h2 className="subtitle">List of Employees</h2>
             <Link to="/employees/add" className="button is-primary mb-2">
@@ -49,7 +47,7 @@ const EmployeeList = () => {
                     {employees.map((employee, index) => (
                         <tr key={employee.uuid}>
                             <td>{index + 1}</td>
-                            <td style={{ width: "120px" }}>{employee.name}</td>
+                            <td style={{ width: "115px" }}>{employee.name}</td>
                             <td style={{ width: "100px" }}>{employee.department}</td>
                             <td>{employee.gender}</td>
                             <td>{employee.email}</td>

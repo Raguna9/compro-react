@@ -24,7 +24,7 @@ const FAQList = () => {
     };
 
     return (
-        <div>
+        <div className="container mr-2">
             <h1 className="title">FAQs</h1>
             <h2 className="subtitle">List of FAQs</h2>
             <Link to="/faqs/add" className="button is-primary mb-2">
