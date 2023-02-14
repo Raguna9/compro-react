@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
@@ -8,33 +7,28 @@ import BackToTop from '../../utils/BackToTop';
 
 function BlogPages() {
   const [blogs, setBlogs] = useState([]);
-  const [users, setUsers] = useState({});
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:5000/listblogs')
-      .then(response => setBlogs(response.data))
-      .catch(error => console.error(error));
-  }, []);
-
-  useEffect(() => {
-    if (!blogs.length) return;
-
-    const userIds = new Set(blogs.map(blog => blog.userId));
-    const promises = Array.from(userIds).map(userId =>
-      axios.get(`http://localhost:5000/listusers/${userId}`)
-        .then(({ data }) => data)
-    );
-
-    Promise.all(promises)
-      .then(usersData => {
-        const usersDataObject = usersData.reduce((acc, data) => ({
-          ...acc,
-          [data.id]: data
-        }), {});
-        setUsers(usersDataObject);
+      .then(response => {
+        setBlogs(response.data);
+        return response.data;
+      })
+      .then(blog => {
+        const userIds = blog.map(blog => blog.userId);
+        return Promise.all(
+          userIds.map(userId =>
+            axios.get(`http://localhost:5000/listusers/${userId}`)
+          )
+        );
+      })
+      .then(responses => {
+        const users = responses.map(response => response.data);
+        setUsers(users);
       })
       .catch(error => console.error(error));
-  }, [blogs]);
+  }, []);
 
 
 
@@ -43,14 +37,14 @@ function BlogPages() {
       <PublicNavbar />
       <section className="section has-background-grey-lighter">
         <h1 className="title has-text-centered mt-5">Blog</h1>
-        
+
         <div className="container is-hidden-desktop">
-          <form class="navbar-end field has-addons mb-4">
-            <div class="control is-expanded">
-              <input class="input" type="text" placeholder="Cari Blog" />
+          <form className="navbar-end field has-addons mb-4">
+            <div className="control is-expanded">
+              <input className="input" type="text" placeholder="Cari Blog" />
             </div>
-            <div class="control">
-              <button class="button is-info">
+            <div className="control">
+              <button className="button is-info">
                 Cari
               </button>
             </div>
@@ -58,27 +52,33 @@ function BlogPages() {
         </div>
 
         <div className="container is-hidden-mobile">
-          <form class="navbar-end field has-addons mb-4"
+          <form className="navbar-end field has-addons mb-4"
             style={{
               width: "30%"
             }}>
-            <div class="control is-expanded">
-              <input class="input" type="text" placeholder="Cari Blog" />
+            <div className="control is-expanded">
+              <input className="input" type="text" placeholder="Cari Blog" />
             </div>
-            <div class="control">
-              <button class="button is-info">
+            <div className="control">
+              <button className="button is-info">
                 Cari
               </button>
             </div>
           </form>
         </div>
 
-        <div className="container">
+        {/* <div className="container">
           {blogs.map(blog => (
-            <div key={blog.uuid} className="box">
+            <div key={blog.id} className="box">
               <p className="title is-4">{blog.tittle}</p>
               <p className="subtitle is-6">
-                <span>{users[blog.userId]?.name}</span>
+                {users.map((user) => {
+                  if (user.id === blog.userId) {
+                    return <span key={user.id}>{user.name}</span>;
+                  } else {
+                    return null;
+                  }
+                })}
                 <span> ({moment(blog.updatedAt).format('MMMM Do YYYY, h:mm:ss a')})</span>
               </p>
               <figure className="image is-4by3">
@@ -88,6 +88,27 @@ function BlogPages() {
             </div>
           ))}
           <BackToTop />
+        </div> */}
+        <div className="container">
+          {blogs.map((blog) => (
+            <div key={blog.id} className="box">
+              <p className="title is-4">{blog.tittle}</p>
+              <p className="subtitle is-6">
+                {users.map((user) => {
+                  if (user.id === blog.userId) {
+                    return <span key={user.id}>{user.name}</span>;
+                  } else {
+                    return null;
+                  }
+                })}
+                <span> ({moment(blog.updatedAt).format('MMMM Do YYYY, h:mm:ss a')})</span>
+              </p>
+              <figure className="image is-4by3">
+                <img src={blog.urlImage} alt={blog.tittle} />
+              </figure>
+              <p className="content">{blog.content}</p>
+            </div>
+          ))}
         </div>
       </section>
       <PublicFooter />
