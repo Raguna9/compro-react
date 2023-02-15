@@ -1,17 +1,29 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
 const PartnerList = () => {
     const [partners, setPartners] = useState([]);
+    const [page, setPage] = useState(0);
+    const [pages, setPages] = useState(0);
+    const [rows, setRows] = useState(0);
+    const limit = 10;
+    const offset = page * limit;
 
     useEffect(() => {
         getPartners();
-    }, []);
+    }, [page]);
 
     const getPartners = async () => {
-        const response = await axios.get("http://localhost:5000/partners");
-        setPartners(response.data);
+        const response = await axios.get(
+            `http://localhost:5000/partners?search_query=&page=${page}&limit=${limit}`
+        );
+        setPartners(response.data.result);
+        setPage(response.data.page);
+        setPages(response.data.totalPage);
+        setRows(response.data.totalRows);
     };
 
     const deletePartner = async (partnerId) => {
@@ -23,7 +35,9 @@ const PartnerList = () => {
         }
     };
 
-
+    const changePage = ({ selected }) => {
+        setPage(selected);
+    };
 
     return (
         <div className="container mr-2">
@@ -44,7 +58,7 @@ const PartnerList = () => {
                 <tbody>
                     {partners.map((partner, index) => (
                         <tr key={partner.uuid}>
-                            <td>{index + 1}</td>
+                            <td>{index + 1 + offset}</td>
                             <td>{partner.name}</td>
                             <td>
                                 <figure className="image is-3by1">
@@ -69,6 +83,28 @@ const PartnerList = () => {
                     ))}
                 </tbody>
             </table>
+            <p>
+                Total Rows: {rows} Page: {rows ? page + 1 : 0} of {pages}
+            </p>
+            <nav
+                className="pagination is-centered"
+                key={rows}
+                role="navigation"
+                aria-label="pagination"
+            >
+                <ReactPaginate
+                    previousLabel={"< Prev"}
+                    nextLabel={"Next >"}
+                    pageCount={pages}
+                    onPageChange={changePage}
+                    containerClassName={"pagination-list"}
+                    pageLinkClassName={"pagination-link"}
+                    previousLinkClassName={"pagination-previous"}
+                    nextLinkClassName={"pagination-next"}
+                    activeLinkClassName={"pagination-link is-current"}
+                    disabledLinkClassName={"pagination-link is-disabled"}
+                />
+            </nav>
         </div>
     );
 };
