@@ -58,7 +58,11 @@ export const createExternalEmployee = async (req, res) => {
             await ExternalEmployee.create({ name: name, department: department, gender: gender, email: email, sppi: sppi, image: fileName, urlImage: urlImage });
             res.status(201).json({ msg: "ExternalEmployee Created Successfuly" });
         } catch (error) {
-            console.log(error.message);
+            let message = error.message;
+            if (message.includes("Validation error:")) {
+                message = message.split("Validation error: ")[1];
+            }
+            res.status(400).json({ msg: message });
         }
     })
 }
@@ -110,7 +114,11 @@ export const updateExternalEmployee = async (req, res) => {
         });
         res.status(200).json({ msg: "Employee Updated Successfuly" });
     } catch (error) {
-        console.log(error.message);
+        let message = error.message;
+        if (message.includes("Validation error:")) {
+            message = message.split("Validation error: ")[1];
+        }
+        res.status(400).json({ msg: message });
     }
 }
 

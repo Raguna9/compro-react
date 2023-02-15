@@ -40,7 +40,11 @@ export const createFAQ = async (req, res) => {
         });
         res.status(201).json({ msg: "FAQ Berhasil Ditambahkan" });
     } catch (error) {
-        res.status(400).json({ msg: error.message });
+        let message = error.message;
+        if (message.includes("Validation error:")) {
+            message = message.split("Validation error: ")[1];
+        }
+        res.status(400).json({ msg: message });
     }
 }
 
@@ -63,7 +67,11 @@ export const updateFAQ = async (req, res) => {
         });
         res.status(200).json({ msg: "FAQ updated successfuly" });
     } catch (error) {
-        res.status(500).json({ msg: error.message });
+        let message = error.message;
+        if (message.includes("Validation error:")) {
+            message = message.split("Validation error: ")[1];
+        }
+        res.status(400).json({ msg: message });
     }
 }
 

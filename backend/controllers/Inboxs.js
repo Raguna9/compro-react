@@ -41,7 +41,11 @@ export const createInbox = async (req, res) => {
         });
         res.status(201).json({ msg: "Inbox Berhasil Ditambahkan" });
     } catch (error) {
-        res.status(400).json({ msg: error.message });
+        let message = error.message;
+        if (message.includes("Validation error:")) {
+            message = message.split("Validation error: ")[1];
+        }
+        res.status(400).json({ msg: message });;
     }
 }
 

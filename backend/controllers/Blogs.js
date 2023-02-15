@@ -102,7 +102,11 @@ export const createBlog = async (req, res) => {
             await Blog.create({ tittle: tittle, content: content, image: fileName, urlImage: urlImage, userId: req.userId });
             res.status(201).json({ msg: "Blogs Created Successfuly" });
         } catch (error) {
-            console.log(error.message);
+            let message = error.message;
+            if (message.includes("Validation error:")) {
+                message = message.split("Validation error: ")[1];
+            }
+            res.status(400).json({ msg: message });
         }
     })
 }
@@ -159,7 +163,11 @@ export const updateBlog = async (req, res) => {
         }
         res.status(200).json({ msg: "Blog updated successfuly" });
     } catch (error) {
-        res.status(500).json({ msg: error.message });
+        let message = error.message;
+        if (message.includes("Validation error:")) {
+            message = message.split("Validation error: ")[1];
+        }
+        res.status(400).json({ msg: message });
     }
 }
 
@@ -208,7 +216,7 @@ export const getListBlogs = async (req, res) => {
         });
 
         res.status(200).json(response);
-    }catch (error) {
+    } catch (error) {
         res.status(500).json({ msg: error.message });
     }
 }

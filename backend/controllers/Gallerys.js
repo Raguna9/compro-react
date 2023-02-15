@@ -55,7 +55,11 @@ export const createGallery = async (req, res) => {
             await Gallery.create({ image: fileName, urlImage: urlImage, description: description });
             res.status(201).json({ msg: "Gallery Created Successfuly" });
         } catch (error) {
-            console.log(error.message);
+            let message = error.message;
+            if (message.includes("Validation error:")) {
+                message = message.split("Validation error: ")[1];
+            }
+            res.status(400).json({ msg: message });
         }
     })
 }
@@ -102,7 +106,11 @@ export const updateGallery = async (req, res) => {
         });
         res.status(200).json({ msg: "Gallery Updated Successfuly" });
     } catch (error) {
-        console.log(error.message);
+        let message = error.message;
+        if (message.includes("Validation error:")) {
+            message = message.split("Validation error: ")[1];
+        }
+        res.status(400).json({ msg: message });
     }
 }
 
