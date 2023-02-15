@@ -58,7 +58,7 @@ const AboutCompanyPages = () => {
                                 <div className="content">
                                     <h3 className="subtitle">Profil Perusahaan</h3>
                                     <p>
-                                        PT. Global Litigation Nusantara merupakan salah satu badan usaha di Lombok Timur yang bergerak di bidang jasa penanganan tunggakan aset fidusia dan telah mendapat sertifikat Assosiasi Perusahaan Pembiayaan Indonesia (APPI) dengan  pengawasan otoritas Jasa keuangan (OJK).
+                                        PT. Global Litigation Nusantara merupakan salah satu badan usaha di Lombok Timur yang bergerak di bidang jasa penanganan tunggakan aset fidusia yang telah mendapat sertifikat Assosiasi Perusahaan Pembiayaan Indonesia (APPI) dengan  pengawasan otoritas Jasa keuangan (OJK).
                                     </p>
                                     <p>
                                         PT. Global Litigation Nusantara mewadahi Collector atau Debt Collector dalam penanganan aset fidusia yang telah mendapat pelatihan dan Sertifikasi Profesi Pembiayaan Indonesia (SPPI). PT. Global Litigation Nusantara banyak menjalin mitra kerja dengan perusahaan perbankan, koperasi dan finance.

@@ -5,10 +5,9 @@ import Layanan from "../../components/websites/Layanan";
 import Gallery from "../../components/websites/Gallery";
 import PublicFooter from "../../components/websites/PublicFooter";
 import Blog from "../../components/websites/Blog";
-import BackToTop from '../../utils/BackToTop';
 import PesanFaq from '../../components/websites/PesanFaq';
 import Partner from '../../components/websites/Partner';
-// import { BsArrowUpCircle } from "react-icons/bs";
+
 
 
 
@@ -18,7 +17,6 @@ const Main = () => {
         <React.Fragment>
             <PublicNavbar />
             <Home />
-            <BackToTop/>
             <Layanan />
             <Gallery />
             <Blog />

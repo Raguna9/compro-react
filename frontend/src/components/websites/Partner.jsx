@@ -11,8 +11,8 @@ const Partner = () => {
     }, []);
 
     return (
-        <section id="partner" className="section">
-            <div className="container is-full-desktop mx-6">
+        <section id="partner">
+            <div className="container is-full-desktop mt-6 pt-6">
                 <h2 className="title has-text-centered">Mitra Kerja</h2>
                 <div className="columns is-multiline">
                     {partner.map((partner) => (

@@ -15,6 +15,7 @@ const Gallery = () => {
         <div>
             <section id="gallery" className="section">
                 <div className="container">
+                    {/* <hr /> */}
                     <h1 className="title has-text-centered">Gallery</h1>
                     <h2 className="subtitle has-text-centered">
                         Berikut ini adalah beberapa gambar yang menggambarkan layanan kami.

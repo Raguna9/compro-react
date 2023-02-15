@@ -30,7 +30,7 @@ const PublicNavbar = () => {
                 <div id="navbarBasicExample" className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
                     <div className="navbar-end mr-2">
                         {window.location.pathname === '/' ? (
-                            <Link className="navbar-item" to="home" spy={true} smooth={true} offset={0} duration={500}>
+                            <Link className="navbar-item" to="home" spy={true} smooth={true} offset={-50} duration={500}>
                                 Beranda
                             </Link>
                         ) : (

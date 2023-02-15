@@ -32,7 +32,7 @@ const PesanFaq = () => {
     const handleRefresh = () => {
         window.location.reload();
         setIsOpen(null)
-      };
+    };
 
     useEffect(() => {
         axios.get('http://localhost:5000/faqs')
@@ -41,7 +41,7 @@ const PesanFaq = () => {
     }, []);
 
     return (
-        <section className="section has-background-grey-lighter" id="faq">
+        <section className="section" id="faq">
             <div className="container">
                 <div className="columns is-multiline">
                     <div className="column is-8">
@@ -123,18 +123,20 @@ const PesanFaq = () => {
                 </div>
 
                 {name && email && messageContent && isOpen &&
-                        <div className="modal is-active">
-                            <div className="modal-background" onClick={() => setIsOpen(null)} />
-                                <div className="card has-background-white">
-                                    <div className="card-content">
-                                        <h3 className="title is-5 has-text-centered mx-6 pb-4">Pesan Terkirim</h3>
-                                        <button className="button is-primary is-fullwidth"
-                                            onClick={handleRefresh}>OK</button>
-                                    </div>
+                    <div className="modal is-active">
+                        <div className="modal-background" onClick={handleRefresh} />
+                        <div className="card has-background-white">
+                            <div className="card-content">
+                                <h3 className="title is-5 has-text-centered mx-6 my-5">Pesan Terkirim</h3>
+                                <span className="mx-6">
+                                    <button className="button is-primary mx-6"
+                                        onClick={handleRefresh}>OK</button>
+                                </span>
                             </div>
                         </div>
-                }                      
-                
+                    </div>
+                }
+
             </div>
 
         </section>
