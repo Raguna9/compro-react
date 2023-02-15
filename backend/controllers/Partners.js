@@ -4,26 +4,12 @@ import fs from "fs";
 import { Op } from "sequelize";
 
 export const getPartners = async (req, res) => {
-    const page = parseInt(req.query.page) || 0;
-    const limit = parseInt(req.query.limit) || 10;
-    const search = req.query.search_query || "";
-    const offset = limit * page;
-    const totalRows = await Partner.count();
-    const totalPage = Math.ceil(totalRows / limit);
-    const result = await Partner.findAll({
-        offset: offset,
-        limit: limit,
-        order: [
-            ['id', 'DESC']
-        ]
-    });
-    res.json({
-        result: result,
-        page: page,
-        limit: limit,
-        totalRows: totalRows,
-        totalPage: totalPage
-    });
+    try {
+        const response = await Partner.findAll();
+        res.json(response);
+    } catch (error) {
+        console.log(error.message);
+    }
 }
 
 export const getPartnerCount = async (req, res) => {
@@ -39,7 +25,7 @@ export const getPartnerById = async (req, res) => {
     try {
         const response = await Partner.findOne({
             where: {
-                id: req.params.id
+                uuid: req.params.id
             }
         });
         res.json(response);
@@ -81,7 +67,7 @@ export const createPartner = async (req, res) => {
 export const updatePartner = async (req, res) => {
     const partner = await Partner.findOne({
         where: {
-            id: req.params.id
+            uuid: req.params.id
         }
     });
     if (!partner) return res.status(404).json({ msg: "No Data Found" });
@@ -115,7 +101,7 @@ export const updatePartner = async (req, res) => {
     try {
         await Partner.update({ name: name, image: fileName, urlImage: urlImage }, {
             where: {
-                id: partner.id
+                uuid: req.params.id
             }
         });
         res.status(200).json({ msg: "Partner Updated Successfuly" });
@@ -143,11 +129,34 @@ export const deletePartner = async (req, res) => {
         }
         await Partner.destroy({
             where: {
-                id: partner.id
+                uuid: req.params.id
             }
         });
         res.status(200).json({ msg: "Partner Deleted Successfuly" });
     } catch (error) {
         console.log(error.message);
     }
+}
+
+export const getAdminPartners = async (req, res) => {
+    const page = parseInt(req.query.page) || 0;
+    const limit = parseInt(req.query.limit) || 10;
+    const search = req.query.search_query || "";
+    const offset = limit * page;
+    const totalRows = await Partner.count();
+    const totalPage = Math.ceil(totalRows / limit);
+    const result = await Partner.findAll({
+        offset: offset,
+        limit: limit,
+        order: [
+            ['id', 'DESC']
+        ]
+    });
+    res.json({
+        result: result,
+        page: page,
+        limit: limit,
+        totalRows: totalRows,
+        totalPage: totalPage
+    });
 }

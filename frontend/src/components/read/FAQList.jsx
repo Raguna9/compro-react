@@ -48,7 +48,7 @@ const FAQList = () => {
                             <td>{faq.answer}</td>
                             <td style={{ width: "150px" }}>
                                 <Link
-                                    to={`/faqs/edit/${faq.id}`}
+                                    to={`/faqs/edit/${faq.uuid}`}
                                     className="button is-small is-info"
                                 >
                                     Edit

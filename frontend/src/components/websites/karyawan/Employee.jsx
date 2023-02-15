@@ -19,7 +19,7 @@ const Employee = () => {
         <div className='has-has-background-grey-light'>
             <div className="columns is-multiline">
                 {employees.map(employee => (
-                    <div key={employee.id} className="column is-3">
+                    <div key={employee.uuid} className="column is-3">
                         <div className="card">
                             <figure
                                 className="image"

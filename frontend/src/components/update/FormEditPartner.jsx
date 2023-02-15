@@ -63,7 +63,7 @@ const FormEditPartner = () => {
     return (
         <div>
             <h1 className="title">Partners</h1>
-            <h2 className="subtitle">Add New Partner</h2>
+            <h2 className="subtitle">Edit Partner</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">

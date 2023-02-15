@@ -24,7 +24,7 @@ export const getGalleryById = async (req, res) => {
     try {
         const response = await Gallery.findOne({
             where: {
-                id: req.params.id
+                uuid: req.params.id
             }
         });
         res.json(response);
@@ -67,7 +67,7 @@ export const createGallery = async (req, res) => {
 export const updateGallery = async (req, res) => {
     const gallery = await Gallery.findOne({
         where: {
-            id: req.params.id
+            uuid: req.params.id
         }
     });
     if (!gallery) return res.status(404).json({ msg: "No Data Found" });
@@ -101,7 +101,7 @@ export const updateGallery = async (req, res) => {
     try {
         await Gallery.update({ image: fileName, urlImage: urlImage, description: description }, {
             where: {
-                id: req.params.id
+                uuid: req.params.id
             }
         });
         res.status(200).json({ msg: "Gallery Updated Successfuly" });
@@ -117,7 +117,7 @@ export const updateGallery = async (req, res) => {
 export const deleteGallery = async (req, res) => {
     const gallery = await Gallery.findOne({
         where: {
-            id: req.params.id
+            uuid: req.params.id
         }
     });
     if (!gallery) return res.status(404).json({ msg: "No Data Found" });
@@ -129,7 +129,7 @@ export const deleteGallery = async (req, res) => {
         }
         await Gallery.destroy({
             where: {
-                id: req.params.id
+                uuid: req.params.id
             }
         });
         res.status(200).json({ msg: "Gallery Deleted Successfuly" });

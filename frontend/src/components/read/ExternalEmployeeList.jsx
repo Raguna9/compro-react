@@ -59,13 +59,13 @@ const ExternalEmployeeList = () => {
                             </td>
                             <td>
                                 <Link
-                                    to={`/externalEmployees/edit/${externalEmployee.id}`}
+                                    to={`/externalEmployees/edit/${externalEmployee.uuid}`}
                                     className="button is-small is-info"
                                 >
                                     Edit
                                 </Link>
                                 <button
-                                    onClick={() => deleteExternalEmployee(externalEmployee.id)}
+                                    onClick={() => deleteExternalEmployee(externalEmployee.uuid)}
                                     className="button is-small is-danger ml-1"
                                 >
                                     Delete

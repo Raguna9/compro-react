@@ -225,7 +225,7 @@ export const getListBlogById = async (req, res) => {
     try {
         const blog = await Blog.findOne({
             where: {
-                id: req.params.id
+                uuid: req.params.id
             }
         });
         if (!blog) return res.status(404).json({ msg: "Data tidak ditemukan" });

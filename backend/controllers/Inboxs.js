@@ -22,7 +22,7 @@ export const getInboxById = async (req, res) => {
     try {
         const response = await Inbox.findOne({
             where: {
-                id: req.params.id
+                uuid: req.params.id
             }
         });
         res.json(response);
@@ -52,7 +52,7 @@ export const createInbox = async (req, res) => {
 // export const updateInbox = async (req, res) => {
 //     const inbox = await Inbox.findOne({
 //         where: {
-//             id: req.params.id
+//             uuid: req.params.id
 //         }
 //     });
 //     if (!inbox) return res.status(404).json({ msg: "Inbox tidak ditemukan" });

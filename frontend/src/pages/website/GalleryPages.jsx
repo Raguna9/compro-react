@@ -51,7 +51,7 @@ function GalleryPages() {
                     </div>
                     <div className="columns is-multiline">
                         {gallery.map(gallery => (
-                            <div key={gallery.id} className="column is-one-third">
+                            <div key={gallery.uuid} className="column is-one-third">
                                 <div className="card">
                                     <div className="card-image">
                                         <figure className="image">

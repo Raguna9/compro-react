@@ -16,7 +16,7 @@ const ExternalEmployee = () => {
     return (
         <div className="columns is-multiline">
             {externalEmployees.map(externalEmployee => (
-                <div key={externalEmployee.id} className="column is-3">
+                <div key={externalEmployee.uuid} className="column is-3">
                     <div className="card">
                         <figure
                             className="image"

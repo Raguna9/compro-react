@@ -67,13 +67,13 @@ const PartnerList = () => {
                             </td>
                             <td>
                                 <Link
-                                    to={`/partners/edit/${partner.id}`}
+                                    to={`/partners/edit/${partner.uuid}`}
                                     className="button is-small is-info"
                                 >
                                     Edit
                                 </Link>
                                 <button
-                                    onClick={() => deletePartner(partner.id)}
+                                    onClick={() => deletePartner(partner.uuid)}
                                     className="button is-small is-danger ml-1"
                                 >
                                     Delete

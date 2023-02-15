@@ -57,7 +57,7 @@ const FormEditUser = () => {
     return (
         <div>
             <h1 className="title">Users</h1>
-            <h2 className="subtitle">Update User</h2>
+            <h2 className="subtitle">Edit User</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">

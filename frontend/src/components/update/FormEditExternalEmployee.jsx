@@ -67,8 +67,8 @@ const FormEditExternalEmployee = () => {
 
     return (
         <div>
-            <h1 className="title">ExternalEmployees</h1>
-            <h2 className="subtitle">Add New ExternalEmployee</h2>
+            <h1 className="title">External Employees</h1>
+            <h2 className="subtitle">Edit External Employee</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">

@@ -5,7 +5,8 @@ import {
     createUser,
     updateUser,
     deleteUser,
-    getUserCount
+    getUserCount,
+    getListUserById
 } from "../controllers/Users.js";
 import { verifyUser, adminOnly } from "../middleware/AuthUser.js";
 
@@ -19,6 +20,6 @@ router.patch('/users/:id', verifyUser, adminOnly, updateUser);
 router.delete('/users/:id', verifyUser, adminOnly, deleteUser);
 
 router.get('/listusers', getUsers);
-router.get('/listusers/:id', getUserById);
+router.get('/listusers/:id', getListUserById);
 
 export default router;

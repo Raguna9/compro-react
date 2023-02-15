@@ -54,7 +54,7 @@ const PublicNavbar = () => {
                                         Mitra Kerja
                                     </Link>
                                 ) : (
-                                    <a className="navbar-item" to="partner" spy={true} smooth={true} offset={-50} duration={500}>
+                                    <a className="navbar-item" onClick={() => window.location.assign('/')}>
                                         Mitra Kerja
                                     </a>
                                 )}

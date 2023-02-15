@@ -26,7 +26,7 @@ export const getUserById = async (req, res) => {
         const response = await User.findOne({
             attributes: ['id', 'uuid', 'name', 'email', 'role'],
             where: {
-                id: req.params.id
+                uuid: req.params.id
             }
         });
         res.status(200).json(response);
@@ -108,5 +108,20 @@ export const deleteUser = async (req, res) => {
         res.status(200).json({ msg: "User Deleted" });
     } catch (error) {
         res.status(400).json({ msg: error.message });
+    }
+}
+
+//list
+export const getListUserById = async (req, res) => {
+    try {
+        const response = await User.findOne({
+            attributes: ['id', 'uuid', 'name'],
+            where: {
+                id: req.params.id
+            }
+        });
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
     }
 }

@@ -24,7 +24,7 @@ export const getEmployeeById = async (req, res) => {
     try {
         const response = await Employee.findOne({
             where: {
-                id: req.params.id
+                uuid: req.params.id
             }
         });
         res.json(response);
@@ -70,7 +70,7 @@ export const createEmployee = async (req, res) => {
 export const updateEmployee = async (req, res) => {
     const employee = await Employee.findOne({
         where: {
-            id: req.params.id
+            uuid: req.params.id
         }
     });
     if (!employee) return res.status(404).json({ msg: "No Data Found" });
@@ -109,7 +109,7 @@ export const updateEmployee = async (req, res) => {
     try {
         await Employee.update({ name: name, department: department, gender: gender, email: email, sppi: sppi, image: fileName, urlImage: urlImage }, {
             where: {
-                id: req.params.id
+                uuid: req.params.id
             }
         });
         res.status(200).json({ msg: "Employee Updated Successfuly" });
@@ -125,7 +125,7 @@ export const updateEmployee = async (req, res) => {
 export const deleteEmployee = async (req, res) => {
     const employee = await Employee.findOne({
         where: {
-            id: req.params.id
+            uuid: req.params.id
         }
     });
     if (!employee) return res.status(404).json({ msg: "No Data Found" });
@@ -137,7 +137,7 @@ export const deleteEmployee = async (req, res) => {
         }
         await Employee.destroy({
             where: {
-                id: req.params.id
+                uuid: req.params.id
             }
         });
         res.status(200).json({ msg: "Employee Deleted Successfuly" });

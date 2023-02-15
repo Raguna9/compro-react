@@ -22,7 +22,7 @@ export const getFAQById = async (req, res) => {
     try {
         const response = await FAQ.findOne({
             where: {
-                id: req.params.id
+                uuid: req.params.id
             }
         });
         res.json(response);
@@ -51,7 +51,7 @@ export const createFAQ = async (req, res) => {
 export const updateFAQ = async (req, res) => {
     const faq = await FAQ.findOne({
         where: {
-            id: req.params.id
+            uuid: req.params.id
         }
     });
     if (!faq) return res.status(404).json({ msg: "FAQ tidak ditemukan" });
@@ -62,7 +62,7 @@ export const updateFAQ = async (req, res) => {
             answer: answer
         }, {
             where: {
-                id: faq.id
+                uuid: req.params.id
             }
         });
         res.status(200).json({ msg: "FAQ updated successfuly" });
@@ -85,7 +85,7 @@ export const deleteFAQ = async (req, res) => {
     try {
         await FAQ.destroy({
             where: {
-                id: faq.id
+                uuid: req.params.id
             }
         });
         res.status(200).json({ msg: "FAQ deleted successfuly" });

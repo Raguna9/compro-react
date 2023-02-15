@@ -46,7 +46,7 @@ const Blog = () => {
                                     <p className="subtitle is-6" >
                                         {users.map((user) => {
                                             if (user.id === blog.userId) {
-                                                return <span key={user.id}>{user.name}</span>;
+                                                return <span key={user.uuid}>{user.name}</span>;
                                             } else {
                                                 return null;
                                             }

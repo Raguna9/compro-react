@@ -51,13 +51,13 @@ const GalleryList = () => {
                             <td>{gallery.description}</td>
                             <td>
                                 <Link
-                                    to={`/gallerys/edit/${gallery.id}`}
+                                    to={`/gallerys/edit/${gallery.uuid}`}
                                     className="button is-small is-info"
                                 >
                                     Edit
                                 </Link>
                                 <button
-                                    onClick={() => deleteGallery(gallery.id)}
+                                    onClick={() => deleteGallery(gallery.uuid)}
                                     className="button is-small is-danger ml-1"
                                 >
                                     Delete
