@@ -15,7 +15,7 @@ const EmployeePages = () => {
             <section className="section" >
                 <div className="container mt-6">
                     <h1 className="title">Tenaga Kerja</h1>
-                    <div className="tabs is-centered">
+                    <div className="tabs is-small is-boxed">
                         <ul>
                             <li
                                 className={activeTab === 'internal' ? 'is-active' : ''}

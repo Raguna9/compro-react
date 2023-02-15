@@ -26,7 +26,7 @@ const AboutCompanyPages = () => {
                             </div>
                         </div>
                         <div className='column is-6'>
-                            <div className="tabs is-centered">
+                            <div className="tabs is-boxed is-small">
                                 <ul>
                                     <li
                                         className={activeTab === 'profile' ? 'is-active' : ''}
