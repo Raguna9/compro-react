@@ -8,25 +8,25 @@ const Layanan = () => {
                 <div className="container">
                     <h1 className="title has-text-centered">Professional Security for Your Fiduciary Assets</h1>
                     <h2 className="subtitle has-text-centered">
-                        Kami menyediakan jasa pengamanan aset fidusia yang professional untuk melindungi kekayaan Anda.
+                        Kami menyediakan jasa pengamanan aset fidusia yang professional untuk melindungi aset Anda.
                     </h2>
 
                     <div className="columns is-vcentered">
                         <div className="column is-4">
-                            <div className="card" style={{height: '230px'}}>
+                            <div className="card has-background-white-ter" style={{height: '230px'}}>
                                 <div className="card-content">
-                                    <h3 className="title is-4">Surveillance and Monitoring</h3>
+                                    <h3 className="title is-5 has-text-centered">Professional and Secure</h3>
                                     <p>
-                                        Kami menyediakan sistem pemantauan dan pengawasan yang canggih untuk memastikan aset fidusia Anda selalu terlindungi.
+                                        Kami sudah memiliki sertifikasi dari Otoritas Jasa Keuangan (OJK) dan tenaga kerja kami sudah melakukan pelatihan dan memiliki Sertifikasi Profesi Pembiayaan Indonesia (SPPI).
                                     </p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="column is-4">
-                            <div className="card" style={{height: '230px'}}>
+                            <div className="card has-background-white-ter" style={{height: '230px'}}>
                                 <div className="card-content">
-                                    <h3 className="title is-4">Risk Assessment and Management</h3>
+                                    <h3 className="title is-5 has-text-centered">Risk Assessment and Management</h3>
                                     <p>
                                         Kami melakukan evaluasi risiko dan mengelola risiko terkait dengan aset fidusia Anda agar terhindar dari ancaman keamanan.
                                     </p>
@@ -35,9 +35,9 @@ const Layanan = () => {
                         </div>
 
                         <div className="column is-4">
-                            <div className="card" style={{height: '230px'}}>
+                            <div className="card has-background-white-ter" style={{height: '230px'}}>
                                 <div className="card-content">
-                                    <h3 className="title is-4">Security Consulting</h3>
+                                    <h3 className="title is-5 has-text-centered">Security Consulting</h3>
                                     <p>
                                         Kami menyediakan layanan konsultasi keamanan untuk membantu Anda memahami kebutuhan keamanan aset fidusia Anda dan mengembangkan strategi keamanan yang tepat.
                                     </p>

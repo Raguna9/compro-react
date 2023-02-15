@@ -29,7 +29,7 @@ const Blog = () => {
     }, []);
 
     return (
-        <section id="blog" className="section has-background-grey-lighter">
+        <section id="blog" className="section">
             <div className="container">
                 <h1 className="title has-text-centered">Blog</h1>
                 <div className="columns is-multiline">

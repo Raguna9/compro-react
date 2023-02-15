@@ -13,7 +13,7 @@ const Gallery = () => {
 
     return (
         <div>
-            <section id="gallery" className="section has-background-grey-lighter">
+            <section id="gallery" className="section">
                 <div className="container">
                     <h1 className="title has-text-centered">Gallery</h1>
                     <h2 className="subtitle has-text-centered">

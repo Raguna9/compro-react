@@ -1,35 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
 import { Link } from "react-scroll";
 import { GrContact } from "react-icons/gr";
-// import "../../assets/logo/gtnlogo.jpg";
-
+import logo from "./../../assets/logo/gtnlogo.jpg";
 
 const PublicNavbar = () => {
     const [isActive, setIsActive] = useState(false);
-
     const colorWhite = { color: 'white' };
-
 
     return (
         <div>
-            <nav className="navbar is-info is-fixed-top" role="navigation" aria-label="main navigation">
+            <nav className="navbar is-fixed-top" style={{ boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }} role="navigation" aria-label="main navigation">
                 <div className="navbar-brand ml-2">
-                    <Link to={`/`}>
-                        <span className="navbar-item">
-                            <h1
-                                className="title is-4 has-text-white-ter pt-1"
-                            // style={{ 
-                            //     fontFamily: "'Bungee', sans-serif", 
-                            //     color: "white" 
-                            // }}
-                            >
-                                PT. Global Litigation Nusantara
-                            </h1>
-                            {/* <img src="gtnlogo.jpg" alt="Logo GTN" /> */}
-                        </span>
-                    </Link>
+                        <img src={logo} width="100" height="28" alt="PT. GTN"/>
 
                     <a
                         role="button"
@@ -71,7 +54,7 @@ const PublicNavbar = () => {
                                         Mitra Kerja
                                     </Link>
                                 ) : (
-                                    <a className="navbar-item" onClick={() => window.location.assign('/')}>
+                                    <a className="navbar-item" to="partner" spy={true} smooth={true} offset={-50} duration={500}>
                                         Mitra Kerja
                                     </a>
                                 )}

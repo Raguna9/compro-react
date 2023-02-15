@@ -4,7 +4,9 @@ import PublicNavbar from "../../components/websites/PublicNavbar";
 import PublicFooter from "../../components/websites/PublicFooter";
 import logo from "../../assets/logo/gtnlogo.jpg";
 import strog from "../../assets/images/strog.png";
-import { BsLink45Deg } from "react-icons/bs";
+import NIB1 from "../../assets/pdf/NIB1.jpg";
+import NIB2 from "../../assets/pdf/NIB2.jpg";
+// import { BsLink45Deg } from "react-icons/bs";
 
 const AboutCompanyPages = () => {
     const [activeTab, setActiveTab] = useState('profile');
@@ -14,7 +16,7 @@ const AboutCompanyPages = () => {
         <React.Fragment>
             <PublicNavbar />
             <section className="section" >
-                <div className="container mt-6">
+                <div className="container mt-6 mb-5">
                     <h1 className="title">Tentang Perusahaan</h1>
                     <hr />
                     <div className='columns is-multiline'>
@@ -87,7 +89,10 @@ const AboutCompanyPages = () => {
                                 <div className="content">
                                     <h3 className="subtitle">Perizinan</h3>
                                     <p>
-                                        Nomor Induk Berusaha (NIB) <a className='pl-1' href="#" onClick={() => setIsOpen("NIB")}><BsLink45Deg /></a>
+                                        Nomor Induk Berusaha (NIB) <a className='pl-1' href="#" onClick={() => setIsOpen(NIB2)}>Lampiran 1</a>
+                                    </p>
+                                    <p>
+                                        Nomor Induk Berusaha (NIB) <a className='pl-1' href="#" onClick={() => setIsOpen(NIB1)}>Lampiran 2</a>
                                     </p>
                                 </div>
                             )}
@@ -97,7 +102,7 @@ const AboutCompanyPages = () => {
                                 <div className="modal-background" onClick={() => setIsOpen(null)} />
                                 <div className="modal-content">
                                     <p className="image">
-                                        <img src={`http://localhost:5000/pdfs/${isOpen}.pdf`} alt={isOpen} />
+                                        <img src={isOpen} alt={isOpen} />
                                     </p>
                                 </div>
                                 <button className="modal-close is-large" aria-label="close"

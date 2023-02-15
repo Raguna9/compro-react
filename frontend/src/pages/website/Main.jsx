@@ -22,8 +22,8 @@ const Main = () => {
             <Layanan />
             <Gallery />
             <Blog />
-            <PesanFaq />
             <Partner />
+            <PesanFaq />
             <PublicFooter />
         </React.Fragment>
     );
