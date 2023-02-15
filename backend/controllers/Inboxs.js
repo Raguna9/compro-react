@@ -32,11 +32,11 @@ export const getInboxById = async (req, res) => {
 }
 
 export const createInbox = async (req, res) => {
-    const { email, subject, messageContent } = req.body;
+    const { name, email, messageContent } = req.body;
     try {
         await Inbox.create({
+            name: name,
             email: email,
-            subject: subject,
             messageContent: messageContent
         });
         res.status(201).json({ msg: "Inbox Berhasil Ditambahkan" });
@@ -45,29 +45,29 @@ export const createInbox = async (req, res) => {
     }
 }
 
-export const updateInbox = async (req, res) => {
-    const inbox = await Inbox.findOne({
-        where: {
-            id: req.params.id
-        }
-    });
-    if (!inbox) return res.status(404).json({ msg: "Inbox tidak ditemukan" });
-    const { email, subject, messageContent } = req.body;
-    try {
-        await Inbox.update({
-            email: email,
-            subject: subject,
-            messageContent: messageContent
-        }, {
-            where: {
-                id: inbox.id
-            }
-        });
-        res.status(200).json({ msg: "Inbox updated successfuly" });
-    } catch (error) {
-        res.status(500).json({ msg: error.message });
-    }
-}
+// export const updateInbox = async (req, res) => {
+//     const inbox = await Inbox.findOne({
+//         where: {
+//             id: req.params.id
+//         }
+//     });
+//     if (!inbox) return res.status(404).json({ msg: "Inbox tidak ditemukan" });
+//     const { name, email, messageContent } = req.body;
+//     try {
+//         await Inbox.update({
+//             name: name,
+//             email: email,
+//             messageContent: messageContent
+//         }, {
+//             where: {
+//                 id: inbox.id
+//             }
+//         });
+//         res.status(200).json({ msg: "Inbox updated successfuly" });
+//     } catch (error) {
+//         res.status(500).json({ msg: error.message });
+//     }
+// }
 
 export const deleteInbox = async (req, res) => {
     const inbox = await Inbox.findOne({

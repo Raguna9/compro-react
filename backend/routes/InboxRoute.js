@@ -3,7 +3,7 @@ import {
     getInboxs,
     getInboxById,
     createInbox,
-    updateInbox,
+    // updateInbox,
     deleteInbox,
     getInboxCount
 } from "../controllers/Inboxs.js";
@@ -15,7 +15,7 @@ router.get('/inboxs', getInboxs);
 router.get('/inboxs/count', getInboxCount);
 router.get('/inboxs/:id', getInboxById);
 router.post('/inboxs', createInbox);
-router.patch('/inboxs/:id', updateInbox);
+// router.patch('/inboxs/:id', updateInbox);
 router.delete('/inboxs/:id', deleteInbox);
 
 export default router;
