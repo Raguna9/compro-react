@@ -43,6 +43,7 @@ const PesanFaq = () => {
     return (
         <section className="section" id="faq">
             <div className="container">
+                    <h1 className="title is-4">Hubungi Kami</h1>
                 <div className="columns is-multiline">
                     <div className="column is-8">
                         <div className="card has-background-light">

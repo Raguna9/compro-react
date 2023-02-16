@@ -7,12 +7,12 @@ import { AiTwotoneMail, AiFillPhone } from "react-icons/ai";
 const PublicFooter = () => {
 
     return (
-        <div className="has-background-info-dark is-fullwidth px-6">
+        <div className="has-background-white is-fullwidth px-6">
+            <hr />
             <div className="columns">
                 <div className="column is-8">
-                    <h1 className="title has-text-white-ter has-text-centered">Hubungi Kami</h1>
-                    <hr />
-                    <div className="columns is-centered has-text-white-ter">
+                    {/* <h1 className="title is-4">Hubungi Kami</h1> */}
+                    <div className="columns is-centered">
                         <div className="column is-6">
                             <p>
                                 Jalan Raya Sikur - Mataram km. 41
@@ -40,20 +40,19 @@ const PublicFooter = () => {
                 </div>
                 <div className="column is-4">
                     {/* <h3 className="subtitle has-text-white-ter has-text-centered pt-6">Tambahan</h3> */}
-                    <div className="columns is-centered has-text-white-ter pt-4">
-                        <div className="column is-6 pt-6">
-                            <a href="/faqpages"><p className="has-text-white pb-2">FAQ</p></a>
-                            <a href="/blogpages"><p className="has-text-white  pb-2">Blog</p></a>
-                            <a href="/gallerypages"><p className="has-text-white  pb-2">Gallery</p></a>
-                            <a href="/aboutpages"><p className="has-text-white  pb-2">Tentang Perusahaan</p></a>
-                            <a href="/employeepages"><p className="has-text-white  pb-2">Tenaga Kerja</p></a>
-                            <a to="partner"><p className="has-text-white  pb-2">Mitra Kerja</p></a>
+                    <div className="columns is-centered">
+                        <div className="column has-text-info is-6">
+                            <a href="/faqpages"><p className="pb-1">FAQ</p></a>
+                            <a href="/blogpages"><p className=" pb-1">Blog</p></a>
+                            <a href="/gallerypages"><p className=" pb-1">Gallery</p></a>
+                            <a href="/aboutpages"><p className=" pb-1">Tentang Perusahaan</p></a>
+                            <a href="/employeepages"><p className=" pb-1">Tenaga Kerja</p></a>
+                            <a to="partner"><p className=" pb-1">Mitra Kerja</p></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <hr />
-            <p className="has-text-centered has-text-white pb-3 is-size-7">
+            <p className="has-text-centered pb-3 is-size-7">
                 © 2023 PT. Global Litigation Nusantara
             </p>
         </div>
