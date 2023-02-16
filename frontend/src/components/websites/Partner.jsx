@@ -11,19 +11,19 @@ const Partner = () => {
     }, []);
 
     return (
-        <section id="partner">
-            <div className="container is-full-desktop mt-6 pt-6">
+        <div className="container">
+            <section id="partner" className='mx-6 pt-4 pb-6 mb-2'>
                 <h2 className="title has-text-centered">Mitra Kerja</h2>
                 <div className="columns is-multiline">
-                {partners.map((partner) => (
+                    {partners.map((partner) => (
                         <div className="column is-2" key={partner.uuid}>
                             <img src={partner.urlImage} alt={partner.name} />
                             {/* <h3 className="title is-5">{partner.name}</h3> */}
                         </div>
                     ))}
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     );
 };
 

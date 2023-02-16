@@ -12,29 +12,27 @@ const EmployeePages = () => {
     return (
         <React.Fragment>
             <PublicNavbar />
-            <section className="section" >
-                <div className="container mt-6">
-                    <h1 className="title">Tenaga Kerja</h1>
-                    <div className="tabs is-small is-boxed">
-                        <ul>
-                            <li
-                                className={activeTab === 'internal' ? 'is-active' : ''}
-                                onClick={() => setActiveTab('internal')}
-                            >
-                                <a>Internal</a>
-                            </li>
-                            <li
-                                className={activeTab === 'eksternal' ? 'is-active' : ''}
-                                onClick={() => setActiveTab('eksternal')}
-                            >
-                                <a>External</a>
-                            </li>
-                        </ul>
-                    </div>
-                    {activeTab === 'internal' && <Employee />}
-                    {activeTab === 'eksternal' && <ExternalEmployee />}
+            <div className="container mt-6 py-6">
+                <h1 className="title">Tenaga Kerja</h1>
+                <div className="tabs is-small is-boxed">
+                    <ul>
+                        <li
+                            className={activeTab === 'internal' ? 'is-active' : ''}
+                            onClick={() => setActiveTab('internal')}
+                        >
+                            <a>Internal</a>
+                        </li>
+                        <li
+                            className={activeTab === 'eksternal' ? 'is-active' : ''}
+                            onClick={() => setActiveTab('eksternal')}
+                        >
+                            <a>External</a>
+                        </li>
+                    </ul>
                 </div>
-            </section>
+                {activeTab === 'internal' && <Employee />}
+                {activeTab === 'eksternal' && <ExternalEmployee />}
+            </div>
             <PublicFooter />
         </React.Fragment>
     );

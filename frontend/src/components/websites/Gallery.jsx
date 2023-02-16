@@ -12,49 +12,46 @@ const Gallery = () => {
     }, []);
 
     return (
-        <div>
-            <section id="gallery" className="section">
-                <div className="container">
-                    {/* <hr /> */}
-                    <h1 className="title has-text-centered">Gallery</h1>
-                    <h2 className="subtitle has-text-centered">
-                        Berikut ini adalah beberapa gambar yang menggambarkan layanan kami.
-                    </h2>
+        <div className="container">
+            <section id="gallery" className="mx-6 pt-4 pb-6 mb-4">
+                {/* <hr /> */}
+                <h1 className="title has-text-centered">Gallery</h1>
+                <h2 className="subtitle has-text-centered">
+                    Berikut ini adalah beberapa gambar yang menggambarkan layanan kami.
+                </h2>
 
-                    <div className="columns is-multiline">
-                        {gallery.slice(0, 3).map((gallery, index) => (
-                            <div key={index} className="column is-one-third">
-                                <div className="card has-background-light">
-                                    <div className="card-image">
-                                        <figure className="image">
-                                            <img src={gallery.urlImage} alt={gallery.description}
-                                                onClick={() => setActiveImage(gallery.urlImage)} />
-                                        </figure>
-                                    </div>
-                                    <div className="card-content">
-                                        <p className="title is-4">{gallery.description}</p>
-                                    </div>
+                <div className="columns is-multiline">
+                    {gallery.slice(0, 3).map((gallery, index) => (
+                        <div key={index} className="column is-one-third">
+                            <div className="card has-background-light">
+                                <div className="card-image">
+                                    <figure className="image">
+                                        <img src={gallery.urlImage} alt={gallery.description}
+                                            onClick={() => setActiveImage(gallery.urlImage)} />
+                                    </figure>
+                                </div>
+                                <div className="card-content">
+                                    <p className="title is-4">{gallery.description}</p>
                                 </div>
                             </div>
-                        ))}
-                    </div>
-                    <a href="gallerypages" className="button is-primary">Selengkapnya</a>
-
-                    {activeImage &&
-                        <div className="modal is-active">
-                            <div className="modal-background" onClick={() => setActiveImage(null)} />
-                            <div className="modal-content">
-                                <p className="image">
-                                    <img src={activeImage} alt={activeImage} />
-                                </p>
-                            </div>
-                            <button className="modal-close is-large" aria-label="close"
-                                onClick={() => setActiveImage(null)} />
                         </div>
-                    }
+                    ))}
                 </div>
+                <a href="gallerypages" className="button is-danger is-rounded">Selengkapnya</a>
+
+                {activeImage &&
+                    <div className="modal is-active">
+                        <div className="modal-background" onClick={() => setActiveImage(null)} />
+                        <div className="modal-content">
+                            <p className="image">
+                                <img src={activeImage} alt={activeImage} />
+                            </p>
+                        </div>
+                        <button className="modal-close is-large" aria-label="close"
+                            onClick={() => setActiveImage(null)} />
+                    </div>
+                }
             </section>
-            {/* <hr className='hr' style={{ width: "50%", margin: "auto" }} /> */}
         </div>
     );
 };

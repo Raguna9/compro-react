@@ -7,11 +7,10 @@ import { AiTwotoneMail, AiFillPhone } from "react-icons/ai";
 const PublicFooter = () => {
 
     return (
-        <div className="has-background-white is-fullwidth px-6">
+        <div className="container is-full-widescreen px-3">
             <hr />
-            <div className="columns">
+            <div className="columns" style={{marginBottom: '0', paddingBottom: '0'}}>
                 <div className="column is-8">
-                    {/* <h1 className="title is-4">Hubungi Kami</h1> */}
                     <div className="columns is-centered">
                         <div className="column is-6">
                             <p>
@@ -52,7 +51,7 @@ const PublicFooter = () => {
                     </div>
                 </div>
             </div>
-            <p className="has-text-centered pb-3 is-size-7">
+            <p className="has-text-centered pb-2 is-size-7">
                 © 2023 PT. Global Litigation Nusantara
             </p>
         </div>

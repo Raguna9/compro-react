@@ -16,39 +16,18 @@ function GalleryPages() {
     return (
         <React.Fragment>
             <PublicNavbar />
-
-            <div className="section has-background-grey-lighter">
-                <div className="container">
-
+            <div className="container mt-5 py-6">
                     <h1 className="title has-text-centered mt-5">Our Gallery</h1>
-                    <div className="container is-hidden-desktop">
-                        <form class="navbar-end field has-addons mb-4">
-                            <div class="control is-expanded">
-                                <input class="input" type="text" placeholder="Cari Gallery" />
-                            </div>
-                            <div class="control">
-                                <button class="button is-info">
-                                    Cari
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div className="container is-hidden-mobile">
-                        <form class="navbar-end field has-addons mb-4"
-                            style={{
-                                width: "30%"
-                            }}>
-                            <div class="control is-expanded">
-                                <input class="input" type="text" placeholder="Cari Gallery" />
-                            </div>
-                            <div class="control">
-                                <button class="button is-info">
-                                    Cari
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                    <form className="navbar-end field has-addons mb-4">
+                        <div className="control is-expanded">
+                            <input className="input" type="text" placeholder="Cari Blog" />
+                        </div>
+                        <div className="control">
+                            <button className="button is-info">
+                                Cari
+                            </button>
+                        </div>
+                    </form>
                     <div className="columns is-multiline">
                         {gallery.map(gallery => (
                             <div key={gallery.uuid} className="column is-one-third">
@@ -80,7 +59,6 @@ function GalleryPages() {
                                 onClick={() => setActiveImage(null)} />
                         </div>
                     }
-                </div>
             </div>
             <PublicFooter />
         </React.Fragment>

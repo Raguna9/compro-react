@@ -11,6 +11,16 @@ const PesanFaq = () => {
     const [faq, setFAQs] = useState([]);
     const [isOpen, setIsOpen] = useState(null);
 
+    const style = {
+        paddingTop: '0',
+        overflow: 'hidden',
+        whiteSpace: 'normal',
+        display: 'block',
+        textOverflow: 'ellipsis',
+        maxHeight: '278px', 
+        fontSize: '13px'
+    }
+
     const saveInbox = async (e) => {
         e.preventDefault();
         try {
@@ -41,106 +51,111 @@ const PesanFaq = () => {
     }, []);
 
     return (
-        <section className="section" id="faq">
-            <div className="container">
-                    <h1 className="title is-4">Hubungi Kami</h1>
+        <div className="container">
+            <section id="faq" className='mx-6 py-4'>
+                <h1 className="title is-4">Hubungi Kami</h1>
                 <div className="columns is-multiline">
                     <div className="column is-8">
                         <div className="card has-background-light">
+                        <div className="subtitle has-text-centered pt-3"><strong>Pesan</strong></div>
                             <div className="card-content">
-                                <div className="content">
-                                    <form onSubmit={saveInbox}>
-                                        <h4 className="subtitle has-text-centered">Pesan</h4>
-                                        <div className="field">
-                                            <label className="label">Nama</label>
-                                            <div className="control">
-                                                <input
-                                                    type="text"
-                                                    className="input"
-                                                    value={name}
-                                                    onChange={(e) => setName(e.target.value)}
-                                                    placeholder="John Doe"
-                                                />
-                                            </div>
+                                <form onSubmit={saveInbox}>
+                                    <div className="field">
+                                        <label className="label">Nama</label>
+                                        <div className="control">
+                                            <input
+                                                type="text"
+                                                className="input"
+                                                value={name}
+                                                onChange={(e) => setName(e.target.value)}
+                                                placeholder="John Doe"
+                                            />
                                         </div>
-                                        <div className="field">
-                                            <label className="label">Email</label>
-                                            <div className="control">
-                                                <input
-                                                    type="text"
-                                                    className="input"
-                                                    value={email}
-                                                    onChange={(e) => setEmail(e.target.value)}
-                                                    placeholder="example@gmail.com"
-                                                />
-                                            </div>
+                                    </div>
+                                    <div className="field">
+                                        <label className="label">Email</label>
+                                        <div className="control">
+                                            <input
+                                                type="text"
+                                                className="input"
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                placeholder="example@gmail.com"
+                                            />
                                         </div>
-                                        <div className="field">
-                                            <label className="label">Isi Pesan</label>
-                                            <div className="control">
-                                                <textarea
-                                                    className="textarea"
-                                                    value={messageContent}
-                                                    onChange={(e) => setMessageContent(e.target.value)}
-                                                    placeholder="Isi Pesan ..."
-                                                    rows="5">
-                                                </textarea>
-                                            </div>
+                                    </div>
+                                    <div className="field">
+                                        <label className="label">Isi Pesan</label>
+                                        <div className="control">
+                                            <textarea
+                                                className="textarea"
+                                                value={messageContent}
+                                                onChange={(e) => setMessageContent(e.target.value)}
+                                                placeholder="Isi Pesan ..."
+                                                rows="2">
+                                            </textarea>
                                         </div>
-
-                                        <div className="field">
-                                            <div className="control">
-                                                <button onClick={() => setIsOpen(true)} type="submit" className="button is-success">
-                                                    Kirim
-                                                </button>
-
-                                                <ToastContainer limit={1} />
-                                            </div>
+                                    </div>
+                                    <div className="field">
+                                        <div className="control">
+                                            <button onClick={() => setIsOpen(true)} type="submit" className="button is-success">
+                                                Kirim
+                                            </button>
+                                            <ToastContainer limit={1} />
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
+
                     <div className="column is-4">
                         <div className="card has-background-light">
-                            <div className="card-content">
-                                <div className="content" style={{ height: "443px" }}>
-                                    <h4 className="subtitle has-text-centered">Frequently Ask Questions</h4>
+                                <div className="card-header-title subtitle has-text-centered mx-5 px-5"><strong>Frequently Ask Questions</strong></div>
+                            <div className="content" style={{
+                                paddingTop: '0'
+                            }}>
+                                <div lassName="card-content">
                                     {faq.slice(0, 1).map((faq, index) => (
-                                        <div className="py-3" key={index}>
-                                            <h5 className="subtitle is-6">
-                                                {faq.question}
-                                            </h5>
-                                            <p style={{ fontSize: '13px', textAlign: 'justify', textJustify: 'inter-word' }}>{faq.answer}</p>
+                                        <div
+                                            key={index}
+                                            className="px-5"
+                                            style={style}
+                                        >
+                                            <div
+                                                style={style}
+                                            >
+                                                <strong className="py-3">
+                                                    {faq.question}
+                                                </strong>
+                                                <br />
+                                                {faq.answer}
+                                            </div>
                                         </div>
-                                    ))}
-                                    <a href="faqpages" className="button is-primary is-fullwidth mt-4">Lihat Semua FAQ</a>
 
+                                    ))}
                                 </div>
                             </div>
+                            <footer className="card-footer pb-4 px-4 ">
+                                <a href="faqpages" className="button is-info is-rounded card-footer-item">Lihat Semua FAQ</a></footer>
                         </div>
                     </div>
                 </div>
 
                 {name && email && messageContent && isOpen &&
-                    <div className="modal is-active">
-                        <div className="modal-background" onClick={handleRefresh} />
-                        <div className="card has-background-white">
-                            <div className="card-content">
-                                <h3 className="title is-5 has-text-centered mx-6 my-5">Pesan Terkirim</h3>
-                                <span className="mx-6">
-                                    <button className="button is-primary mx-6"
-                                        onClick={handleRefresh}>OK</button>
-                                </span>
-                            </div>
+                <div className="modal is-active">
+                    <div className="modal-background" onClick={handleRefresh} />
+                    <div className="card has-background-white has-text-centered">
+                        <div className="card-header-title mx-6 px-6">Pesan Terkirim</div>
+                        <p>Terimakasih sudah mengirimkan pesan</p>
+                        <div className="mx-4 my-4 pt-3">
+                            <button className="button is-primary mx-6" nClick={handleRefresh}>OK</button>
                         </div>
                     </div>
-                }
-
-            </div>
-
-        </section>
+                </div>
+                } 
+            </section>
+        </div>
     );
 };
 

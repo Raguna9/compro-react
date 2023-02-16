@@ -31,12 +31,12 @@ function FAQPages() {
     return (
         <React.Fragment>
             <PublicNavbar />
-            <section className="section">
-                <div className="container">
+            <div className="container">
+                <section className="section">
                     <h1 className="title has-text-centered mt-6">Frequently Asked Questions</h1>
+                    <p className="subtitle has-text-centered is-6">Berikut beberapa pertanyaan yang sering ditanyakan</p>
                     <div className="columns">
                         <div className="column">
-                            <hr />
                             {faqs.map((faq, index) => (
                                 <div key={index} className="mt-4">
                                     <h2 className="subtitle">
@@ -55,8 +55,8 @@ function FAQPages() {
                             ))}
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
             <PublicFooter />
         </React.Fragment>
     );
