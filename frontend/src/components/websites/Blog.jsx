@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from 'moment';
+import "moment/locale/id";
+import { BsFillPersonFill, BsCalendarDate } from "react-icons/bs";
 
 const Blog = () => {
-
     const [blogs, setBlogs] = useState([])
     const [users, setUsers] = useState([])
 
     useEffect(() => {
+        moment.locale("id");
+
         axios.get('http://localhost:5000/listblogs')
             .then(response => {
                 setBlogs(response.data);
@@ -33,7 +36,7 @@ const Blog = () => {
             <div className="container">
                 <h1 className="title has-text-centered">Blog</h1>
                 <div className="columns is-multiline">
-                    {blogs.slice(0, 3).map((blog, index) => (
+                    {blogs.slice(0, 2).map((blog, index) => (
                         <div key={index} className="column is-6">
                             <div className="card has-background-light" style={{ height: '530px' }}>
                                 <div className="card-image">
@@ -44,14 +47,18 @@ const Blog = () => {
                                 <div className="card-content">
                                     <p className="title is-4">{blog.tittle}</p>
                                     <p className="subtitle is-6" >
-                                        {users.map((user) => {
-                                            if (user.id === blog.userId) {
-                                                return <span key={user.uuid}>{user.name}</span>;
-                                            } else {
-                                                return null;
-                                            }
-                                        })}
-                                        <span> ({moment(blog.updatedAt).format('MMMM Do YYYY, h:mm:ss a')})</span>
+                                        <span className="pr-1">
+                                            <BsFillPersonFill />
+                                        </span>
+                                        <span style={{ fontSize: '14px' }}>
+                                            {users.find(user => user.id === blog.userId)?.name}
+                                        </span>
+                                        <span className="pl-5 pr-1">
+                                            <BsCalendarDate />
+                                        </span>
+                                        <span style={{ fontSize: '14px' }}>
+                                            {moment(blog.updatedAt).format('dddd, Do MMMM  YYYY, HH:mm')}
+                                        </span>
                                     </p>
                                     <p className="content" style={{ maxHeight: '100px', overflow: 'scroll' }}>{blog.content}</p>
                                 </div>

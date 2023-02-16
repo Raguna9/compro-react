@@ -4,12 +4,16 @@ import moment from 'moment';
 import PublicNavbar from "../../components/websites/PublicNavbar";
 import PublicFooter from "../../components/websites/PublicFooter";
 import BackToTop from '../../utils/BackToTop';
+import "moment/locale/id";
+import { BsFillPersonFill, BsCalendarDate } from "react-icons/bs";
 
 function BlogPages() {
   const [blogs, setBlogs] = useState([]);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
+    moment.locale("id");
+    
     axios.get('http://localhost:5000/listblogs')
       .then(response => {
         setBlogs(response.data);
@@ -29,8 +33,6 @@ function BlogPages() {
       })
       .catch(error => console.error(error));
   }, []);
-
-
 
   return (
     <React.Fragment>
@@ -69,17 +71,21 @@ function BlogPages() {
 
         <div className="container">
           {blogs.map((blog) => (
-            <div key={blog.id} className="box">
+            <div key={blog.uuid} className="box">
               <p className="title is-4">{blog.tittle}</p>
-              <p className="subtitle is-6">
-                {users.map((user) => {
-                  if (user.id === blog.userId) {
-                    return <span key={user.id}>{user.name}</span>;
-                  } else {
-                    return null;
-                  }
-                })}
-                <span> ({moment(blog.updatedAt).format('MMMM Do YYYY, h:mm:ss a')})</span>
+              <p className="subtitle is-6" >
+                <span className="pr-1">
+                  <BsFillPersonFill />
+                </span>
+                <span style={{ fontSize: '14px' }}>
+                  {users.find(user => user.id === blog.userId)?.name}
+                </span>
+                <span className="pl-5 pr-1">
+                  <BsCalendarDate />
+                </span>
+                <span style={{ fontSize: '14px' }}>
+                  {moment(blog.updatedAt).format('dddd, Do MMMM  YYYY, HH:mm')}
+                </span>
               </p>
               <figure className="image is-4by3">
                 <img src={blog.urlImage} alt={blog.tittle} />
