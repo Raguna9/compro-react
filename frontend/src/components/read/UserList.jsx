@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import useSWR from "swr";
 
 const UserList = () => {
-    const [users, setUsers] = useState([]);
+    // const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        getUsers();
-    }, []);
+    // useEffect(() => {
+    //     getUsers();
+    // }, []);
 
-    const getUsers = async () => {
-        const response = await axios.get("http://localhost:5000/users");
-        setUsers(response.data);
-    };
+    // const getUsers = async () => {
+    //     const response = await axios.get("http://localhost:5000/users");
+    //     setUsers(response.data);
+    // };
 
     const deleteUser = async (userId) => {
         const confirmDelete = window.confirm(`Apakah Anda yakin ingin menghapus data ini?`);
@@ -22,6 +23,15 @@ const UserList = () => {
             getUsers();
         }
     };
+
+    //swr
+    const getUsers = async () => {
+        const response = await axios.get("http://localhost:5000/users");
+        return response.data;
+    };
+
+    const {data} = useSWR('users', getUsers);
+    if(!data) return <h2 className="tittle p-auto">Loading...</h2>
 
     return (
         <div className="container mr-2">
@@ -41,7 +51,7 @@ const UserList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user, index) => (
+                    {data.map((user, index) => (
                         <tr key={user.uuid}>
                             <td>{index + 1}</td>
                             <td>{user.name}</td>
