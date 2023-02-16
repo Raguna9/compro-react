@@ -21,3 +21,5 @@ public/
 
 # Ignore direktori logs/
 logs/
+
+request.rest
