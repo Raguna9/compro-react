@@ -12,8 +12,11 @@ const PublicNavbar = () => {
         <div>
             <nav className="navbar is-fixed-top" style={{ boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }} role="navigation" aria-label="main navigation">
                 <div className="navbar-brand ml-2">
-                        <img src={logo} width="100" height="28" alt="PT. GTN"/>
-
+                    <figure className="pl-3 pt-2">
+                        <a onClick={() => window.location.assign('/')}>
+                            <img src={logo} width="100" height="28" alt="PT. GTN" />
+                        </a>
+                    </figure>
                     <a
                         role="button"
                         className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}

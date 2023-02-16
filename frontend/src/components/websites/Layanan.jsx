@@ -23,7 +23,7 @@ const Layanan = () => {
                                         <img src={secure} alt="" />
                                     </figure>
                                     <p className="has-text-centered">
-                                        Kami sudah memiliki sertifikasi dari Otoritas Jasa Keuangan (OJK) dan tenaga kerja kami sudah melakukan pelatihan dan memiliki Sertifikasi Profesi Pembiayaan Indonesia (SPPI).
+                                        Kami sudah memiliki sertifikasi dari Otoritas Jasa Keuangan (OJK) dan tenaga kerja kami sudah menjalani pelatihan dan memiliki Sertifikasi Profesi Pembiayaan Indonesia (SPPI).
                                     </p>
                                 </div>
                             </div>

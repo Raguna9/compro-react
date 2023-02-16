@@ -29,7 +29,7 @@ const AboutCompanyPages = () => {
                             <div className="tabs is-boxed is-small">
                                 <ul>
                                     <li
-                                        className={activeTab === 'profile' ? 'is-active' : ''}
+                                        className={ activeTab === 'profile' ? 'is-active' : ''}
                                         onClick={() => setActiveTab('profile')}
                                     >
                                         <a>Profil Perusahaan</a>
@@ -56,7 +56,7 @@ const AboutCompanyPages = () => {
                             </div>
                             {activeTab === 'profile' && (
                                 <div className="content">
-                                    <h3 className="subtitle">Profil Perusahaan</h3>
+                                    <h3 className="subtitle is-5">Profil Perusahaan</h3>
                                     <p>
                                         PT. Global Litigation Nusantara merupakan salah satu badan usaha di Lombok Timur yang bergerak di bidang jasa penanganan tunggakan aset fidusia yang telah mendapat sertifikat Assosiasi Perusahaan Pembiayaan Indonesia (APPI) dengan  pengawasan otoritas Jasa keuangan (OJK).
                                     </p>
@@ -67,11 +67,11 @@ const AboutCompanyPages = () => {
                             )}
                             {activeTab === 'vision-mission' && (
                                 <div className="content">
-                                    <h3 className="subtitle">Visi</h3>
+                                    <h3 className="subtitle is-5">Visi</h3>
                                     <p>
                                         - Menjalin dan menciptakan hubungan kerjasama yang baik untuk kesejahteraaan bersama.
                                     </p>
-                                    <h3 className="subtitle">Misi</h3>
+                                    <h3 className="subtitle is-5">Misi</h3>
                                     <span>
                                         - Menciptakan dan meningkatkan kualitas hubungan kemitraan dengan lembaga Hukum dan pembiayaan untuk mencapai kesuksesan dan kesejahteraan karyawan.
                                     </span>
@@ -87,7 +87,7 @@ const AboutCompanyPages = () => {
                             )}
                             {activeTab === 'permit' && (
                                 <div className="content">
-                                    <h3 className="subtitle">Perizinan</h3>
+                                    <h3 className="subtitle is-5">Perizinan</h3>
                                     <p>
                                         Nomor Induk Berusaha (NIB) <a className='pl-1' href="#" onClick={() => setIsOpen(NIB2)}>Lampiran 1</a>
                                     </p>
