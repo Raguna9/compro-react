@@ -59,15 +59,6 @@ const PublicNavbar = () => {
                                 <a className="navbar-item" onClick={() => window.location.assign('employeepages')}>
                                     Tenaga Kerja
                                 </a>
-                                {window.location.pathname === '/' ? (
-                                    <Link className="navbar-item" to="partner" spy={true} smooth={true} offset={-90} duration={500}>
-                                        Mitra Kerja
-                                    </Link>
-                                ) : (
-                                    <a className="navbar-item" onClick={() => window.location.assign('/')}>
-                                        Mitra Kerja
-                                    </a>
-                                )}
                             </div>
                         </div>
 
@@ -98,6 +89,15 @@ const PublicNavbar = () => {
                         ) : (
                             <a className="navbar-item" onClick={() => window.location.assign('blogpages')}>
                                 Blog
+                            </a>
+                        )}
+                        {window.location.pathname === '/' ? (
+                            <Link className="navbar-item" to="partner" spy={true} smooth={true} offset={-90} duration={500}>
+                                Mitra
+                            </Link>
+                        ) : (
+                            <a className="navbar-item" onClick={() => window.location.assign('/')}>
+                                Mitra
                             </a>
                         )}
 
