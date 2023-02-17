@@ -13,7 +13,7 @@ const Partner = () => {
     return (
         <div className="container">
             <section id="partner" className='mx-6 pt-4 pb-6 mb-2'>
-                <h2 className="title has-text-centered">Mitra Kerja</h2>
+                <h2 className="title is-4 has-text-centered">Mitra kerja kami</h2>
                 <div className="columns is-multiline">
                     {partners.map((partner) => (
                         <div className="column is-2" key={partner.uuid}>

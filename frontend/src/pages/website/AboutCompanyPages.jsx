@@ -16,7 +16,13 @@ const AboutCompanyPages = () => {
         <React.Fragment>
             <PublicNavbar />
             <div className="container mt-6 py-6">
-                <h1 className="title has-text-centered">About Company</h1>
+                {/* <h1 className="title has-text-centered">About Company</h1> */}
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="/">Beranda</a></li>
+                        <li class="is-active"><a href="#">About company</a></li>
+                    </ul>
+                </nav>
                 <hr />
                 <div className='columns is-multiline'>
                     <div className='column is-6'>

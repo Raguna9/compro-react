@@ -31,10 +31,16 @@ function FAQPages() {
     return (
         <React.Fragment>
             <PublicNavbar />
-            <div className="container">
+            <div className="container mt-6">
                 <section className="section">
-                    <h1 className="title has-text-centered mt-6">Frequently Asked Questions</h1>
-                    <p className="subtitle has-text-centered is-6">Berikut beberapa pertanyaan yang sering ditanyakan</p>
+                    <nav class="breadcrumb" aria-label="breadcrumbs">
+                        <ul>
+                            <li><a href="/">Beranda</a></li>
+                            <li class="is-active"><a href="#">FAQ</a></li>
+                        </ul>
+                    </nav>
+                    <h1 className="title is-5 has-text-centered">Frequently Asked Questions</h1>
+                    <p className="subtitle has-text-centered is-">Berikut beberapa pertanyaan yang sering ditanyakan</p>
                     <div className="columns">
                         <div className="column">
                             {faqs.map((faq, index) => (

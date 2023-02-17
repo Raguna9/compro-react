@@ -17,7 +17,7 @@ const Home = () => {
                         </h2>
                         <Link
                             to={`/aboutpages`}
-                            className="button is-primary"
+                            className="button is-info"
                         >
                             Informasi Selengkapnya
                         </Link>

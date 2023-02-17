@@ -149,11 +149,11 @@ const PesanFaq = () => {
                         <div className="card-header-title mx-6 px-6">Pesan Terkirim</div>
                         <p>Terimakasih sudah mengirimkan pesan</p>
                         <div className="mx-4 my-4 pt-3">
-                            <button className="button is-primary mx-6" nClick={handleRefresh}>OK</button>
+                            <button className="button is-primary mx-6" onClick={handleRefresh}>OK</button>
                         </div>
                     </div>
                 </div>
-                } 
+                }
             </section>
         </div>
     );

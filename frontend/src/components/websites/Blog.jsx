@@ -3,7 +3,6 @@ import axios from "axios";
 import moment from 'moment';
 import "moment/locale/id";
 import { BsFillPersonFill, BsCalendarDate, BsFillArrowRightCircleFill } from "react-icons/bs";
-import { Link } from "react-scroll";
 
 const Blog = () => {
     const [blogs, setBlogs] = useState([])
@@ -44,22 +43,22 @@ const Blog = () => {
     return (
         <div className="container">
             <section id="blog" className='mx-6 pt-4 pb-6'>
-                <h1 className="title has-text-centered">Blog</h1>
+                <h1 className="title is-4 has-text-centered">Blog</h1>
                 <p className="subtitle is-6 has-text-centered">Jika Anda mempunyai waktu yang singkat, dan ingin dimanfaatkan, kami telah menyediakan Anda beberapa blog yang mungkin bermanfaat.</p>
                 <div className="columns is-multiline">
                     {blogs.slice(0, 3).map((blog, index) => (
                         <div key={index} className="column">
                             <div className="card has-background-light" style={{ height: '300px', width: '336px' }}>
-                                <Link onClick={() => window.location.assign('/blogpages')}>
+                                <a href={`/blogpages/${blog.uuid}`}>
                                     <div className="card-image">
                                         <img src={blog.urlImage} alt={blog.tittle} style={{ height: '200px', width: '100%', objectFit: 'cover' }} />
                                     </div>
-                                </Link>
+                                </a>
                                 <div className="card-content pt-3">
                                     <h3 className="is-6" style={style}>
                                         <strong> {blog.tittle}</strong>
                                     </h3>
-                                    <Link onClick={() => window.location.assign('/blogpages')}>
+                                    <a href={`/blogpages/${blog.uuid}`}>
                                         <div className="columns">
                                             <div className="column is-10 subtitle is-7 ">
                                                 <span className="pr-1">
@@ -80,7 +79,7 @@ const Blog = () => {
                                                 <BsFillArrowRightCircleFill />
                                             </div>
                                         </div>
-                                    </Link>
+                                    </a>
                                 </div>
                             </div>
                         </div>

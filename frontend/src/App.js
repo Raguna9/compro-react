@@ -31,6 +31,7 @@ import GalleryPages from "./pages/website/GalleryPages";
 import EmployeePages from "./pages/website/EmployeePages";
 import FAQPages from "./pages/website/FAQPages";
 import AboutCompanyPages from "./pages/website/AboutCompanyPages";
+import SingleBlogPages from "./pages/website/SingleBlogPages";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           {/* client */}
           <Route path="/" element={<Main />} />
           <Route path="/blogpages" element={<BlogPages />} />
+          <Route path="/blogpages/:id" element={<SingleBlogPages />} />
           <Route path="/gallerypages" element={<GalleryPages />} />
           <Route path="/employeepages" element={<EmployeePages />} />
           <Route path="/faqpages" element={<FAQPages />} />

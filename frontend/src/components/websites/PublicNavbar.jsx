@@ -44,7 +44,7 @@ const PublicNavbar = () => {
                                 Beranda
                             </Link>
                         ) : (
-                            <a className="navbar-item" onClick={() => window.location.assign('/')}>
+                            <a className="navbar-item" href="/">
                                 Beranda
                             </a>
                         )}
@@ -53,10 +53,10 @@ const PublicNavbar = () => {
                         <div className="navbar-item has-dropdown is-hoverable">
                             <a className="navbar-link">Informasi</a>
                             <div className="navbar-dropdown has-background-info-light">
-                                <a className="navbar-item" onClick={() => window.location.assign('aboutpages')}>
+                                <a className="navbar-item" href="/aboutpages">
                                     Tentang Perusahaan
                                 </a>
-                                <a className="navbar-item" onClick={() => window.location.assign('employeepages')}>
+                                <a className="navbar-item" href="/employeepages">
                                     Tenaga Kerja
                                 </a>
                             </div>
@@ -67,7 +67,7 @@ const PublicNavbar = () => {
                                 Layanan
                             </Link>
                         ) : (
-                            <a className="navbar-item" onClick={() => window.location.assign('/')}>
+                            <a className="navbar-item" href="/">
                                 Layanan
                             </a>
                         )}
@@ -77,7 +77,7 @@ const PublicNavbar = () => {
                                 Gallery
                             </Link>
                         ) : (
-                            <a className="navbar-item" onClick={() => window.location.assign('gallerypages')}>
+                            <a className="navbar-item" href="/gallerypages">
                                 Gallery
                             </a>
                         )}
@@ -87,7 +87,7 @@ const PublicNavbar = () => {
                                 Blog
                             </Link>
                         ) : (
-                            <a className="navbar-item" onClick={() => window.location.assign('blogpages')}>
+                            <a className="navbar-item" href="/blogpages">
                                 Blog
                             </a>
                         )}
@@ -96,7 +96,7 @@ const PublicNavbar = () => {
                                 Mitra
                             </Link>
                         ) : (
-                            <a className="navbar-item" onClick={() => window.location.assign('/')}>
+                            <a className="navbar-item" href="/">
                                 Mitra
                             </a>
                         )}
@@ -106,7 +106,7 @@ const PublicNavbar = () => {
                                 <GrContact />
                             </Link>
                         ) : (
-                            <a className="navbar-item" onClick={() => window.location.assign('/')}>
+                            <a className="navbar-item" href="/">
                                 <GrContact />
                             </a>
                         )}
