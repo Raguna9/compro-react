@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 
-import PublicNavbar from "../../components/websites/PublicNavbar";
-import PublicFooter from "../../components/websites/PublicFooter";
-import Employee from "../../components/websites/karyawan/Employee";
-import ExternalEmployee from "../../components/websites/karyawan/ExternalEmployee";
+import PublicNavbar from '../../components/websites/PublicNavbar';
+import PublicFooter from '../../components/websites/PublicFooter';
+
+const Employee = lazy(() => import('../../components/websites/karyawan/Employee'));
+const ExternalEmployee = lazy(() => import('../../components/websites/karyawan/ExternalEmployee'));
 
 const EmployeePages = () => {
     const [activeTab, setActiveTab] = useState('Internal');
@@ -13,7 +14,6 @@ const EmployeePages = () => {
         <React.Fragment>
             <PublicNavbar />
             <div className="container mt-6 py-6">
-                {/* <h1 className="title">Tenaga Kerja</h1> */}
                 <nav class="breadcrumb" aria-label="breadcrumbs">
                     <ul>
                         <li><a href="/">Beranda</a></li>
@@ -36,8 +36,10 @@ const EmployeePages = () => {
                         </li>
                     </ul>
                 </div>
-                {activeTab === 'Internal' && <Employee />}
-                {activeTab === 'Eksternal' && <ExternalEmployee />}
+                <Suspense fallback={<h2 className='subtitle is-5'>Loading...</h2>}>
+                    {activeTab === 'Internal' && <Employee />}
+                    {activeTab === 'Eksternal' && <ExternalEmployee />}
+                </Suspense>
             </div>
             <PublicFooter />
         </React.Fragment>
