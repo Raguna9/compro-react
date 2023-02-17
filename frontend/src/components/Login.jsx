@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { LoginUser, reset } from "../features/authSlice";
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user, isError, isSuccess, isLoading, message } = useSelector(
@@ -16,9 +15,6 @@ const Login = () => {
 
     useEffect(() => {
         if (user || isSuccess) {
-            // toast.success('Berhasil login!', {
-            //     position: toast.POSITION.TOP_RIGHT
-            //   });
             navigate("/dashboard");
         }
         dispatch(reset());
@@ -54,13 +50,23 @@ const Login = () => {
                                     <label className="label">Password</label>
                                     <div className="control">
                                         <input
-                                            type="password"
+                                            type={showPassword ? "text" : "password"}
                                             className="input"
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
                                             placeholder="******"
                                         />
                                     </div>
+                                </div>
+                                <div className="field">
+                                    <label className="checkbox">
+                                        <input
+                                            type="checkbox"
+                                            checked={showPassword}
+                                            onChange={() => setShowPassword(!showPassword)}
+                                        />
+                                        &nbsp;Show Password
+                                    </label>
                                 </div>
                                 <div className="field mt-5">
                                     <button
@@ -69,7 +75,6 @@ const Login = () => {
                                     >
                                         {isLoading ? "Loading..." : "Login"}
                                     </button>
-                                    {/* <ToastContainer/> */}
                                 </div>
                             </form>
                         </div>
