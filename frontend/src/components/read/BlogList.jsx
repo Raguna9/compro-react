@@ -7,11 +7,10 @@ const BlogList = () => {
 
     const style = {
         overflow: 'hidden',
-        // whiteSpace: 'nowrap',
-        display: 'block',
+        whiteSpace: 'nowrap',
+        display: 'inline-block',
         textOverflow: 'ellipsis',
-        maxHeight: '152px',
-        height: '152px'
+        maxWidth: '450px'
     }
     useEffect(() => {
         getBlogs();
@@ -56,7 +55,7 @@ const BlogList = () => {
                     >
                         <tr>
                             <td>{index + 1}</td>
-                            <td >{blog.tittle}</td>
+                            <td>{blog.tittle}</td>
                             <td style={style}>{blog.content}</td>
                             <td>
                                 <figure className="image is-3by2">

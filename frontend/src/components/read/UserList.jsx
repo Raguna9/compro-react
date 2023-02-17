@@ -5,17 +5,6 @@ import { Link } from "react-router-dom";
 import useSWR from "swr";
 
 const UserList = () => {
-    // const [users, setUsers] = useState([]);
-
-    // useEffect(() => {
-    //     getUsers();
-    // }, []);
-
-    // const getUsers = async () => {
-    //     const response = await axios.get("http://localhost:5000/users");
-    //     setUsers(response.data);
-    // };
-
     const deleteUser = async (userId) => {
         const confirmDelete = window.confirm(`Apakah Anda yakin ingin menghapus data ini?`);
 
