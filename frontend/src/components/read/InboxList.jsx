@@ -31,8 +31,8 @@ const InboxList = () => {
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Name</th>
                         <th>Email</th>
-                        <th>Subject</th>
                         <th>Message Content</th>
                         <th>Date</th>
                         <th>Action</th>
@@ -43,8 +43,8 @@ const InboxList = () => {
                     <tbody key={inbox.uuid}>
                         <tr>
                             <td>{index + 1}</td>
+                            <td>{inbox.name}</td>
                             <td>{inbox.email}</td>
-                            <td>{inbox.subject}</td>
                             <td>{inbox.messageContent}</td>
                             <td>{moment(inbox.updatedAt).format('Do MMMM YYYY, h:mm:ss a')}</td>
                             <td style={{ width: "150px" }}>

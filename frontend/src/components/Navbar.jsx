@@ -1,6 +1,10 @@
-import React from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-// import logo from "../assets/logo/adminlogo.png";
+import { IoPerson, IoHome, IoLogOut, } from "react-icons/io5";
+import { BsBank, BsChatLeftTextFill } from "react-icons/bs";
+import { RiGalleryFill, RiQuestionAnswerLine } from "react-icons/ri";
+import { FaBloggerB, FaUserTie, FaUserFriends } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
 import { useSelector } from "react-redux";
@@ -9,13 +13,14 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user } = useSelector((state) => state.auth);
+    const [isActive, setIsActive] = useState(false);
 
     const logout = () => {
         if (window.confirm("Are you sure for logout?")) {
             dispatch(LogOut());
             dispatch(reset());
             navigate("/login");
-        } 
+        }
     };
 
     return (
@@ -32,12 +37,12 @@ const Navbar = () => {
                     </NavLink>
 
                     <a
-                        href="!#"
                         role="button"
-                        className="navbar-burger burger"
+                        className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
                         aria-label="menu"
                         aria-expanded="false"
                         data-target="navbarBasicExample"
+                        onClick={() => setIsActive(!isActive)}
                     >
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
@@ -61,6 +66,70 @@ const Navbar = () => {
                                 </button>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div id="navbarBasicExample" className={` is-hidden-desktop navbar-menu ${isActive ? 'is-active' : ''}`}>
+                    <div className="navbar-end mr-2">
+                        <span className="menu-label">General</span>
+                        <NavLink className="navbar-item" to={"/dashboard"}>
+                            <span style={{ fontSize: '14px' }}>
+                                <IoHome /> Dashboard
+                            </span>
+                        </NavLink>
+                        <NavLink className="navbar-item" to={"/blogs"}>
+                            <span style={{ fontSize: '14px' }}>
+                                <FaBloggerB /> Blogs
+                            </span>
+                        </NavLink>
+                        <NavLink className="navbar-item" to={"/inboxs"}>
+                            <span style={{ fontSize: '14px' }}>
+                                <BsChatLeftTextFill /> Inboxs
+                            </span>
+                        </NavLink>
+                        <NavLink className="navbar-item" to={"/faqs"}>
+                            <span style={{ fontSize: '14px' }}>
+                                <RiQuestionAnswerLine /> FAQs
+                            </span>
+                        </NavLink>
+                        {user && user.role === "admin" && (
+                            <div>
+                                <span className="menu-label">Admin</span>
+                                <NavLink className="navbar-item" to={"/users"}>
+                                    <span style={{ fontSize: '14px' }}>
+                                        <IoPerson /> Users
+                                    </span>
+                                </NavLink>
+                                <NavLink className="navbar-item" to={"/employees"}>
+                                    <span style={{ fontSize: '14px' }}>
+                                        <FaUserTie /> Employees
+                                    </span>
+                                </NavLink>
+                                <NavLink className="navbar-item" to={"/externalemployees"}>
+                                    <span style={{ fontSize: '14px' }}>
+                                        <FaUserFriends /> External Employees
+                                    </span>
+                                </NavLink>
+                                <NavLink className="navbar-item" to={"/partners"}>
+                                    <span style={{ fontSize: '14px' }}>
+                                        <BsBank /> Partners
+                                    </span>
+                                </NavLink>
+                                <NavLink className="navbar-item" to={"/gallerys"}>
+                                    <span style={{ fontSize: '14px' }}>
+                                        <RiGalleryFill /> Gallery
+                                    </span>
+                                </NavLink>
+                            </div>
+                        )}
+                        <span className="menu-label">Settings</span>
+                        <button onClick={logout} className="button is-white">
+                            <span style={{ fontSize: '14px' }}>
+                                <IoLogOut /> Logout
+                            </span>
+                        </button>
+
+
                     </div>
                 </div>
             </nav>

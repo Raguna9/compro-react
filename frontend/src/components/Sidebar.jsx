@@ -22,7 +22,7 @@ const Sidebar = () => {
 
     return (
         <div>
-            <aside className="menu mt-2 pl-2 has-shadow" style={{position: 'fixed'}}>
+            <aside className="menu mt-2 pl-2 has-shadow is-hidden-mobile" style={{position: 'fixed'}}>
                 <span className="menu-label">General</span>
 
                 <ul className="menu-list">

@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const FormAddBlog = () => {
     const [tittle, setTittle] = useState("");
@@ -65,13 +67,16 @@ const FormAddBlog = () => {
                             <div className="field">
                                 <label className="label">Content</label>
                                 <div className="control">
-                                    <textarea
+                                    {/* <textarea
                                         className="textarea"
                                         value={content}
                                         onChange={(e) => setContent(e.target.value)}
                                         placeholder="Content"
                                         rows="10">
-                                    </textarea>
+                                    </textarea> */}
+                                    <div className="editorContainer">
+                                        <ReactQuill theme="snow" value={content} onChange={setContent} />
+                                    </div>
                                 </div>
                             </div>
                             <div className="field">

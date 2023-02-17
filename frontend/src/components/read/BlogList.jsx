@@ -5,6 +5,14 @@ import axios from "axios";
 const BlogList = () => {
     const [blogs, setBlogs] = useState([]);
 
+    const style = {
+        overflow: 'hidden',
+        // whiteSpace: 'nowrap',
+        display: 'block',
+        textOverflow: 'ellipsis',
+        maxHeight: '152px',
+        height: '152px'
+    }
     useEffect(() => {
         getBlogs();
     }, []);
@@ -30,7 +38,7 @@ const BlogList = () => {
             <Link to="/blogs/add" className="button is-primary mb-2">
                 Add New
             </Link>
-            <table className="table is-striped is-fullwidth has-shadow" style={{ tableLayout: "auto" }}>
+            <table className="table is-striped is-fullwidth has-shadow">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -48,8 +56,8 @@ const BlogList = () => {
                     >
                         <tr>
                             <td>{index + 1}</td>
-                            <td>{blog.tittle}</td>
-                            <td>{blog.content}</td>
+                            <td >{blog.tittle}</td>
+                            <td style={style}>{blog.content}</td>
                             <td>
                                 <figure className="image is-3by2">
                                     <img src={blog.urlImage} alt={blog.tittle} />

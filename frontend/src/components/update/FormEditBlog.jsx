@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const FormEditBlog = () => {
     const [tittle, setTittle] = useState("");
@@ -11,6 +13,8 @@ const FormEditBlog = () => {
     const [msg, setMsg] = useState("");
     const navigate = useNavigate();
     const { id } = useParams();
+
+    // console.log(value);
 
     useEffect(() => {
         const getBlogById = async () => {
@@ -63,6 +67,8 @@ const FormEditBlog = () => {
         <div>
             <h1 className="title">Blogs</h1>
             <h2 className="subtitle">Edit Blog</h2>
+
+
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">
@@ -83,13 +89,17 @@ const FormEditBlog = () => {
                             <div className="field">
                                 <label className="label">Content</label>
                                 <div className="control">
-                                    <textarea
+                                    {/* <textarea
                                         className="textarea"
                                         value={content}
                                         onChange={(e) => setContent(e.target.value)}
                                         placeholder="Content"
                                         rows="10">
-                                    </textarea>
+                                        style={{ whiteSpace: "pre-wrap" }}
+                                    </textarea> */}
+                                    <div className="editorContainer">
+                                        <ReactQuill theme="snow" value={content} onChange={setContent} />
+                                    </div>
                                 </div>
                             </div>
 

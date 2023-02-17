@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import "moment/locale/id";
 import { BsFillPersonFill, BsCalendarDate } from "react-icons/bs";
 import moment from 'moment';
-import "moment/locale/id";
+import DOMPurify from "dompurify";
 
 const SingleBlog = () => {
     const [tittle, setTittle] = useState("");
@@ -53,7 +53,10 @@ const SingleBlog = () => {
         getBlogById();
     }, [id]);
 
-
+    // const getText = (html) => {
+    //     const doc = new DOMParser().parseFromString(html, "text/html")
+    //     return doc.body.textContent
+    // }
 
     return (
         <div className="container mt-6 pt-4">
@@ -65,28 +68,35 @@ const SingleBlog = () => {
                         <li class="is-active"><a href="#" aria-current="page" style={style}>{tittle}</a></li>
                     </ul>
                 </nav>
+                <h1>{msg}</h1>
                 <div className="box">
-                    <p>{msg}</p>
-                    <p className="title is-4">{tittle}</p>
-                    <p className="subtitle is-6 pt-3" >
-                        <span className="pr-1">
-                            <BsFillPersonFill />
-                        </span>
-                        <span style={{ fontSize: '14px' }}>
-                            {userName}
-                        </span>
-                        <span className="pl-5 pr-1">
-                            <BsCalendarDate />
-                        </span>
-                        <span style={{ fontSize: '14px' }}>
-                            {moment(update).format('dddd, Do MMMM  YYYY')}
-                        </span>
-                    </p>
-                    <img src={preview} alt={tittle} style={{ height: '450px', width: '100%', objectFit: 'cover' }} />
-                    <p className="content">{content}</p>
+                    <div className="mx-6 ">
+                        <img src={preview} alt={tittle} style={{ height: '400px', width: '100%', objectFit: 'cover' }} />
+                        <p className="subtitle is-6 pt-3" >
+                            <span className="pr-1">
+                                <BsFillPersonFill />
+                            </span>
+                            <span style={{ fontSize: '14px' }}>
+                                {userName}
+                            </span>
+                            <span className="pl-5 pr-1">
+                                <BsCalendarDate />
+                            </span>
+                            <span style={{ fontSize: '14px' }}>
+                                {moment(update).format('dddd, Do MMMM  YYYY')}
+                            </span>
+                        </p>
+                        <p className="title is-4 mt-2">{tittle}</p>
+                        <p
+                            className="content"
+                            dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(content),
+                            }}
+                        ></p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

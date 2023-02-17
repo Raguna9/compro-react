@@ -10,6 +10,8 @@ import { BsFillPersonFill, BsCalendarDate, BsFillArrowRightCircleFill } from "re
 function BlogPages() {
     const [blogs, setBlogs] = useState([]);
     const [users, setUsers] = useState([]);
+    const [blogShow, setBlogShow] = useState(3);
+
     const style = {
         overflow: 'hidden',
         display: 'block',
@@ -53,17 +55,21 @@ function BlogPages() {
                     </ul>
                 </nav>
                 <div className="section">
-                    {blogs.map((blog, index) => (
+                    {blogs.slice(0, blogShow).map((blog, index) => (
                         <div className="pb-6">
                             <div className="columns has-background-light" style={{ height: '250px', width: '100%', objectFit: 'cover' }} >
                                 <div className="column is-4">
-                                    <img src={blog.urlImage} alt={blog.tittle} style={{ height: '220px', width: '100%', objectFit: 'cover' }} />
+                                    <a href={`/blogpages/${blog.uuid}`}>
+                                        <img src={blog.urlImage} alt={blog.tittle} style={{ height: '220px', width: '100%', objectFit: 'cover' }} />
+                                    </a>
                                 </div>
                                 <div className="column">
                                     <p># {index + 1}</p>
-                                    <div className="subtitle is-5 py-4" style={style}>
-                                        <strong> {blog.tittle}</strong>
-                                    </div>
+                                    <a href={`/blogpages/${blog.uuid}`}>
+                                        <div className="subtitle is-5 py-4" style={style}>
+                                            <strong> {blog.tittle}</strong>
+                                        </div>
+                                    </a>
                                     <a href={`/blogpages/${blog.uuid}`}>
                                         <div className="columns">
                                             <div className="column is-10 subtitle is-5">
@@ -91,6 +97,10 @@ function BlogPages() {
                         </div>
 
                     ))}
+                    <div className='has-text-centered'>
+                        <button className="button is-info is-rounded" onClick={() => setBlogShow(blogShow + 3)}>Lihat lebih banyak</button>
+                    </div>
+
                 </div>
             </div>
             <PublicFooter />

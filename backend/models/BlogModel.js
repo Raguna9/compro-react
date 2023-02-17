@@ -58,10 +58,6 @@ const Blogs = db.define('blog', {
         allowNull: false,
         validate: {
             notEmpty: true
-        },
-        references: {
-            model: 'User',
-            key: 'id'
         }
     }
 }, {

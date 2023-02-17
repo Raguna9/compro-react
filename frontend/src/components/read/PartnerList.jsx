@@ -50,8 +50,8 @@ const PartnerList = () => {
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
                         <th>Image</th>
+                        <th>Name</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -59,12 +59,12 @@ const PartnerList = () => {
                     {partners.map((partner, index) => (
                         <tr key={partner.uuid}>
                             <td>{index + 1 + offset}</td>
-                            <td>{partner.name}</td>
                             <td>
                                 <figure className="image is-3by1">
                                     <img src={partner.urlImage} alt={partner.name} />
                                 </figure>
                             </td>
+                            <td>{partner.name}</td>
                             <td>
                                 <Link
                                     to={`/partners/edit/${partner.uuid}`}
