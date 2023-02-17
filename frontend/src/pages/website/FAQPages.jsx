@@ -44,18 +44,15 @@ function FAQPages() {
                     <div className="columns">
                         <div className="column">
                             {faqs.map((faq, index) => (
-                                <div key={index} className="mt-4">
-                                    <h2 className="subtitle">
+                                <div key={index} className="card mt-4">
                                         <button
-                                            className="button is-primary is-fullwidth is-outlined is-block is-flex"
+                                            className="button is-info is-fullwidth is-outlined"
                                             onClick={() => handleClick(index)}
-                                            style={{ margin: "0" }}
                                         >
                                             {faq.question}
                                         </button>
-                                    </h2>
                                     {index === activeQuestion && (
-                                        <p>{faq.answer}</p>
+                                        <p className='px-3 py-3'>{faq.answer}</p>
                                     )}
                                 </div>
                             ))}

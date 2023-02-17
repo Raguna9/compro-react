@@ -48,7 +48,7 @@ const Blog = () => {
                 <div className="columns is-multiline">
                     {blogs.slice(0, 3).map((blog, index) => (
                         <div key={index} className="column">
-                            <div className="card has-background-light" style={{ height: '300px', width: '336px' }}>
+                            <div className="card has-background-light">
                                 <a href={`/blogpages/${blog.uuid}`}>
                                     <div className="card-image">
                                         <img src={blog.urlImage} alt={blog.tittle} style={{ height: '200px', width: '100%', objectFit: 'cover' }} />

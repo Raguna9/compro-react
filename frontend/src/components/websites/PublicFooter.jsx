@@ -7,7 +7,8 @@ import { AiTwotoneMail, AiFillPhone } from "react-icons/ai";
 const PublicFooter = () => {
 
     return (
-        <div className="container is-full-widescreen px-3">
+        <div className="container is-fluid px-6 has-background-light">
+            <footer></footer>
             <hr />
             <div className="columns" style={{marginBottom: '0', paddingBottom: '0'}}>
                 <div className="column is-8">

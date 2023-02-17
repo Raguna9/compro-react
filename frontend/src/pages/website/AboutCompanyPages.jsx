@@ -6,7 +6,6 @@ import logo from "../../assets/logo/gtnlogo.jpg";
 import strog from "../../assets/images/strog.png";
 import NIB1 from "../../assets/pdf/NIB1.jpg";
 import NIB2 from "../../assets/pdf/NIB2.jpg";
-// import { BsLink45Deg } from "react-icons/bs";
 
 const AboutCompanyPages = () => {
     const [activeTab, setActiveTab] = useState('profile');
@@ -17,10 +16,10 @@ const AboutCompanyPages = () => {
             <PublicNavbar />
             <div className="container mt-6 py-6">
                 {/* <h1 className="title has-text-centered">About Company</h1> */}
-                <nav class="breadcrumb" aria-label="breadcrumbs">
+                <nav className="breadcrumb" aria-label="breadcrumbs">
                     <ul>
                         <li><a href="/">Beranda</a></li>
-                        <li class="is-active"><a href="#">About company</a></li>
+                        <li className="is-active"><a href="#">About company</a></li>
                     </ul>
                 </nav>
                 <hr />

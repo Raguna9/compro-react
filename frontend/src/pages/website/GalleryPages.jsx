@@ -31,7 +31,7 @@ function GalleryPages() {
                                 <div className="card-image">
                                     <figure className="image">
                                         <img src={gallery.urlImage} alt={gallery.description}
-                                            onClick={() => setActiveImage(gallery.urlImage)} />
+                                            onClick={() => setActiveImage(gallery.urlImage)} style={{ height: '200px', width: '100%', objectFit: 'cover' }}  />
                                     </figure>
                                 </div>
                                 <div className="card-content">

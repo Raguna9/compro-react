@@ -1,15 +1,31 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
-import { GrContact } from "react-icons/gr";
-import logo from "./../../assets/logo/gtnlogo.jpg";
+import logo from "./../../assets/logo/logogtn.png";
 
 const PublicNavbar = () => {
     const [isActive, setIsActive] = useState(false);
+    const [navShadow, setNavShadow] = useState(false);
+    const shadow = { boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }
+
+    const handleNavShadow = () => {
+        if (window.scrollY >= 10) {
+            setNavShadow(true);
+        } else {
+            setNavShadow(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleNavShadow);
+        return () => {
+            window.removeEventListener("scroll", handleNavShadow);
+        };
+    }, []);
 
     return (
         <div className="container">
-            <nav className="navbar is-fixed-top" style={{ boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }} role="navigation" aria-label="main navigation">
+            <nav className={`navbar is-fixed-top ${navShadow ? "has-background-light" : ""}`} style={ navShadow ? { ...shadow, boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' } : { } } role="navigation" aria-label="main navigation">
                 <div className="navbar-brand ml-2">
                     {window.location.pathname === '/' ? (
                         <Link to="home" spy={true} smooth={true} offset={-90} duration={500}>
@@ -101,15 +117,9 @@ const PublicNavbar = () => {
                             </a>
                         )}
 
-                        {window.location.pathname === '/' ? (
-                            <Link className="navbar-item" to="faq" spy={true} smooth={true} offset={-90} duration={500}>
-                                <GrContact />
-                            </Link>
-                        ) : (
-                            <a className="navbar-item" href="/">
-                                <GrContact />
-                            </a>
-                        )}
+                        <a className="navbar-item" href="/login">
+                            <button className="button is-primary">Login</button>
+                        </a>
                     </div>
                 </div>
             </nav>

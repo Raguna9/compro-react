@@ -17,7 +17,7 @@ const PesanFaq = () => {
         whiteSpace: 'normal',
         display: 'block',
         textOverflow: 'ellipsis',
-        maxHeight: '278px', 
+        maxHeight: '278px',
         fontSize: '13px'
     }
 
@@ -57,7 +57,7 @@ const PesanFaq = () => {
                 <div className="columns is-multiline">
                     <div className="column is-8">
                         <div className="card has-background-light">
-                        <div className="subtitle has-text-centered pt-3"><strong>Pesan</strong></div>
+                            <div className="subtitle has-text-centered pt-3"><strong>Pesan</strong></div>
                             <div className="card-content">
                                 <form onSubmit={saveInbox}>
                                     <div className="field">
@@ -111,30 +111,28 @@ const PesanFaq = () => {
 
                     <div className="column is-4">
                         <div className="card has-background-light">
-                                <div className="card-header-title subtitle has-text-centered mx-5 px-5"><strong>Frequently Ask Questions</strong></div>
+                            <div className="card-header-title subtitle has-text-centered mx-5 px-5"><strong>Frequently Ask Questions</strong></div>
                             <div className="content" style={{
                                 paddingTop: '0'
                             }}>
-                                <div lassName="card-content">
-                                    {faq.slice(0, 1).map((faq, index) => (
+                                {faq.slice(0, 1).map((faq, index) => (
+                                    <div
+                                        key={index}
+                                        className="px-5"
+                                        style={style}
+                                    >
                                         <div
-                                            key={index}
-                                            className="px-5"
                                             style={style}
                                         >
-                                            <div
-                                                style={style}
-                                            >
-                                                <strong className="py-3">
-                                                    {faq.question}
-                                                </strong>
-                                                <br />
-                                                {faq.answer}
-                                            </div>
+                                            <strong className="py-3">
+                                                {faq.question}
+                                            </strong>
+                                            <br />
+                                            {faq.answer}
                                         </div>
+                                    </div>
 
-                                    ))}
-                                </div>
+                                ))}
                             </div>
                             <footer className="card-footer pb-4 px-4 ">
                                 <a href="faqpages" className="button is-info is-rounded card-footer-item">Lihat Semua FAQ</a></footer>
@@ -143,16 +141,16 @@ const PesanFaq = () => {
                 </div>
 
                 {name && email && messageContent && isOpen &&
-                <div className="modal is-active">
-                    <div className="modal-background" onClick={handleRefresh} />
-                    <div className="card has-background-white has-text-centered">
-                        <div className="card-header-title mx-6 px-6">Pesan Terkirim</div>
-                        <p>Terimakasih sudah mengirimkan pesan</p>
-                        <div className="mx-4 my-4 pt-3">
-                            <button className="button is-primary mx-6" onClick={handleRefresh}>OK</button>
+                    <div className="modal is-active">
+                        <div className="modal-background" onClick={handleRefresh} />
+                        <div className="card has-background-white has-text-centered">
+                            <div className="card-header-title mx-6 px-6">Pesan Terkirim</div>
+                            <p>Terimakasih sudah mengirimkan pesan</p>
+                            <div className="mx-4 my-4 pt-3">
+                                <button className="button is-primary mx-6" onClick={handleRefresh}>OK</button>
+                            </div>
                         </div>
                     </div>
-                </div>
                 }
             </section>
         </div>

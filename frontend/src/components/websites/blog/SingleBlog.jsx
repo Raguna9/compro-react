@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -53,24 +52,19 @@ const SingleBlog = () => {
         getBlogById();
     }, [id]);
 
-    // const getText = (html) => {
-    //     const doc = new DOMParser().parseFromString(html, "text/html")
-    //     return doc.body.textContent
-    // }
-
     return (
         <div className="container mt-6 pt-4">
             <div className="section">
-                <nav class="breadcrumb" aria-label="breadcrumbs">
+                <nav className="breadcrumb" aria-label="breadcrumbs">
                     <ul>
                         <li><a href="/">Beranda</a></li>
                         <li><a href="/blogpages">Blog</a></li>
-                        <li class="is-active"><a href="#" aria-current="page" style={style}>{tittle}</a></li>
+                        <li className="is-active"><a href="#" aria-current="page" style={style}>{tittle}</a></li>
                     </ul>
                 </nav>
                 <h1>{msg}</h1>
                 <div className="box">
-                    <div className="mx-6 ">
+                    <div className="mx-4">
                         <img src={preview} alt={tittle} style={{ height: '400px', width: '100%', objectFit: 'cover' }} />
                         <p className="subtitle is-6 pt-3" >
                             <span className="pr-1">

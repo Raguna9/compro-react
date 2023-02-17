@@ -5,6 +5,15 @@ const Gallery = () => {
     const [gallery, setGallerys] = useState([]);
     const [activeImage, setActiveImage] = useState(null);
 
+    const style = {
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        display: 'inline-block',
+        textOverflow: 'ellipsis',
+        maxWidth: '100%',
+        paddingBottom: '6px'
+    }
+
     useEffect(() => {
         axios.get('http://localhost:5000/gallerys')
             .then(response => setGallerys(response.data))
@@ -27,11 +36,11 @@ const Gallery = () => {
                                 <div className="card-image">
                                     <figure className="image">
                                         <img src={gallery.urlImage} alt={gallery.description}
-                                            onClick={() => setActiveImage(gallery.urlImage)} />
+                                            onClick={() => setActiveImage(gallery.urlImage)} style={{ height: '200px', width: '100%', objectFit: 'cover' }} />
                                     </figure>
                                 </div>
                                 <div className="card-content">
-                                    <p className="title is-4">{gallery.description}</p>
+                                    <p className="title is-4" style={style}>{gallery.description}</p>
                                 </div>
                             </div>
                         </div>
