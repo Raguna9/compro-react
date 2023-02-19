@@ -10,7 +10,8 @@ import { BsFillPersonFill, BsCalendarDate, BsFillArrowRightCircleFill } from "re
 function BlogPages() {
     const [blogs, setBlogs] = useState([]);
     const [users, setUsers] = useState([]);
-    const [blogShow, setBlogShow] = useState(3);
+    const [shows, setShows] = useState(3);
+    const [totalRows, setTotalRows] = useState(0);
 
     const style = {
         overflow: 'hidden',
@@ -22,6 +23,7 @@ function BlogPages() {
 
     useEffect(() => {
         moment.locale("id");
+        getCount();
 
         axios.get('http://localhost:5000/listblogs')
             .then(response => {
@@ -43,6 +45,11 @@ function BlogPages() {
             .catch(error => console.error(error));
     }, []);
 
+    const getCount = async () => {
+        const responseBlog = await axios.get("http://localhost:5000/blogs/count");
+        setTotalRows(responseBlog.data.count);
+    }
+
     return (
         <React.Fragment>
             <PublicNavbar />
@@ -55,7 +62,7 @@ function BlogPages() {
                     </ul>
                 </nav>
                 <div className="section">
-                    {blogs.slice(0, blogShow).map((blog, index) => (
+                    {blogs.slice(0, shows).map((blog, index) => (
                         <div className="pb-6">
                             <div className="columns has-background-light" style={{ height: '250px', width: '100%', objectFit: 'cover' }} >
                                 <div className="column is-4">
@@ -97,9 +104,11 @@ function BlogPages() {
                         </div>
 
                     ))}
-                    <div className='has-text-centered'>
-                        <button className="button is-info is-rounded" onClick={() => setBlogShow(blogShow + 3)}>Lihat lebih banyak</button>
-                    </div>
+                    {blogs.length > 0 && shows < totalRows && (
+                        <div className='has-text-centered'>
+                            <button className="button is-info is-rounded" onClick={() => setShows(shows + 3)}>Lihat lebih banyak</button>
+                        </div>
+                    )}
 
                 </div>
             </div>

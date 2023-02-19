@@ -54,14 +54,14 @@ const SingleBlog = () => {
 
     return (
         <div className="container mt-6 pt-4">
+            <nav className="breadcrumb mt-5" aria-label="breadcrumbs">
+                <ul>
+                    <li><a href="/">Beranda</a></li>
+                    <li><a href="/blogpages">Blog</a></li>
+                    <li className="is-active"><a href="#" aria-current="page" style={style}>{tittle}</a></li>
+                </ul>
+            </nav>
             <div className="section">
-                <nav className="breadcrumb" aria-label="breadcrumbs">
-                    <ul>
-                        <li><a href="/">Beranda</a></li>
-                        <li><a href="/blogpages">Blog</a></li>
-                        <li className="is-active"><a href="#" aria-current="page" style={style}>{tittle}</a></li>
-                    </ul>
-                </nav>
                 <h1>{msg}</h1>
                 <div className="box">
                     <div className="mx-4">

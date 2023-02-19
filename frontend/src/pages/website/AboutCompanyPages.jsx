@@ -19,7 +19,7 @@ const AboutCompanyPages = () => {
                 <nav className="breadcrumb" aria-label="breadcrumbs">
                     <ul>
                         <li><a href="/">Beranda</a></li>
-                        <li className="is-active"><a href="#">About company</a></li>
+                        <li className="is-active"><a href="#">Tentang Perusahaan</a></li>
                     </ul>
                 </nav>
                 <hr />

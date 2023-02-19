@@ -107,7 +107,7 @@ const PublicNavbar = () => {
                                 Blog
                             </a>
                         )}
-                        {window.location.pathname === '/' ? (
+                        {/* {window.location.pathname === '/' ? (
                             <Link className="navbar-item" to="partner" spy={true} smooth={true} offset={-90} duration={500}>
                                 Mitra
                             </Link>
@@ -115,7 +115,7 @@ const PublicNavbar = () => {
                             <a className="navbar-item" href="/">
                                 Mitra
                             </a>
-                        )}
+                        )} */}
 
                         <a className="navbar-item" href="/login">
                             <button className="button is-primary">Login</button>

@@ -7,8 +7,9 @@ import ReactPaginate from "react-paginate";
 const PartnerList = () => {
     const [partners, setPartners] = useState([]);
     const [page, setPage] = useState(0);
-    const [pages, setPages] = useState(0);
-    const [rows, setRows] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
+    const [isOpen, setIsOpen] = useState(null);
+    const [totalRows, setTotalRows] = useState(0);
     const limit = 10;
     const offset = page * limit;
 
@@ -18,12 +19,12 @@ const PartnerList = () => {
 
     const getPartners = async () => {
         const response = await axios.get(
-            `http://localhost:5000/partners?search_query=&page=${page}&limit=${limit}`
+            `http://localhost:5000/partners?page=${page}&limit=${limit}`
         );
         setPartners(response.data.result);
         setPage(response.data.page);
-        setPages(response.data.totalPage);
-        setRows(response.data.totalRows);
+        setTotalPages(response.data.totalPage);
+        setTotalRows(response.data.totalRows);
     };
 
     const deletePartner = async (partnerId) => {
@@ -59,10 +60,8 @@ const PartnerList = () => {
                     {partners.map((partner, index) => (
                         <tr key={partner.uuid}>
                             <td>{index + 1 + offset}</td>
-                            <td>
-                                <figure className="image is-3by1">
-                                    <img src={partner.urlImage} alt={partner.name} />
-                                </figure>
+                            <td style={{ maxWidth: '80px', objectFit: 'cover' }}>
+                                <img src={partner.urlImage} alt={partner.name} onClick={() => setIsOpen(partner.urlImage)} />
                             </td>
                             <td>{partner.name}</td>
                             <td>
@@ -83,28 +82,47 @@ const PartnerList = () => {
                     ))}
                 </tbody>
             </table>
-            <p>
-                Total Rows: {rows} Page: {rows ? page + 1 : 0} of {pages}
-            </p>
-            <nav
-                className="pagination is-centered"
-                key={rows}
-                role="navigation"
-                aria-label="pagination"
-            >
-                <ReactPaginate
-                    previousLabel={"< Prev"}
-                    nextLabel={"Next >"}
-                    pageCount={pages}
-                    onPageChange={changePage}
-                    containerClassName={"pagination-list"}
-                    pageLinkClassName={"pagination-link"}
-                    previousLinkClassName={"pagination-previous"}
-                    nextLinkClassName={"pagination-next"}
-                    activeLinkClassName={"pagination-link is-current"}
-                    disabledLinkClassName={"pagination-link is-disabled"}
-                />
-            </nav>
+
+            {isOpen &&
+                <div className="modal is-active">
+                    <div className="modal-background" onClick={() => setIsOpen(null)} />
+                    <div className="modal-content">
+                        <p className="image">
+                            <img src={isOpen} alt={isOpen} />
+                        </p>
+                    </div>
+                    <button className="modal-close is-large" aria-label="close"
+                        onClick={() => setIsOpen(null)} />
+                </div>
+            }
+
+            {partners.length > 0 && limit < totalRows && (
+                <div>
+
+                    <p>
+                        Total Rows: {totalRows} Page: {totalRows ? page + 1 : 0} of {totalPages}
+                    </p>
+                    <nav
+                        className="pagination is-centered"
+                        key={totalRows}
+                        role="navigation"
+                        aria-label="pagination"
+                    >
+                        <ReactPaginate
+                            previousLabel={"< Prev"}
+                            nextLabel={"Next >"}
+                            pageCount={totalPages}
+                            onPageChange={changePage}
+                            containerClassName={"pagination-list"}
+                            pageLinkClassName={"pagination-link"}
+                            previousLinkClassName={"pagination-previous"}
+                            nextLinkClassName={"pagination-next"}
+                            activeLinkClassName={"pagination-link is-current"}
+                            disabledLinkClassName={"pagination-link is-disabled"}
+                        />
+                    </nav>
+                </div>
+            )}
         </div>
     );
 };

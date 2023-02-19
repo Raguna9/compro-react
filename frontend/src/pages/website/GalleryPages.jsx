@@ -5,15 +5,22 @@ import PublicNavbar from "../../components/websites/PublicNavbar";
 import PublicFooter from "../../components/websites/PublicFooter";
 
 function GalleryPages() {
-    const [gallery, setGallerys] = useState([]);
+    const [gallerys, setGallerys] = useState([]);
     const [activeImage, setActiveImage] = useState(null);
+    const [shows, setShows] = useState(6);
+    const [totalRows, setTotalRows] = useState(0);
 
     useEffect(() => {
+        getCount();
         axios.get('http://localhost:5000/gallerys')
             .then(response => setGallerys(response.data))
             .catch(error => console.error(error));
     }, []);
 
+    const getCount = async () => {
+        const responseGallery = await axios.get("http://localhost:5000/blogs/count");
+        setTotalRows(responseGallery.data.count);
+    }
     return (
         <React.Fragment>
             <PublicNavbar />
@@ -25,17 +32,17 @@ function GalleryPages() {
                     </ul>
                 </nav>
                 <div className="columns is-multiline">
-                    {gallery.map(gallery => (
+                    {gallerys.slice(0, shows).map(gallery => (
                         <div key={gallery.uuid} className="column is-one-third">
                             <div className="card">
                                 <div className="card-image">
                                     <figure className="image">
                                         <img src={gallery.urlImage} alt={gallery.description}
-                                            onClick={() => setActiveImage(gallery.urlImage)} style={{ height: '200px', width: '100%', objectFit: 'cover' }}  />
+                                            onClick={() => setActiveImage(gallery.urlImage)} style={{ height: '200px', width: '100%', objectFit: 'cover' }} />
                                     </figure>
                                 </div>
                                 <div className="card-content">
-                                    <p className="title is-4">{gallery.description}</p>
+                                    <p className="title is-6" style={{ height: '80px' }}>{gallery.description}</p>
                                 </div>
                             </div>
                         </div>
@@ -55,6 +62,11 @@ function GalleryPages() {
                             onClick={() => setActiveImage(null)} />
                     </div>
                 }
+                {gallerys.length > 0 && shows < totalRows && (
+                    <div className='has-text-centered'>
+                        <button className="button is-info is-rounded" onClick={() => setShows(shows + 3)}>Lihat lebih banyak</button>
+                    </div>
+                )}
             </div>
             <PublicFooter />
         </React.Fragment>

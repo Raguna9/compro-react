@@ -5,15 +5,6 @@ const Gallery = () => {
     const [gallery, setGallerys] = useState([]);
     const [activeImage, setActiveImage] = useState(null);
 
-    const style = {
-        overflow: 'hidden',
-        whiteSpace: 'nowrap',
-        display: 'inline-block',
-        textOverflow: 'ellipsis',
-        maxWidth: '100%',
-        paddingBottom: '6px'
-    }
-
     useEffect(() => {
         axios.get('http://localhost:5000/gallerys')
             .then(response => setGallerys(response.data))
@@ -26,7 +17,7 @@ const Gallery = () => {
                 {/* <hr /> */}
                 <h1 className="title is-4 has-text-centered">Gallery</h1>
                 <h2 className="subtitle is-6 has-text-centered">
-                    Berikut ini adalah beberapa gambar yang menggambarkan layanan kami.
+                    Berikut ini adalah beberapa gambar aktivitas dan dokumentasi perjalanan kami.
                 </h2>
 
                 <div className="columns is-multiline">
@@ -39,15 +30,15 @@ const Gallery = () => {
                                             onClick={() => setActiveImage(gallery.urlImage)} style={{ height: '200px', width: '100%', objectFit: 'cover' }} />
                                     </figure>
                                 </div>
-                                <div className="card-content">
-                                    <p className="title is-4" style={style}>{gallery.description}</p>
+                                <div className="pl-4 py-4" style={{height: '80px'}}>
+                                    <p className="title is-6">{gallery.description}</p>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
                 <a href="gallerypages" className="button is-danger is-rounded">Selengkapnya</a>
-
+                        
                 {activeImage &&
                     <div className="modal is-active">
                         <div className="modal-background" onClick={() => setActiveImage(null)} />

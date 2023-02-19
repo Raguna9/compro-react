@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const GalleryList = () => {
     const [gallerys, setGallerys] = useState([]);
-
+    const [isOpen, setIsOpen] = useState(null);
     useEffect(() => {
         getGallerys();
     }, []);
@@ -43,10 +43,8 @@ const GalleryList = () => {
                     {gallerys.map((gallery, index) => (
                         <tr key={gallery.uuid}>
                             <td>{index + 1}</td>
-                            <td>
-                                <figure className="image is-3by2">
-                                    <img src={gallery.urlImage} alt={gallery.uuid} />
-                                </figure>
+                            <td style={{ maxWidth: '150px', objectFit: 'cover' }}>
+                                <img src={gallery.urlImage} alt={gallery.uuid} onClick={() => setIsOpen(gallery.urlImage)} />
                             </td>
                             <td>{gallery.description}</td>
                             <td>
@@ -67,6 +65,19 @@ const GalleryList = () => {
                     ))}
                 </tbody>
             </table>
+
+            {isOpen &&
+                <div className="modal is-active">
+                    <div className="modal-background" onClick={() => setIsOpen(null)} />
+                    <div className="modal-content">
+                        <p className="image">
+                            <img src={isOpen} alt={isOpen} />
+                        </p>
+                    </div>
+                    <button className="modal-close is-large" aria-label="close"
+                        onClick={() => setIsOpen(null)} />
+                </div>
+            }
         </div>
     );
 };

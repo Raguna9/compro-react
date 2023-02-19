@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const EmployeeList = () => {
     const [employees, setEmployees] = useState([]);
-
+    const [isOpen, setIsOpen] = useState(null);
     useEffect(() => {
         getEmployees();
     }, []);
@@ -54,7 +54,11 @@ const EmployeeList = () => {
                             <td>{employee.sppi}</td>
                             <td>
                                 <figure className="image is-3by4">
-                                    <img src={employee.urlImage} alt={employee.name} />
+                                    <img
+                                        src={employee.urlImage}
+                                        alt={employee.name}
+                                        onClick={() => setIsOpen(employee.urlImage)}
+                                    />
                                 </figure>
                             </td>
                             <td>
@@ -75,6 +79,19 @@ const EmployeeList = () => {
                     ))}
                 </tbody>
             </table>
+
+            {isOpen &&
+                <div className="modal is-active">
+                    <div className="modal-background" onClick={() => setIsOpen(null)} />
+                    <div className="modal-content">
+                        <p className="image">
+                            <img src={isOpen} alt={isOpen} />
+                        </p>
+                    </div>
+                    <button className="modal-close is-large" aria-label="close"
+                        onClick={() => setIsOpen(null)} />
+                </div>
+            }
         </div>
     );
 };

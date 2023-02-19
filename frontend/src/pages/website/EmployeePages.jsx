@@ -14,10 +14,10 @@ const EmployeePages = () => {
         <React.Fragment>
             <PublicNavbar />
             <div className="container mt-6 py-6">
-                <nav class="breadcrumb" aria-label="breadcrumbs">
+                <nav className="breadcrumb" aria-label="breadcrumbs">
                     <ul>
                         <li><a href="/">Beranda</a></li>
-                        <li class="is-active"><a href="#">Tenaga Kerja</a></li>
+                        <li className="is-active"><a href="#">Tenaga Kerja</a></li>
                     </ul>
                 </nav>
                 <div className="tabs is-small is-boxed">
