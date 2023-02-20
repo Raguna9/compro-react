@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import './../websites/style.css';
 
 const FAQList = () => {
     const [faqs, setFAQs] = useState([]);
@@ -45,7 +46,11 @@ const FAQList = () => {
                         <tr>
                             <td>{index + 1}</td>
                             <td>{faq.question}</td>
-                            <td>{faq.answer}</td>
+                            <td>
+                                <p className="faq">
+                                {faq.answer}
+                                </p>
+                                </td>
                             <td style={{ width: "150px" }}>
                                 <Link
                                     to={`/faqs/edit/${faq.uuid}`}

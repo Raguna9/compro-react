@@ -6,20 +6,14 @@ import PublicNavbar from "../../components/websites/PublicNavbar";
 import PublicFooter from "../../components/websites/PublicFooter";
 import "moment/locale/id";
 import { BsFillPersonFill, BsCalendarDate, BsFillArrowRightCircleFill } from "react-icons/bs";
+import './../../components/websites/style.css';
+import DOMPurify from "dompurify";
 
 function BlogPages() {
     const [blogs, setBlogs] = useState([]);
     const [users, setUsers] = useState([]);
     const [shows, setShows] = useState(3);
     const [totalRows, setTotalRows] = useState(0);
-
-    const style = {
-        overflow: 'hidden',
-        display: 'block',
-        textOverflow: 'ellipsis',
-        maxHeight: '100px',
-        height: '100px'
-    }
 
     useEffect(() => {
         moment.locale("id");
@@ -73,12 +67,18 @@ function BlogPages() {
                                 <div className="column">
                                     <p># {index + 1}</p>
                                     <a href={`/blogpages/${blog.uuid}`}>
-                                        <div className="subtitle is-5 py-4" style={style}>
+                                        <div className="titleBlog2 subtitle is-5 pt-4">
                                             <strong> {blog.tittle}</strong>
                                         </div>
                                     </a>
+                                    <p
+                                        className="contentBlog pt-4"
+                                        dangerouslySetInnerHTML={{
+                                            __html: DOMPurify.sanitize(blog.content),
+                                        }}
+                                    ></p>
                                     <a href={`/blogpages/${blog.uuid}`}>
-                                        <div className="columns">
+                                        <div className="columns pt-4">
                                             <div className="column is-10 subtitle is-5">
                                                 <span className="pr-1">
                                                     <BsFillPersonFill />

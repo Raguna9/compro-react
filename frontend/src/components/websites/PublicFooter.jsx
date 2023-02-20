@@ -12,7 +12,7 @@ const PublicFooter = () => {
             <footer></footer>
             <hr />
             <div className="columns" style={{ marginBottom: '0', paddingBottom: '0' }}>
-                <div className="column is-5">
+                <div className="column is-5 is-hidden-mobile">
                     {/* <h3 className="subtitle has-text-white-ter has-text-centered pt-6">Tambahan</h3> */}
                     <div className="columns">
                         <div className="column has-text-info is-6">

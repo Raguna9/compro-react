@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import DOMPurify from "dompurify";
+import './../websites/style.css';
 
 const BlogList = () => {
     const [blogs, setBlogs] = useState([]);
     const [isOpen, setIsOpen] = useState(null);
 
-    const style = {
-        overflow: 'hidden',
-        whiteSpace: 'nowrap',
-        display: 'inline-block',
-        textOverflow: 'ellipsis',
-        maxWidth: '450px'
-    }
     useEffect(() => {
         getBlogs();
     }, []);
@@ -54,8 +49,19 @@ const BlogList = () => {
                     <tbody key={blog.uuid}>
                         <tr>
                             <td>{index + 1}</td>
-                            <td>{blog.tittle}</td>
-                            <td style={style}>{blog.content}</td>
+                            <td>
+                                <p className="titleBlog3">
+                                    {blog.tittle}
+                                </p>
+                            </td>
+                            <td>
+                                <p
+                                    dangerouslySetInnerHTML={{
+                                        __html: DOMPurify.sanitize(blog.content),
+                                    }}
+                                    className='contentBlog3'
+                                ></p>
+                            </td>
                             <td>
                                 <img src={blog.urlImage} alt={blog.tittle} onClick={() => setIsOpen(blog.urlImage)} />
                             </td>

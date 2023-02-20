@@ -2,20 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from 'moment';
 import "moment/locale/id";
+import DOMPurify from "dompurify";
 import { BsFillPersonFill, BsCalendarDate, BsFillArrowRightCircleFill } from "react-icons/bs";
+import './style.css'
 
 const Blog = () => {
     const [blogs, setBlogs] = useState([])
     const [users, setUsers] = useState([])
-
-    const style = {
-        overflow: 'hidden',
-        whiteSpace: 'nowrap',
-        display: 'inline-block',
-        textOverflow: 'ellipsis',
-        maxWidth: '100%',
-        paddingBottom: '6px'
-    }
 
     useEffect(() => {
         moment.locale("id");
@@ -47,19 +40,27 @@ const Blog = () => {
                 <p className="subtitle is-6 has-text-centered">Jika Anda mempunyai waktu yang singkat, dan ingin dimanfaatkan, kami telah menyediakan Anda beberapa blog yang mungkin bermanfaat.</p>
                 <div className="columns is-multiline">
                     {blogs.slice(0, 3).map((blog, index) => (
-                        <div key={index} className="column">
-                            <div className="card has-background-light">
+                        <div key={index} className="column is-4">
+                            <div className="card has-background-light" style={{height: '350px'}}>
                                 <a href={`/blogpages/${blog.uuid}`}>
                                     <div className="card-image">
                                         <img src={blog.urlImage} alt={blog.tittle} style={{ height: '200px', width: '100%', objectFit: 'cover' }} />
                                     </div>
                                 </a>
                                 <div className="card-content pt-3">
-                                    <h3 className="is-6" style={style}>
+                                    <h3 className="titleBlog is-6">
                                         <strong> {blog.tittle}</strong>
                                     </h3>
+                                    <div>
+                                        <p
+                                            className="content contentBlog"
+                                            dangerouslySetInnerHTML={{
+                                                __html: DOMPurify.sanitize(blog.content),
+                                            }}
+                                        ></p>
+                                    </div>
                                     <a href={`/blogpages/${blog.uuid}`}>
-                                        <div className="columns">
+                                        <div className="columns pt-3">
                                             <div className="column is-10 subtitle is-7 ">
                                                 <span className="pr-1">
                                                     <BsFillPersonFill />

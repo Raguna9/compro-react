@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PublicNavbar from "../../components/websites/PublicNavbar";
 import PublicFooter from "../../components/websites/PublicFooter";
+import './../../components/websites/style.css';
 
 function GalleryPages() {
     const [gallerys, setGallerys] = useState([]);
@@ -42,7 +43,7 @@ function GalleryPages() {
                                     </figure>
                                 </div>
                                 <div className="card-content">
-                                    <p className="title is-6" style={{ height: '80px' }}>{gallery.description}</p>
+                                    <p className="title is-6 descGallery2" style={{height: '75px'}}>{gallery.description}</p>
                                 </div>
                             </div>
                         </div>

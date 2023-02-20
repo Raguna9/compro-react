@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from 'moment';
+import './../websites/style.css';
+import "moment/locale/id";
 
 const InboxList = () => {
     const [inboxs, setInboxs] = useState([]);
 
     useEffect(() => {
+        moment.locale("id");
         getInboxs();
     }, []);
 
@@ -45,8 +48,12 @@ const InboxList = () => {
                             <td>{index + 1}</td>
                             <td>{inbox.name}</td>
                             <td>{inbox.email}</td>
-                            <td>{inbox.messageContent}</td>
-                            <td>{moment(inbox.updatedAt).format('Do MMMM YYYY, h:mm:ss a')}</td>
+                            <td>
+                                <p className="msg">
+                                {inbox.messageContent}
+                                </p>
+                                </td>
+                            <td style={{ width: "150px" }}>{moment(inbox.updatedAt).format('Do MMMM YYYY, LT')}</td>
                             <td style={{ width: "150px" }}>
                                 <a
                                     href={`https://mail.google.com/mail/?view=cm&fs=1&to=${inbox.email}&su=Re: ${inbox.subject}`}

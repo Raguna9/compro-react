@@ -11,16 +11,6 @@ const PesanFaq = () => {
     const [faq, setFAQs] = useState([]);
     const [isOpen, setIsOpen] = useState(null);
 
-    const style = {
-        paddingTop: '0',
-        overflow: 'hidden',
-        whiteSpace: 'normal',
-        display: 'block',
-        textOverflow: 'ellipsis',
-        maxHeight: '278px',
-        fontSize: '13px'
-    }
-
     const saveInbox = async (e) => {
         e.preventDefault();
         try {
@@ -96,7 +86,7 @@ const PesanFaq = () => {
                                             </textarea>
                                         </div>
                                     </div>
-                                    <div className="field">
+                                    <div className="field pt-2">
                                         <div className="control">
                                             <button onClick={() => setIsOpen(true)} type="submit" className="button is-success">
                                                 Kirim
@@ -119,10 +109,9 @@ const PesanFaq = () => {
                                     <div
                                         key={index}
                                         className="px-5"
-                                        style={style}
                                     >
                                         <div
-                                            style={style}
+                                        className="answerFAQ"
                                         >
                                             <strong className="py-3">
                                                 {faq.question}

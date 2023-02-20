@@ -11,7 +11,7 @@ const Partner = () => {
     }, []);
 
     return (
-        <div className="container">
+        <div className="container is-hidden-mobile">
             <section id="partner" className='mx-6 pt-4 pb-6 mb-2'>
                 <h2 className="title is-4 has-text-centered">Mitra kerja kami</h2>
                 <div className="columns is-multiline">

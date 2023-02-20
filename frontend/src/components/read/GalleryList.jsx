@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import './../websites/style.css';
 
 const GalleryList = () => {
     const [gallerys, setGallerys] = useState([]);
@@ -46,8 +47,12 @@ const GalleryList = () => {
                             <td style={{ maxWidth: '150px', objectFit: 'cover' }}>
                                 <img src={gallery.urlImage} alt={gallery.uuid} onClick={() => setIsOpen(gallery.urlImage)} />
                             </td>
-                            <td>{gallery.description}</td>
                             <td>
+                                <p className="descGallery3">
+                                    {gallery.description}
+                                </p>
+                            </td>
+                            <td style={{ width: "150px" }}>
                                 <Link
                                     to={`/gallerys/edit/${gallery.uuid}`}
                                     className="button is-small is-info"

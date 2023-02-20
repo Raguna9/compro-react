@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './style.css';
 
 const Gallery = () => {
     const [gallery, setGallerys] = useState([]);
@@ -31,7 +32,7 @@ const Gallery = () => {
                                     </figure>
                                 </div>
                                 <div className="pl-4 py-4" style={{height: '80px'}}>
-                                    <p className="title is-6">{gallery.description}</p>
+                                    <p className="descGallery">{gallery.description}</p>
                                 </div>
                             </div>
                         </div>
