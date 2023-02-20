@@ -15,6 +15,7 @@ import AuthRoute from "./routes/AuthRoute.js";
 import GalleryRoute from "./routes/GalleryRoute.js";
 import FAQRoute from "./routes/FAQRoute.js";
 import InboxRoute from "./routes/InboxRoute.js";
+import MatelRoute from "./routes/MatelRoute.js";
 
 dotenv.config();
 
@@ -61,6 +62,7 @@ app.use(AuthRoute);
 app.use(GalleryRoute);
 app.use(FAQRoute);
 app.use(InboxRoute);
+app.use(MatelRoute);
 
 //membuat tabel session
 // store.sync();
