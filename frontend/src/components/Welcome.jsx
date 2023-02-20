@@ -12,6 +12,7 @@ const Welcome = () => {
     const [countFAQ, setCountFAQ] = useState(0);
     const [countUser, setCountUser] = useState(0);
     const [countPartner, setCountPartner] = useState(0);
+    const [countMatel, setCountMatel] = useState(0);
 
     const getCount = async () => {
         try {
@@ -31,6 +32,8 @@ const Welcome = () => {
             setCountPartner(responsePartner.data.count);
             const responseGallery = await axios.get("http://localhost:5000/gallerys/count");
             setCountGallery(responseGallery.data.count);
+            const responseMatel = await axios.get("http://localhost:5000/matels/count");
+            setCountMatel(responseMatel.data.count);
         } catch (error) {
             console.error(error);
         }
@@ -142,6 +145,17 @@ const Welcome = () => {
                                     <div className="has-text-centered">
                                                 <h1 className="title has-text-white-ter">{countGallery}</h1>
                                                 <h4 className="title has-text-white-ter">Total Gallery</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><div className="column is-3">
+                                <div className="card has-background-warning-dark"style={{height: '150px'}}>
+                            <div className="card-content">
+                                <div className="content" style={{ height: "160px" }}>
+                                    <div className="has-text-centered">
+                                                <h1 className="title has-text-white-ter">{countMatel}</h1>
+                                                <h4 className="title has-text-white-ter">Total Matel</h4>
                                             </div>
                                         </div>
                                     </div>

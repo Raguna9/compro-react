@@ -6,6 +6,7 @@ import { RiGalleryFill, RiQuestionAnswerLine } from "react-icons/ri";
 import { FaBloggerB, FaUserTie, FaUserFriends } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
+import { AiFillBook } from "react-icons/ai";
 
 const Sidebar = () => {
     const dispatch = useDispatch();
@@ -17,12 +18,12 @@ const Sidebar = () => {
             dispatch(LogOut());
             dispatch(reset());
             navigate("/login");
-        } 
+        }
     };
 
     return (
         <div className="container">
-            <aside className="menu mt-2 pl-2 has-shadow is-hidden-mobile" style={{position: 'fixed'}}>
+            <aside className="menu mt-2 pl-2 has-shadow is-hidden-mobile" style={{ position: 'fixed' }}>
                 <span className="menu-label">General</span>
 
                 <ul className="menu-list">
@@ -89,6 +90,13 @@ const Sidebar = () => {
                                 <NavLink to={"/gallerys"}>
                                     <span style={{ fontSize: '14px' }}>
                                         <RiGalleryFill /> Gallery
+                                    </span>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink className="navbar-item" to={"/matels"}>
+                                    <span style={{ fontSize: '14px' }}>
+                                        <AiFillBook /> Data Matel
                                     </span>
                                 </NavLink>
                             </li>

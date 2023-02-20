@@ -75,6 +75,9 @@ const PublicNavbar = () => {
                                 <a className="navbar-item" href="/employeepages">
                                     Tenaga Kerja
                                 </a>
+                                <a className="navbar-item" href="/matelpages">
+                                    Data Kendaraan
+                                </a>
                             </div>
                         </div>
 

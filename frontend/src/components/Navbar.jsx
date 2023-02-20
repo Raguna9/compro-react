@@ -8,6 +8,7 @@ import { FaBloggerB, FaUserTie, FaUserFriends } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
 import { useSelector } from "react-redux";
+import { AiFillBook } from "react-icons/ai";
 
 const Navbar = () => {
     const dispatch = useDispatch();
@@ -118,6 +119,11 @@ const Navbar = () => {
                                 <NavLink className="navbar-item" to={"/gallerys"}>
                                     <span style={{ fontSize: '14px' }}>
                                         <RiGalleryFill /> Gallery
+                                    </span>
+                                </NavLink>
+                                <NavLink className="navbar-item" to={"/matels"}>
+                                    <span style={{ fontSize: '14px' }}>
+                                        <AiFillBook /> Data Matel
                                     </span>
                                 </NavLink>
                             </div>

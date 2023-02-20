@@ -26,6 +26,9 @@ const FAQ = lazy(() => import("./pages/read/FAQs"));
 const AddFAQ = lazy(() => import("./pages/create/AddFAQ"));
 const EditFAQ = lazy(() => import("./pages/update/EditFAQ"));
 const Inbox = lazy(() => import("./pages/read/Inboxs"));
+const EditMatel = lazy(() => import("./pages/update/EditMatel"));
+const AddMatel = lazy(() => import("./pages/create/AddMatel"));
+const Matels = lazy(() => import("./pages/read/Matels"));
 
 //client
 const Main = lazy(() => import("./pages/website/Main"));
@@ -35,6 +38,7 @@ const EmployeePages = lazy(() => import("./pages/website/EmployeePages"));
 const FAQPages = lazy(() => import("./pages/website/FAQPages"));
 const AboutCompanyPages = lazy(() => import("./pages/website/AboutCompanyPages"));
 const SingleBlogPages = lazy(() => import("./pages/website/SingleBlogPages"));
+const MatelPages = lazy(() => import("./pages/website/MatelPages"));
 
 
 function App() {
@@ -51,6 +55,8 @@ function App() {
             <Route path="/employeepages" element={<EmployeePages />} />
             <Route path="/faqpages" element={<FAQPages />} />
             <Route path="/aboutpages" element={<AboutCompanyPages />} />
+            <Route path="/matelpages" element={<MatelPages />} />
+
 
 
             {/* admin */}
@@ -78,6 +84,9 @@ function App() {
             <Route path="/faqs" element={<FAQ />} />
             <Route path="/faqs/add" element={<AddFAQ />} />
             <Route path="/faqs/edit/:id" element={<EditFAQ />} />
+            <Route path="/matels/add" element={<AddMatel />} />
+            <Route path="/matels" element={<Matels />} />
+            <Route path="/matels/edit/:id" element={<EditMatel />} />
 
           </Routes>
         </Suspense>
