@@ -36,7 +36,7 @@ const Matel = () => {
     };
 
     return (
-        <div className="container mb-6 pt-4">
+        <div className="container my-6 pt-4">
             <nav className="breadcrumb mt-5" aria-label="breadcrumbs">
                 <ul>
                     <li>
