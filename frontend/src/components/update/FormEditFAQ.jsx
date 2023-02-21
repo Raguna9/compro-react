@@ -85,7 +85,7 @@ const FormEditFAQ = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success">
-                                        Update
+                                        Perbarui
                                     </button>
                                     <button type="submit" className="button is-danger ml-2" onClick={handleCancle}>
                                         Cancel

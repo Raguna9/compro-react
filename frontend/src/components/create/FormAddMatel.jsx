@@ -46,7 +46,7 @@ const FormAddMatel = () => {
     return (
         <div>
             <h1 className="title">Matels</h1>
-            <h2 className="subtitle">Add New Matel</h2>
+            <h2 className="subtitle">Tambah Data Matel</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">
@@ -152,7 +152,7 @@ const FormAddMatel = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success">
-                                        Save
+                                        Simpan
                                     </button>
                                     <ToastContainer limit={1} />
                                 </div>

@@ -46,7 +46,7 @@ const FormAddBlog = () => {
     return (
         <div>
             <h1 className="title">Blogs</h1>
-            <h2 className="subtitle">Add New Blog</h2>
+            <h2 className="subtitle">Tambah Data Blog</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">
@@ -90,7 +90,7 @@ const FormAddBlog = () => {
                                                 onChange={loadImage}
                                             />
                                             <span className="file-cta">
-                                                <span className="file-label">Choose a file...</span>
+                                                <span className="file-label">Pilih gambar...</span>
                                             </span>
                                         </label>
                                     </div>
@@ -108,7 +108,7 @@ const FormAddBlog = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success">
-                                        Save
+                                        Simpan
                                     </button>
                                     <ToastContainer limit={1}/>
                                 </div>

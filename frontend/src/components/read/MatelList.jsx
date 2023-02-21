@@ -63,7 +63,7 @@ const MatelList = () => {
             <div className="columns">
                 <div className="column is-6">
                     <Link to="/matels/add" className="button is-primary mb-2">
-                        Add New
+                        Tambah Data
                     </Link>
                 </div>
                 <div className="column">
@@ -99,7 +99,7 @@ const MatelList = () => {
                         <th>Noka</th>
                         <th>Finance</th>
                         <th>OD</th>
-                        <th>Actions</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
 
@@ -126,7 +126,7 @@ const MatelList = () => {
                                     onClick={() => deleteMatel(matel.uuid)}
                                     className="button is-small is-danger ml-1"
                                 >
-                                    Delete
+                                    Hapus
                                 </button>
                             </td>
                         </tr>
@@ -137,7 +137,7 @@ const MatelList = () => {
             <div>
 
                 <p>
-                    Total Rows: {totalRows} Page: {totalRows ? page + 1 : 0} of {totalPages}
+                    Total Data: {totalRows} Page: {totalRows ? page + 1 : 0} of {totalPages}
                 </p>
                 <p className="has-text-centered has-text-danger py-2">{msg}</p>
                 <nav

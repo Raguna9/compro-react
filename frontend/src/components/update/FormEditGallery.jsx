@@ -84,7 +84,7 @@ const FormEditGallery = () => {
                                                 onChange={loadImage}
                                             />
                                             <span className="file-cta">
-                                                <span className="file-label">Choose a file...</span>
+                                                <span className="file-label">Pilih gambar...</span>
                                             </span>
                                         </label>
                                     </div>
@@ -102,7 +102,7 @@ const FormEditGallery = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success">
-                                        Update
+                                        Perbarui
                                     </button>
                                     <button type="submit" className="button is-danger ml-2" onClick={handleCancle}>
                                         Cancel

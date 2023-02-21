@@ -49,7 +49,7 @@ const FormAddEmployee = () => {
     return (
         <div>
             <h1 className="title">Employees</h1>
-            <h2 className="subtitle">Add New Employee</h2>
+            <h2 className="subtitle">Tambah Data Employee</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">
@@ -127,7 +127,7 @@ const FormAddEmployee = () => {
                                                 onChange={loadImage}
                                             />
                                             <span className="file-cta">
-                                                <span className="file-label">Choose a file...</span>
+                                                <span className="file-label">Pilih gambar...</span>
                                             </span>
                                         </label>
                                     </div>
@@ -145,7 +145,7 @@ const FormAddEmployee = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success mt-6">
-                                        Save
+                                        Simpan
                                     </button>
                                     <ToastContainer limit={1}/>
                                 </div>

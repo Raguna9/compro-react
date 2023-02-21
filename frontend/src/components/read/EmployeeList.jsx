@@ -28,7 +28,7 @@ const EmployeeList = () => {
             <h1 className="title">Employees</h1>
             <h2 className="subtitle">List of Employees</h2>
             <Link to="/employees/add" className="button is-primary mb-2">
-                Add New
+                Tambah Data
             </Link>
             <table className="table is-striped is-fullwidth">
                 <thead>
@@ -40,7 +40,7 @@ const EmployeeList = () => {
                         <th>Email</th>
                         <th>No SPPI</th>
                         <th>Image</th>
-                        <th>Actions</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,7 +72,7 @@ const EmployeeList = () => {
                                     onClick={() => deleteEmployee(employee.uuid)}
                                     className="button is-small is-danger ml-1"
                                 >
-                                    Delete
+                                    Hapus
                                 </button>
                             </td>
                         </tr>

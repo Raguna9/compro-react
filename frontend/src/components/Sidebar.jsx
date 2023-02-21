@@ -41,30 +41,25 @@ const Sidebar = () => {
                             </span>
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to={"/inboxs"}>
-                            <span style={{ fontSize: '14px' }}>
-                                <BsChatLeftTextFill /> Inboxs
-                            </span>
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={"/faqs"}>
-                            <span style={{ fontSize: '14px' }}>
-                                <RiQuestionAnswerLine /> FAQs
-                            </span>
-                        </NavLink>
-                    </li>
                 </ul>
                 {user && user.role === "admin" && (
                     <div>
                         <span className="menu-label">Admin</span>
                         <ul className="menu-list">
-                            <NavLink to={"/users"}>
-                                <span style={{ fontSize: '14px' }}>
-                                    <IoPerson /> Users
-                                </span>
-                            </NavLink>
+                            <li>
+                                <NavLink to={"/inboxs"}>
+                                    <span style={{ fontSize: '14px' }}>
+                                        <BsChatLeftTextFill /> Inboxs
+                                    </span>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={"/faqs"}>
+                                    <span style={{ fontSize: '14px' }}>
+                                        <RiQuestionAnswerLine /> FAQs
+                                    </span>
+                                </NavLink>
+                            </li>
                             <li>
                                 <NavLink to={"/employees"}>
                                     <span style={{ fontSize: '14px' }}>
@@ -103,17 +98,31 @@ const Sidebar = () => {
                         </ul>
                     </div>
                 )}
-
                 <span className="menu-label">Settings</span>
-                <ul className="menu-list">
-                    <li>
-                        <button onClick={logout} className="button is-white">
-                            <span style={{ fontSize: '14px' }}>
-                                <IoLogOut /> Logout
-                            </span>
-                        </button>
-                    </li>
-                </ul>
+                {user && user.role === "admin" && (
+                    <div>
+                        <ul className="menu-list">
+                            <li>
+                                <NavLink to={"/users"} className="button is-white has-text-left">
+                                    <span style={{ fontSize: '14px' }}>
+                                        <IoPerson /> Users
+                                    </span>
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </div>
+                )}
+                <div>
+                    <ul className="menu-list">
+                        <li>
+                            <button onClick={logout} className="button is-white has-text-left pl-3">
+                                <span style={{ fontSize: '14px' }}>
+                                    <IoLogOut /> Logout
+                                </span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </aside>
         </div>
     );

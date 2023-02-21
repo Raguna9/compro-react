@@ -149,7 +149,7 @@ const FormEditExternalEmployee = () => {
                                                 onChange={loadImage}
                                             />
                                             <span className="file-cta">
-                                                <span className="file-label">Choose a file...</span>
+                                                <span className="file-label">Pilih gambar...</span>
                                             </span>
                                         </label>
                                     </div>
@@ -167,7 +167,7 @@ const FormEditExternalEmployee = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success mt-6">
-                                        Update
+                                        Perbarui
                                     </button>
                                     <button type="submit" className="button is-danger ml-2 mt-6" onClick={handleCancle}>
                                         Cancel

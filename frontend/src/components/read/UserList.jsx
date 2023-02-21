@@ -28,7 +28,7 @@ const UserList = () => {
             <h1 className="title">Users</h1>
             <h2 className="subtitle">List of Users</h2>
             <Link to="/users/add" className="button is-primary mb-2">
-                Add New
+                Tambah Data
             </Link>
             <table className="table is-striped is-fullwidth">
                 <thead>
@@ -37,7 +37,7 @@ const UserList = () => {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th>Actions</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,7 +58,7 @@ const UserList = () => {
                                     onClick={() => deleteUser(user.uuid)}
                                     className="button is-small is-danger ml-1"
                                 >
-                                    Delete
+                                    Hapus
                                 </button>
                             </td>
                         </tr>

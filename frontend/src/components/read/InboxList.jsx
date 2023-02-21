@@ -66,7 +66,7 @@ const InboxList = () => {
                                     onClick={() => deleteInbox(inbox.uuid)}
                                     className="button is-small is-danger ml-1"
                                 >
-                                    Delete
+                                    Hapus
                                 </button>
 
                             </td>

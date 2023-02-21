@@ -34,7 +34,7 @@ const FormAddFAQ = () => {
     return (
         <div>
             <h1 className="title">FAQs</h1>
-            <h2 className="subtitle">Add New FAQ</h2>
+            <h2 className="subtitle">Tambah Data FAQ</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">
@@ -68,7 +68,7 @@ const FormAddFAQ = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success">
-                                        Save
+                                        Simpan
                                     </button>
                                     <ToastContainer limit={1}/>
                                 </div>

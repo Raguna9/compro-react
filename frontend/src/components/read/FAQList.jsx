@@ -29,7 +29,7 @@ const FAQList = () => {
             <h1 className="title">FAQs</h1>
             <h2 className="subtitle">List of FAQs</h2>
             <Link to="/faqs/add" className="button is-primary mb-2">
-                Add New
+                Tambah Data
             </Link>
             <table className="table is-striped is-fullwidth has-shadow" style={{ tableLayout: "auto" }}>
                 <thead>
@@ -37,7 +37,7 @@ const FAQList = () => {
                         <th>No</th>
                         <th>Question</th>
                         <th>Answer</th>
-                        <th>Actions</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
 
@@ -62,7 +62,7 @@ const FAQList = () => {
                                     onClick={() => deleteFAQ(faq.uuid)}
                                     className="button is-small is-danger ml-1"
                                 >
-                                    Delete
+                                    Hapus
                                 </button>
                             </td>
                         </tr>

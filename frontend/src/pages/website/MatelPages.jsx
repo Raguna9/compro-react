@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "../../features/authSlice";
-import Matel from "../../components/Matel";
+import Matel from "../../components/websites/Matel";
 import PublicNavbar from '../../components/websites/PublicNavbar';
 import PublicFooter from '../../components/websites/PublicFooter';
 
