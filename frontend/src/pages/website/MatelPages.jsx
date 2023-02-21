@@ -5,7 +5,7 @@ import Matel from "../../components/websites/Matel";
 import PublicNavbar from '../../components/websites/PublicNavbar';
 import PublicFooter from '../../components/websites/PublicFooter';
 
-const EditBlog = () => {
+const MatelPages = () => {
     const dispatch = useDispatch();
     const { isError } = useSelector((state) => state.auth);
 
@@ -20,13 +20,13 @@ const EditBlog = () => {
     }, [isError]);
     return (
         <React.Fragment>
-            <PublicNavbar/>
+            <PublicNavbar />
             <div className="container">
                 <Matel />
             </div>
-            <PublicFooter/>
+            <PublicFooter />
         </React.Fragment>
     );
 };
 
-export default EditBlog;
+export default MatelPages;
