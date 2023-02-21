@@ -134,6 +134,10 @@ export const getMatelDetails = async (req, res) => {
                 kontrak: {
                     [Op.like]: '%' + search + '%'
                 }
+            }, {
+                finance: {
+                    [Op.like]: '%' + search + '%'
+                }
             }]
         }
     });
@@ -160,12 +164,16 @@ export const getMatelDetails = async (req, res) => {
                 kontrak: {
                     [Op.like]: '%' + search + '%'
                 }
+            }, {
+                finance: {
+                    [Op.like]: '%' + search + '%'
+                }
             }]
         },
         offset: offset,
         limit: limit,
         order: [
-            ['id', 'DESC']
+            ['overdue', 'DESC']
         ]
     });
     res.json({
