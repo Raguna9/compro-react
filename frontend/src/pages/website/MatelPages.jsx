@@ -5,7 +5,7 @@ import Matel from "../../components/Matel";
 import PublicNavbar from '../../components/websites/PublicNavbar';
 import PublicFooter from '../../components/websites/PublicFooter';
 
-const EditBlog = () => {
+const MatelPages = () => {
     const dispatch = useDispatch();
     const { isError } = useSelector((state) => state.auth);
 
@@ -29,4 +29,4 @@ const EditBlog = () => {
     );
 };
 
-export default EditBlog;
+export default MatelPages;
