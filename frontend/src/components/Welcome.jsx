@@ -58,7 +58,7 @@ const Welcome = () => {
                                 <div className="content" style={{ height: "160px" }}>
                                     <div className="has-text-centered">
                                         <h1 className="title has-text-white-ter">{countBlog}</h1>
-                                        <h4 className="title has-text-white-ter">Total Blog</h4>
+                                        <h4 className="title has-text-white-ter">Blog</h4>
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@ const Welcome = () => {
                                 <div className="content" style={{ height: "160px" }}>
                                     <div className="has-text-centered">
                                         <h1 className="title has-text-white-ter">{countInbox}</h1>
-                                        <h4 className="title has-text-white-ter">Total Inbox</h4>
+                                        <h4 className="title has-text-white-ter">Pesan</h4>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@ const Welcome = () => {
                                 <div className="content" style={{ height: "160px" }}>
                                     <div className="has-text-centered">
                                         <h1 className="title has-text-white-ter">{countFAQ}</h1>
-                                        <h4 className="title has-text-white-ter">Total FAQ</h4>
+                                        <h4 className="title has-text-white-ter">FAQ</h4>
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@ const Welcome = () => {
                                 <div className="content" style={{ height: "160px" }}>
                                     <div className="has-text-centered">
                                                 <h1 className="title has-text-white-ter">{countEmployee}</h1>
-                                                <h4 className="title has-text-white-ter">Total Internal Employee</h4>
+                                                <h4 className="title has-text-white-ter">Tenaga Kerja Internal</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -108,7 +108,7 @@ const Welcome = () => {
                                 <div className="content" style={{ height: "160px" }}>
                                     <div className="has-text-centered">
                                                 <h1 className="title has-text-white-ter">{countExternalEmployee}</h1>
-                                                <h4 className="title has-text-white-ter">Total External Employee</h4>
+                                                <h4 className="title has-text-white-ter">Tenaga Kerja Eksternal</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@ const Welcome = () => {
                                 <div className="content" style={{ height: "160px" }}>
                                     <div className="has-text-centered">
                                                 <h1 className="title has-text-white-ter">{countPartner}</h1>
-                                                <h4 className="title has-text-white-ter">Total Partner</h4>
+                                                <h4 className="title has-text-white-ter">Mitra Kerja</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@ const Welcome = () => {
                                 <div className="content" style={{ height: "160px" }}>
                                     <div className="has-text-centered">
                                                 <h1 className="title has-text-white-ter">{countUser}</h1>
-                                                <h4 className="title has-text-white-ter">Total User</h4>
+                                                <h4 className="title has-text-white-ter">User</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@ const Welcome = () => {
                                 <div className="content" style={{ height: "160px" }}>
                                     <div className="has-text-centered">
                                                 <h1 className="title has-text-white-ter">{countGallery}</h1>
-                                                <h4 className="title has-text-white-ter">Total Gallery</h4>
+                                                <h4 className="title has-text-white-ter">Galeri</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -155,7 +155,7 @@ const Welcome = () => {
                                 <div className="content" style={{ height: "160px" }}>
                                     <div className="has-text-centered">
                                                 <h1 className="title has-text-white-ter">{countMatel}</h1>
-                                                <h4 className="title has-text-white-ter">Total Matel</h4>
+                                                <h4 className="title has-text-white-ter">Data Matel</h4>
                                             </div>
                                         </div>
                                     </div>

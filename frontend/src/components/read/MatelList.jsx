@@ -58,8 +58,8 @@ const MatelList = () => {
 
     return (
         <div className="container mr-2">
-            <h1 className="title">Matels</h1>
-            <h2 className="subtitle">List of Matels</h2>
+            <h1 className="title">Matel</h1>
+            <h2 className="subtitle">List data Matel</h2>
             <div className="columns">
                 <div className="column is-6">
                     <Link to="/matels/add" className="button is-primary mb-2">
@@ -75,12 +75,12 @@ const MatelList = () => {
                                     className="input"
                                     value={query}
                                     onChange={(e) => setQuery(e.target.value)}
-                                    placeholder="Find something here..."
+                                    placeholder="Cari data..."
                                 />
                             </div>
                             <div className="control">
                                 <button type="submit" className="button is-info">
-                                    Search
+                                    Cari
                                 </button>
                             </div>
                         </div>

@@ -26,7 +26,7 @@ const UserList = () => {
     return (
         <div className="container mr-2">
             <h1 className="title">Users</h1>
-            <h2 className="subtitle">List of Users</h2>
+            <h2 className="subtitle">List data Users</h2>
             <Link to="/users/add" className="button is-primary mb-2">
                 Tambah Data
             </Link>

@@ -42,27 +42,27 @@ const ExternalEmployeeList = () => {
 
     return (
         <div className="container mr-2">
-            <h1 className="title">External Employees</h1>
-            <h2 className="subtitle">List of External Employees</h2>
+            <h1 className="title">Tenaga Kerja Eksternal</h1>
+            <h2 className="subtitle">Daftar Tenaga Kerja Eksternal</h2>
             <Link to="/externalEmployees/add" className="button is-primary mb-2">
                 Tambah Data
             </Link>
             <table className="table is-striped is-fullwidth">
                 <thead>
-                    <tr>
+                    <tr style={{ fontSize: '15px' }}>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Department</th>
-                        <th>Gender</th>
+                        <th>Nama</th>
+                        <th>Jabatan</th>
+                        <th>Jenis Kelamin</th>
                         <th>Email</th>
                         <th>No SPPI</th>
-                        <th>Image</th>
+                        <th>Gambar</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     {externalEmployees.map((externalEmployee, index) => (
-                        <tr key={externalEmployee.uuid}>
+                        <tr key={externalEmployee.uuid} style={{ fontSize: '15px' }}>
                             <td>{index + 1 + offset}</td>
                             <td style={{ width: "120px" }}>{externalEmployee.name}</td>
                             <td style={{ width: "100px" }}>{externalEmployee.department}</td>
@@ -78,7 +78,7 @@ const ExternalEmployeeList = () => {
                                     />
                                 </figure>
                             </td>
-                            <td>
+                            <td style={{ width: "150px" }}>
                                 <Link
                                     to={`/externalEmployees/edit/${externalEmployee.uuid}`}
                                     className="button is-small is-info"

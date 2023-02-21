@@ -42,8 +42,8 @@ const PartnerList = () => {
 
     return (
         <div className="container mr-2">
-            <h1 className="title">Partners</h1>
-            <h2 className="subtitle">List of Partners</h2>
+            <h1 className="title">Mitra Kerja</h1>
+            <h2 className="subtitle">Daftar Mitra Kerja</h2>
             <Link to="/partners/add" className="button is-primary mb-2">
                 Tambah Data
             </Link>
@@ -51,8 +51,8 @@ const PartnerList = () => {
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Image</th>
-                        <th>Name</th>
+                        <th>Gambar</th>
+                        <th>Nama</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>

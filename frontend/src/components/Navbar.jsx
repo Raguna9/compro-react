@@ -75,50 +75,45 @@ const Navbar = () => {
                         <span className="menu-label">General</span>
                         <NavLink className="navbar-item" to={"/dashboard"}>
                             <span style={{ fontSize: '14px' }}>
-                                <IoHome /> Dashboard
+                                <IoHome /> Beranda
                             </span>
                         </NavLink>
                         <NavLink className="navbar-item" to={"/blogs"}>
                             <span style={{ fontSize: '14px' }}>
-                                <FaBloggerB /> Blogs
-                            </span>
-                        </NavLink>
-                        <NavLink className="navbar-item" to={"/inboxs"}>
-                            <span style={{ fontSize: '14px' }}>
-                                <BsChatLeftTextFill /> Inboxs
-                            </span>
-                        </NavLink>
-                        <NavLink className="navbar-item" to={"/faqs"}>
-                            <span style={{ fontSize: '14px' }}>
-                                <RiQuestionAnswerLine /> FAQs
+                                <FaBloggerB /> Blog
                             </span>
                         </NavLink>
                         {user && user.role === "admin" && (
                             <div>
                                 <span className="menu-label">Admin</span>
-                                <NavLink className="navbar-item" to={"/users"}>
+                                <NavLink className="navbar-item" to={"/inboxs"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <IoPerson /> Users
+                                        <BsChatLeftTextFill /> Pesan
+                                    </span>
+                                </NavLink>
+                                <NavLink className="navbar-item" to={"/faqs"}>
+                                    <span style={{ fontSize: '14px' }}>
+                                        <RiQuestionAnswerLine /> FAQ
                                     </span>
                                 </NavLink>
                                 <NavLink className="navbar-item" to={"/employees"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <FaUserTie /> Employees
+                                        <FaUserTie /> TK Internal
                                     </span>
                                 </NavLink>
                                 <NavLink className="navbar-item" to={"/externalemployees"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <FaUserFriends /> External Employees
+                                        <FaUserFriends /> TK Eksternal
                                     </span>
                                 </NavLink>
                                 <NavLink className="navbar-item" to={"/partners"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <BsBank /> Partners
+                                        <BsBank /> Mitra Kerja
                                     </span>
                                 </NavLink>
                                 <NavLink className="navbar-item" to={"/gallerys"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <RiGalleryFill /> Gallery
+                                        <RiGalleryFill /> Galeri
                                     </span>
                                 </NavLink>
                                 <NavLink className="navbar-item" to={"/matels"}>
@@ -129,7 +124,16 @@ const Navbar = () => {
                             </div>
                         )}
                         <span className="menu-label">Settings</span>
-                        <button onClick={logout} className="button is-white">
+                        {user && user.role === "admin" && (
+                            <div>
+                                <NavLink className="navbar-item" to={"/users"}>
+                                    <span style={{ fontSize: '14px' }}>
+                                        <IoPerson /> Users
+                                    </span>
+                                </NavLink>
+                            </div>
+                        )}
+                        <button onClick={logout} className="button is-white pl-3">
                             <span style={{ fontSize: '14px' }}>
                                 <IoLogOut /> Logout
                             </span>

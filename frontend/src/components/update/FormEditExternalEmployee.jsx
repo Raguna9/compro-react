@@ -87,7 +87,7 @@ const FormEditExternalEmployee = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Department</label>
+                                <label className="label">Jabatan</label>
                                 <div className="control">
                                     <div className="select is-fullwidth">
                                         <select
@@ -101,7 +101,7 @@ const FormEditExternalEmployee = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Gender</label>
+                                <label className="label">Jenis Kelamin</label>
                                 <div className="control">
                                     <div className="select is-fullwidth">
                                         <select
@@ -139,7 +139,7 @@ const FormEditExternalEmployee = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Image</label>
+                                <label className="label">Gambar</label>
                                 <div className="control">
                                     <div className="file">
                                         <label className="file-label">

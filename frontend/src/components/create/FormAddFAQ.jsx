@@ -33,7 +33,7 @@ const FormAddFAQ = () => {
 
     return (
         <div>
-            <h1 className="title">FAQs</h1>
+            <h1 className="title">FAQ</h1>
             <h2 className="subtitle">Tambah Data FAQ</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
@@ -41,7 +41,7 @@ const FormAddFAQ = () => {
                         <form onSubmit={saveFAQ}>
                             <p className="has-text-centered">{msg}</p>
                             <div className="field">
-                                <label className="label">Question</label>
+                                <label className="label">Pertanyaan</label>
                                 <div className="control">
                                     <input
                                         type="text"
@@ -53,7 +53,7 @@ const FormAddFAQ = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Answer</label>
+                                <label className="label">Jawaban</label>
                                 <div className="control">
                                     <textarea
                                         className="textarea"

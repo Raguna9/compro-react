@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoPerson, IoHome, IoLogOut, } from "react-icons/io5";
@@ -28,16 +29,16 @@ const Sidebar = () => {
 
                 <ul className="menu-list">
                     <li>
-                        <NavLink to={"/dashboard"}>
+                        <NavLink className="navbar-item" to={"/dashboard"}>
                             <span style={{ fontSize: '14px' }}>
-                                <IoHome /> Dashboard
+                                <IoHome /> Beranda
                             </span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to={"/blogs"}>
+                        <NavLink className="navbar-item" to={"/blogs"}>
                             <span style={{ fontSize: '14px' }}>
-                                <FaBloggerB /> Blogs
+                                <FaBloggerB /> Blog
                             </span>
                         </NavLink>
                     </li>
@@ -47,44 +48,44 @@ const Sidebar = () => {
                         <span className="menu-label">Admin</span>
                         <ul className="menu-list">
                             <li>
-                                <NavLink to={"/inboxs"}>
+                                <NavLink className="navbar-item" to={"/inboxs"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <BsChatLeftTextFill /> Inboxs
+                                        <BsChatLeftTextFill /> Pesan
                                     </span>
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to={"/faqs"}>
+                                <NavLink className="navbar-item" to={"/faqs"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <RiQuestionAnswerLine /> FAQs
+                                        <RiQuestionAnswerLine /> FAQ
                                     </span>
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to={"/employees"}>
+                                <NavLink className="navbar-item" to={"/employees"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <FaUserTie /> Employees
+                                        <FaUserTie /> TK Internal
                                     </span>
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to={"/externalemployees"}>
+                                <NavLink className="navbar-item" to={"/externalemployees"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <FaUserFriends /> External Employees
+                                        <FaUserFriends /> TK Eksternal
                                     </span>
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to={"/partners"}>
+                                <NavLink className="navbar-item" to={"/partners"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <BsBank /> Partners
+                                        <BsBank /> Mitra Kerja
                                     </span>
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to={"/gallerys"}>
+                                <NavLink className="navbar-item" to={"/gallerys"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <RiGalleryFill /> Gallery
+                                        <RiGalleryFill /> Galeri
                                     </span>
                                 </NavLink>
                             </li>
@@ -103,7 +104,7 @@ const Sidebar = () => {
                     <div>
                         <ul className="menu-list">
                             <li>
-                                <NavLink to={"/users"} className="button is-white has-text-left">
+                                <NavLink to={"/users"} className="navbar-item is-white has-text-left">
                                     <span style={{ fontSize: '14px' }}>
                                         <IoPerson /> Users
                                     </span>
@@ -115,11 +116,11 @@ const Sidebar = () => {
                 <div>
                     <ul className="menu-list">
                         <li>
-                            <button onClick={logout} className="button is-white has-text-left pl-3">
+                            <a onClick={logout} className="navbar-item is-white pl-3">
                                 <span style={{ fontSize: '14px' }}>
                                     <IoLogOut /> Logout
                                 </span>
-                            </button>
+                            </a>
                         </li>
                     </ul>
                 </div>

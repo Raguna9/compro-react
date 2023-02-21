@@ -75,7 +75,7 @@ const FormEditBlog = () => {
                         <form onSubmit={updateBlog}>
                             <p className="has-text-centered">{msg}</p>
                             <div className="field">
-                                <label className="label">Tittle</label>
+                                <label className="label">Judul</label>
                                 <div className="control">
                                     <input
                                         type="text"
@@ -87,7 +87,7 @@ const FormEditBlog = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Content</label>
+                                <label className="label">Konten</label>
                                 <div className="control">
                                     {/* <textarea
                                         className="textarea"
@@ -104,7 +104,7 @@ const FormEditBlog = () => {
                             </div>
 
                             <div className="field">
-                                <label className="label">Image</label>
+                                <label className="label">Gambar</label>
                                 <div className="control">
                                     <div className="file">
                                         <label className="file-label">

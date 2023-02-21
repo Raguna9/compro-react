@@ -26,8 +26,8 @@ const GalleryList = () => {
 
     return (
         <div className="container mr-2">
-            <h1 className="title">Gallerys</h1>
-            <h2 className="subtitle">List of Gallerys</h2>
+            <h1 className="title">Galeri</h1>
+            <h2 className="subtitle">List Galeri</h2>
             <Link to="/gallerys/add" className="button is-primary mb-2">
                 Tambah Data
             </Link>
@@ -35,8 +35,8 @@ const GalleryList = () => {
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Image</th>
-                        <th>Description</th>
+                        <th>Gambar</th>
+                        <th>Deskripsi</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
