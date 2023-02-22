@@ -21,8 +21,10 @@ const MatelPages = () => {
     return (
         <React.Fragment>
             <PublicNavbar />
-            <div className="container">
-                <Matel />
+            <div style={{ background: 'linear-gradient(to bottom, #b4e5f9 2%, #ffffff 65%)', backgroundSize: `cover`, backgroundPosition: `center` }}>
+                <div className="container" style={{paddingTop: '15px'}}>
+                    <Matel />
+                </div>
             </div>
             <PublicFooter />
         </React.Fragment>

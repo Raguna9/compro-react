@@ -47,69 +47,71 @@ function BlogPages() {
     return (
         <React.Fragment>
             <PublicNavbar />
-            <div className="container mt-6 pt-4">
-                {/* <h1 className="title has-text-centered mt-5">Blog</h1> */}
-                <nav class="breadcrumb mt-5" aria-label="breadcrumbs">
-                    <ul>
-                        <li><a href="/">Beranda</a></li>
-                        <li class="is-active"><a href="#">Blog</a></li>
-                    </ul>
-                </nav>
-                <div className="section">
-                    {blogs.slice(0, shows).map((blog, index) => (
-                        <div className="pb-6">
-                            <div className="columns has-background-light" style={{ height: '250px', width: '100%', objectFit: 'cover' }} >
-                                <div className="column is-4">
-                                    <a href={`/blogpages/${blog.uuid}`}>
-                                        <img src={blog.urlImage} alt={blog.tittle} style={{ height: '220px', width: '100%', objectFit: 'cover' }} />
-                                    </a>
-                                </div>
-                                <div className="column">
-                                    <p># {index + 1}</p>
-                                    <a href={`/blogpages/${blog.uuid}`}>
-                                        <div className="titleBlog2 subtitle is-5 pt-4">
-                                            <strong> {blog.tittle}</strong>
-                                        </div>
-                                    </a>
-                                    <p
-                                        className="contentBlog pt-4"
-                                        dangerouslySetInnerHTML={{
-                                            __html: DOMPurify.sanitize(blog.content),
-                                        }}
-                                    ></p>
-                                    <a href={`/blogpages/${blog.uuid}`}>
-                                        <div className="columns pt-4">
-                                            <div className="column is-10 subtitle is-5">
-                                                <span className="pr-1">
-                                                    <BsFillPersonFill />
-                                                </span>
-                                                <span style={{ fontSize: '15px' }}>
-                                                    {users.find(user => user.id === blog.userId)?.name}
-                                                </span>
-                                                <br />
-                                                <span className="pr-1">
-                                                    <BsCalendarDate />
-                                                </span>
-                                                <span style={{ fontSize: '15px' }}>
-                                                    {moment(blog.updatedAt).format('Do MMMM  YYYY')}
-                                                </span>
+            <div style={{ background: 'linear-gradient(to bottom, #b4e5f9 2%, #ffffff 65%)', backgroundSize: `cover`, backgroundPosition: `center`, paddingTop: '70px' }}>
+                <div className="container">
+                    {/* <h1 className="title has-text-centered mt-5">Blog</h1> */}
+                    <nav class="breadcrumb mt-5" aria-label="breadcrumbs">
+                        <ul>
+                            <li><a href="/">Beranda</a></li>
+                            <li class="is-active"><a href="#">Blog</a></li>
+                        </ul>
+                    </nav>
+                    <div className="section">
+                        {blogs.slice(0, shows).map((blog, index) => (
+                            <div className="pb-6">
+                                <div className="columns has-background-light" style={{ height: '250px', width: '100%', objectFit: 'cover' }} >
+                                    <div className="column is-4">
+                                        <a href={`/blogpages/${blog.uuid}`}>
+                                            <img src={blog.urlImage} alt={blog.tittle} style={{ height: '220px', width: '100%', objectFit: 'cover' }} />
+                                        </a>
+                                    </div>
+                                    <div className="column">
+                                        <p># {index + 1}</p>
+                                        <a href={`/blogpages/${blog.uuid}`}>
+                                            <div className="titleBlog2 subtitle is-5 pt-4">
+                                                <strong> {blog.tittle}</strong>
                                             </div>
-                                            <div className="column is-2 mt-4">
-                                                <BsFillArrowRightCircleFill />
+                                        </a>
+                                        <p
+                                            className="contentBlog pt-4"
+                                            dangerouslySetInnerHTML={{
+                                                __html: DOMPurify.sanitize(blog.content),
+                                            }}
+                                        ></p>
+                                        <a href={`/blogpages/${blog.uuid}`}>
+                                            <div className="columns pt-4">
+                                                <div className="column is-10 subtitle is-5">
+                                                    <span className="pr-1">
+                                                        <BsFillPersonFill />
+                                                    </span>
+                                                    <span style={{ fontSize: '15px' }}>
+                                                        {users.find(user => user.id === blog.userId)?.name}
+                                                    </span>
+                                                    <br />
+                                                    <span className="pr-1">
+                                                        <BsCalendarDate />
+                                                    </span>
+                                                    <span style={{ fontSize: '15px' }}>
+                                                        {moment(blog.updatedAt).format('Do MMMM  YYYY')}
+                                                    </span>
+                                                </div>
+                                                <div className="column is-2 mt-4">
+                                                    <BsFillArrowRightCircleFill />
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                    ))}
-                    {blogs.length > 0 && shows < totalRows && (
-                        <div className='has-text-centered'>
-                            <button className="button is-info is-rounded" onClick={() => setShows(shows + 3)}>Lihat lebih banyak</button>
-                        </div>
-                    )}
+                        ))}
+                        {blogs.length > 0 && shows < totalRows && (
+                            <div className='has-text-centered'>
+                                <button className="button is-info is-rounded" onClick={() => setShows(shows + 3)}>Lihat lebih banyak</button>
+                            </div>
+                        )}
 
+                    </div>
                 </div>
             </div>
             <PublicFooter />

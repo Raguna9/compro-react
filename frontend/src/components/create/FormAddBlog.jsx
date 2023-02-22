@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+//nerjemahin tag html dilayar
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
