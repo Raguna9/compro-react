@@ -50,7 +50,7 @@ const Matel = () => {
                 </ul>
             </nav>
             <h1 className="title is-5 has-text-centered">
-                Cek Data Kendaraan
+                Cek Data Aset Fidusia
             </h1>
             <div className="columns">
                 <div className="column is-6">
@@ -74,7 +74,7 @@ const Matel = () => {
                         </div>
                         <div className="pl-1" style={{ fontSize: '11px' }}>
                             <strong>Input dapat berupa : </strong>
-                            *nopol / *nosin / *noka
+                            *no. kontrak / *nopol / *nosin / *noka
                         </div>
                     </form>
                 </div>
@@ -85,7 +85,7 @@ const Matel = () => {
                         </span>
                         <div className="">
                             <p className="pt-3" style={{ fontSize: '14px' }}>
-                                Jika Anda menemukan kendaraan yang tertera pada sistem kami, segera konfirmasikan kepada kami atau pihak finance yang terkait melalui beberapa jalur yang tersedia diwebsite ini agar tindakan yang tepat dapat diambil.
+                                Jika Anda menemukan Aset Fidusia yang tertera pada sistem kami, segera konfirmasikan kepada kami atau pihak finance yang terkait melalui beberapa jalur yang tersedia diwebsite ini agar tindakan yang tepat dapat diambil.
                             </p>
                         </div>
                     </div>
@@ -98,7 +98,7 @@ const Matel = () => {
                     <div className="modal-content">
                         <div className="card">
                             <div className="card-content">
-                                <p className="title is-4 has-text-centered">Detail Kendaraan</p>
+                                <p className="title is-4 has-text-centered">Detail Aset Fidusia</p>
                                 {matels.slice(0, 1).map((matel) => (
                                     <div className="columns" key={matel.uuid}>
                                         <div className="column is-4">
@@ -137,7 +137,7 @@ const Matel = () => {
                     <div className="modal-content">
                         <div className="card">
                             <div className="card-content">
-                                <p className="title is-4 has-text-centered">Detail Kendaraan</p>
+                                <p className="title is-4 has-text-centered">Detail Aset Fidusia</p>
                                 <p className="has-text-centered">{msg}</p>
                             </div>
                         </div>

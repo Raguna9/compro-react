@@ -75,7 +75,7 @@ const PublicNavbar = () => {
                                     Tenaga Kerja
                                 </a>
                                 <a className="navbar-item" href="/matelpages">
-                                    Data Kendaraan
+                                    Data Aset Fidusia
                                 </a>
                             </div>
                         </div>

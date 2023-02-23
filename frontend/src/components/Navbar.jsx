@@ -83,6 +83,11 @@ const Navbar = () => {
                                 <FaBloggerB /> Blog
                             </span>
                         </NavLink>
+                        <NavLink className="navbar-item" to={"/matels"}>
+                            <span style={{ fontSize: '14px' }}>
+                                <AiFillBook /> Data Matel
+                            </span>
+                        </NavLink>
                         {user && user.role === "admin" && (
                             <div>
                                 <span className="menu-label">Admin</span>
@@ -114,11 +119,6 @@ const Navbar = () => {
                                 <NavLink className="navbar-item" to={"/gallerys"}>
                                     <span style={{ fontSize: '14px' }}>
                                         <RiGalleryFill /> Galeri
-                                    </span>
-                                </NavLink>
-                                <NavLink className="navbar-item" to={"/matels"}>
-                                    <span style={{ fontSize: '14px' }}>
-                                        <AiFillBook /> Data Matel
                                     </span>
                                 </NavLink>
                             </div>

@@ -73,7 +73,7 @@ function BlogPages() {
                                             </div>
                                         </a>
                                         <p
-                                            className="contentBlog pt-4"
+                                            className="contentBlog2"
                                             dangerouslySetInnerHTML={{
                                                 __html: DOMPurify.sanitize(blog.content),
                                             }}

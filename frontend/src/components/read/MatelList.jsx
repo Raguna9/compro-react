@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
+import { useSelector } from "react-redux";
 
 const MatelList = () => {
     const [matels, setMatels] = useState([]);
@@ -14,6 +15,7 @@ const MatelList = () => {
     const [msg, setMsg] = useState("");
     const limit = 10;
     const offset = page * limit;
+    const { user } = useSelector((state) => state.auth);
 
     useEffect(() => {
         getMatels();
@@ -60,33 +62,59 @@ const MatelList = () => {
         <div className="container mr-2">
             <h1 className="title">Matel</h1>
             <h2 className="subtitle">List data Matel</h2>
-            <div className="columns">
-                <div className="column is-6">
-                    <Link to="/matels/add" className="button is-primary mb-2">
-                        Tambah Data
-                    </Link>
-                </div>
-                <div className="column">
-                    <form onSubmit={searchData}>
-                        <div className="field has-addons">
-                            <div className="control is-expanded">
-                                <input
-                                    type="text"
-                                    className="input"
-                                    value={query}
-                                    onChange={(e) => setQuery(e.target.value)}
-                                    placeholder="Cari data..."
-                                />
+            {user && user.role === "admin" && (
+                <div className="columns">
+                    <div className="column is-6">
+                        <Link to="/matels/add" className="button is-primary mb-2">
+                            Tambah Data
+                        </Link>
+                    </div>
+                    <div className="column">
+                        <form onSubmit={searchData}>
+                            <div className="field has-addons">
+                                <div className="control is-expanded">
+                                    <input
+                                        type="text"
+                                        className="input"
+                                        value={query}
+                                        onChange={(e) => setQuery(e.target.value)}
+                                        placeholder="Cari data..."
+                                    />
+                                </div>
+                                <div className="control">
+                                    <button type="submit" className="button is-info">
+                                        Cari
+                                    </button>
+                                </div>
                             </div>
-                            <div className="control">
-                                <button type="submit" className="button is-info">
-                                    Cari
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            )}
+            {user && user.role === "user" && (
+                <div className="columns">
+                    <div className="column is-6">
+                        <form onSubmit={searchData}>
+                            <div className="field has-addons">
+                                <div className="control is-expanded">
+                                    <input
+                                        type="text"
+                                        className="input"
+                                        value={query}
+                                        onChange={(e) => setQuery(e.target.value)}
+                                        placeholder="Cari data..."
+                                    />
+                                </div>
+                                <div className="control">
+                                    <button type="submit" className="button is-info">
+                                        Cari
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
             <table className="table is-striped is-fullwidth has-shadow" style={{ tableLayout: "auto" }}>
                 <thead>
                     <tr style={{ fontSize: '14px' }}>
@@ -99,7 +127,9 @@ const MatelList = () => {
                         <th>Noka</th>
                         <th>Finance</th>
                         <th>OD</th>
-                        <th>Aksi</th>
+                        {user && user.role === "admin" && (
+                            <th>Aksi</th>
+                        )}
                     </tr>
                 </thead>
 
@@ -115,20 +145,23 @@ const MatelList = () => {
                             <td>{matel.noka}</td>
                             <td>{matel.finance}</td>
                             <td>{matel.overdue}</td>
-                            <td style={{ width: "150px" }}>
-                                <Link
-                                    to={`/matels/edit/${matel.uuid}`}
-                                    className="button is-small is-info"
-                                >
-                                    Edit
-                                </Link>
-                                <button
-                                    onClick={() => deleteMatel(matel.uuid)}
-                                    className="button is-small is-danger ml-1"
-                                >
-                                    Hapus
-                                </button>
-                            </td>
+
+                            {user && user.role === "admin" && (
+                                <td style={{ width: "150px" }}>
+                                    <Link
+                                        to={`/matels/edit/${matel.uuid}`}
+                                        className="button is-small is-info"
+                                    >
+                                        Edit
+                                    </Link>
+                                    <button
+                                        onClick={() => deleteMatel(matel.uuid)}
+                                        className="button is-small is-danger ml-1"
+                                    >
+                                        Hapus
+                                    </button>
+                                </td>
+                            )}
                         </tr>
                     </tbody>
                 ))}

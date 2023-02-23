@@ -16,7 +16,7 @@ const router = express.Router();
 
 router.get('/matels', getMatels);
 router.get('/carimatels', getMatelDetailsPublic);
-router.get('/matelss', verifyUser, adminOnly, getMatelDetails);
+router.get('/matelss', verifyUser, getMatelDetails);
 router.get('/matels/count', getMatelCount);
 router.get('/matels/:id', getMatelById);
 router.post('/matels', verifyUser, adminOnly, createMatel);

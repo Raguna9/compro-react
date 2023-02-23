@@ -53,7 +53,7 @@ const Welcome = () => {
             <div className="container mr-2">
                 <div className="columns is-multiline">
                     <div className="column is-3">
-                        <div className="card has-background-danger-dark" style={{height: '150px'}}>
+                        <div className="card has-background-danger-dark" style={{ height: '150px' }}>
                             <div className="card-content">
                                 <div className="content" style={{ height: "160px" }}>
                                     <div className="has-text-centered">
@@ -65,24 +65,12 @@ const Welcome = () => {
                         </div>
                     </div>
                     <div className="column is-3">
-                        <div className="card has-background-info"style={{height: '150px'}}>
+                        <div className="card has-background-warning-dark" style={{ height: '150px' }}>
                             <div className="card-content">
                                 <div className="content" style={{ height: "160px" }}>
                                     <div className="has-text-centered">
-                                        <h1 className="title has-text-white-ter">{countInbox}</h1>
-                                        <h4 className="title has-text-white-ter">Pesan</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="column is-3">
-                        <div className="card has-background-success"style={{height: '150px'}}>
-                            <div className="card-content">
-                                <div className="content" style={{ height: "160px" }}>
-                                    <div className="has-text-centered">
-                                        <h1 className="title has-text-white-ter">{countFAQ}</h1>
-                                        <h4 className="title has-text-white-ter">FAQ</h4>
+                                        <h1 className="title has-text-white-ter">{countMatel}</h1>
+                                        <h4 className="title has-text-white-ter">Data Matel</h4>
                                     </div>
                                 </div>
                             </div>
@@ -90,11 +78,23 @@ const Welcome = () => {
                     </div>
                     {user && user.role === "admin" && (
                         <>
-                        <div className="column is-3">
-                                <div className="card has-background-info-dark"style={{height: '150px'}}>
-                            <div className="card-content">
-                                <div className="content" style={{ height: "160px" }}>
-                                    <div className="has-text-centered">
+                            <div className="column is-3">
+                                <div className="card has-background-info" style={{ height: '150px' }}>
+                                    <div className="card-content">
+                                        <div className="content" style={{ height: "160px" }}>
+                                            <div className="has-text-centered">
+                                                <h1 className="title has-text-white-ter">{countInbox}</h1>
+                                                <h4 className="title has-text-white-ter">Pesan</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="column is-3">
+                                <div className="card has-background-info-dark" style={{ height: '150px' }}>
+                                    <div className="card-content">
+                                        <div className="content" style={{ height: "160px" }}>
+                                            <div className="has-text-centered">
                                                 <h1 className="title has-text-white-ter">{countEmployee}</h1>
                                                 <h4 className="title has-text-white-ter">Tenaga Kerja Internal</h4>
                                             </div>
@@ -103,10 +103,10 @@ const Welcome = () => {
                                 </div>
                             </div>
                             <div className="column is-3">
-                                <div className="card has-background-danger"style={{height: '150px'}}>
-                            <div className="card-content">
-                                <div className="content" style={{ height: "160px" }}>
-                                    <div className="has-text-centered">
+                                <div className="card has-background-danger" style={{ height: '150px' }}>
+                                    <div className="card-content">
+                                        <div className="content" style={{ height: "160px" }}>
+                                            <div className="has-text-centered">
                                                 <h1 className="title has-text-white-ter">{countExternalEmployee}</h1>
                                                 <h4 className="title has-text-white-ter">Tenaga Kerja Eksternal</h4>
                                             </div>
@@ -115,10 +115,10 @@ const Welcome = () => {
                                 </div>
                             </div>
                             <div className="column is-3">
-                                <div className="card has-background-grey"style={{height: '150px'}}>
-                            <div className="card-content">
-                                <div className="content" style={{ height: "160px" }}>
-                                    <div className="has-text-centered">
+                                <div className="card has-background-grey" style={{ height: '150px' }}>
+                                    <div className="card-content">
+                                        <div className="content" style={{ height: "160px" }}>
+                                            <div className="has-text-centered">
                                                 <h1 className="title has-text-white-ter">{countPartner}</h1>
                                                 <h4 className="title has-text-white-ter">Mitra Kerja</h4>
                                             </div>
@@ -127,10 +127,10 @@ const Welcome = () => {
                                 </div>
                             </div>
                             <div className="column is-3">
-                                <div className="card has-background-grey-dark"style={{height: '150px'}}>
-                            <div className="card-content">
-                                <div className="content" style={{ height: "160px" }}>
-                                    <div className="has-text-centered">
+                                <div className="card has-background-grey-dark" style={{ height: '150px' }}>
+                                    <div className="card-content">
+                                        <div className="content" style={{ height: "160px" }}>
+                                            <div className="has-text-centered">
                                                 <h1 className="title has-text-white-ter">{countUser}</h1>
                                                 <h4 className="title has-text-white-ter">User</h4>
                                             </div>
@@ -139,23 +139,24 @@ const Welcome = () => {
                                 </div>
                             </div>
                             <div className="column is-3">
-                                <div className="card has-background-success-dark"style={{height: '150px'}}>
-                            <div className="card-content">
-                                <div className="content" style={{ height: "160px" }}>
-                                    <div className="has-text-centered">
+                                <div className="card has-background-success-dark" style={{ height: '150px' }}>
+                                    <div className="card-content">
+                                        <div className="content" style={{ height: "160px" }}>
+                                            <div className="has-text-centered">
                                                 <h1 className="title has-text-white-ter">{countGallery}</h1>
                                                 <h4 className="title has-text-white-ter">Galeri</h4>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div><div className="column is-3">
-                                <div className="card has-background-warning-dark"style={{height: '150px'}}>
-                            <div className="card-content">
-                                <div className="content" style={{ height: "160px" }}>
-                                    <div className="has-text-centered">
-                                                <h1 className="title has-text-white-ter">{countMatel}</h1>
-                                                <h4 className="title has-text-white-ter">Data Matel</h4>
+                            </div>
+                            <div className="column is-3">
+                                <div className="card has-background-success" style={{ height: '150px' }}>
+                                    <div className="card-content">
+                                        <div className="content" style={{ height: "160px" }}>
+                                            <div className="has-text-centered">
+                                                <h1 className="title has-text-white-ter">{countFAQ}</h1>
+                                                <h4 className="title has-text-white-ter">FAQ</h4>
                                             </div>
                                         </div>
                                     </div>

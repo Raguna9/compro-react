@@ -42,6 +42,13 @@ const Sidebar = () => {
                             </span>
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink className="navbar-item" to={"/matels"}>
+                            <span style={{ fontSize: '14px' }}>
+                                <AiFillBook /> Data Matel
+                            </span>
+                        </NavLink>
+                    </li>
                 </ul>
                 {user && user.role === "admin" && (
                     <div>
@@ -86,13 +93,6 @@ const Sidebar = () => {
                                 <NavLink className="navbar-item" to={"/gallerys"}>
                                     <span style={{ fontSize: '14px' }}>
                                         <RiGalleryFill /> Galeri
-                                    </span>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink className="navbar-item" to={"/matels"}>
-                                    <span style={{ fontSize: '14px' }}>
-                                        <AiFillBook /> Data Matel
                                     </span>
                                 </NavLink>
                             </li>
