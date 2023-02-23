@@ -39,7 +39,7 @@ const GalleryList = () => {
                         <th>Deskripsi</th>
                         <th>Aksi</th>
                     </tr>
-                </thead>
+                </thead>                
                 <tbody>
                     {gallerys.map((gallery, index) => (
                         <tr key={gallery.uuid}>

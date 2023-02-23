@@ -44,7 +44,6 @@ const BlogList = () => {
                         <th>Aksi</th>
                     </tr>
                 </thead>
-
                 {blogs.map((blog, index) => (
                     <tbody key={blog.uuid} style={{ fontSize: '15px' }}>
                         <tr>

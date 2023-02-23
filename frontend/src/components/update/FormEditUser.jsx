@@ -70,7 +70,7 @@ const FormEditUser = () => {
                                         className="input"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        placeholder="Name"
+                                        placeholder="Nama..."
                                     />
                                 </div>
                             </div>

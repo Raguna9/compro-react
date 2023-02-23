@@ -64,7 +64,6 @@ const PublicNavbar = () => {
                             </a>
                         )}
 
-
                         <div className="navbar-item has-dropdown is-hoverable">
                             <a className="navbar-link">Informasi</a>
                             <div className="navbar-dropdown has-background-info-light">
@@ -109,15 +108,6 @@ const PublicNavbar = () => {
                                 Blog
                             </a>
                         )}
-                        {/* {window.location.pathname === '/' ? (
-                            <Link className="navbar-item" to="partner" spy={true} smooth={true} offset={-90} duration={500}>
-                                Mitra
-                            </Link>
-                        ) : (
-                            <a className="navbar-item" href="/">
-                                Mitra
-                            </a>
-                        )} */}
 
                         <a className="navbar-item" href="/login">
                             <button className="button is-primary">Login</button>

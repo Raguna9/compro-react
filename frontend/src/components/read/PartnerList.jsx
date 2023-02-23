@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -15,6 +14,7 @@ const PartnerList = () => {
 
     useEffect(() => {
         getPartners();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page]);
 
     const getPartners = async () => {
@@ -55,7 +55,7 @@ const PartnerList = () => {
                         <th>Nama</th>
                         <th>Aksi</th>
                     </tr>
-                </thead>
+                </thead>                
                 <tbody>
                     {partners.map((partner, index) => (
                         <tr key={partner.uuid}>

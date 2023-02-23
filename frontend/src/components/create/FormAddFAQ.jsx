@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -48,7 +47,7 @@ const FormAddFAQ = () => {
                                         className="input"
                                         value={question}
                                         onChange={(e) => setQuestion(e.target.value)}
-                                        placeholder="Question"
+                                        placeholder="Pertanyaan..."
                                     />
                                 </div>
                             </div>
@@ -59,7 +58,7 @@ const FormAddFAQ = () => {
                                         className="textarea"
                                         value={answer}
                                         onChange={(e) => setAnswer(e.target.value)}
-                                        placeholder="Answer"
+                                        placeholder="Jawaban..."
                                         rows="10">
                                     </textarea>
                                 </div>

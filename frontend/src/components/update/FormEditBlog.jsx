@@ -82,21 +82,13 @@ const FormEditBlog = () => {
                                         className="input"
                                         value={tittle}
                                         onChange={(e) => setTittle(e.target.value)}
-                                        placeholder="Tittle"
+                                        placeholder="Judul..."
                                     />
                                 </div>
                             </div>
                             <div className="field">
                                 <label className="label">Konten</label>
                                 <div className="control">
-                                    {/* <textarea
-                                        className="textarea"
-                                        value={content}
-                                        onChange={(e) => setContent(e.target.value)}
-                                        placeholder="Content"
-                                        rows="10">
-                                        style={{ whiteSpace: "pre-wrap" }}
-                                    </textarea> */}
                                     <div className="editorContainer">
                                         <ReactQuill theme="snow" value={content} onChange={setContent} />
                                     </div>
@@ -123,7 +115,7 @@ const FormEditBlog = () => {
 
                             {preview ? (
                                 <figure className="image is-128x128">
-                                    <img src={preview} alt="Preview Image" />
+                                    <img src={preview} alt="Preview Gambar" />
                                 </figure>
                             ) : (
                                 ""

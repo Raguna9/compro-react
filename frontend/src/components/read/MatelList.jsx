@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -19,6 +18,7 @@ const MatelList = () => {
 
     useEffect(() => {
         getMatels();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page, keyword]);
 
     const getMatels = async () => {
@@ -132,7 +132,6 @@ const MatelList = () => {
                         )}
                     </tr>
                 </thead>
-
                 {matels.map((matel, index) => (
                     <tbody key={matel.uuid}>
                         <tr style={{ fontSize: '12px' }}>

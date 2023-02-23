@@ -82,7 +82,7 @@ const FormEditEmployee = () => {
                                         className="input"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        placeholder="Name"
+                                        placeholder="Nama..."
                                     />
                                 </div>
                             </div>
@@ -94,7 +94,7 @@ const FormEditEmployee = () => {
                                         className="input"
                                         value={department}
                                         onChange={(e) => setDepartment(e.target.value)}
-                                        placeholder="Department"
+                                        placeholder="Jabatan..."
                                     />
                                 </div>
                             </div>
@@ -156,7 +156,7 @@ const FormEditEmployee = () => {
 
                             {preview ? (
                                 <figure className="image is-128x128">
-                                    <img src={preview} alt="Preview Image" />
+                                    <img src={preview} alt="Preview Gambar" />
                                 </figure>
                             ) : (
                                 ""

@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -60,7 +59,7 @@ const FormAddGallery = () => {
                                         className="input"
                                         value={description}
                                         onChange={(e) => setDescription(e.target.value)}
-                                        placeholder="Description"
+                                        placeholder="Deskripsi..."
                                     />
                                 </div>
                             </div>
@@ -84,7 +83,7 @@ const FormAddGallery = () => {
 
                             {preview ? (
                                 <figure className="image is-128x128">
-                                    <img src={preview} alt="Preview Image" />
+                                    <img src={preview} alt="Preview Gambar" />
                                 </figure>
                             ) : (
                                 ""

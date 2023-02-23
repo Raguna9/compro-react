@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -60,7 +59,7 @@ const FormAddMatel = () => {
                                         className="input"
                                         value={kontrak}
                                         onChange={(e) => setKontrak(e.target.value)}
-                                        placeholder="No. Kontrak"
+                                        placeholder="No. Kontrak..."
                                     />
                                 </div>
                             </div>
@@ -72,7 +71,7 @@ const FormAddMatel = () => {
                                         className="input"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        placeholder="Name"
+                                        placeholder="Nama..."
                                     />
                                 </div>
                             </div>
@@ -84,7 +83,7 @@ const FormAddMatel = () => {
                                         className="input"
                                         value={merkType}
                                         onChange={(e) => setMerkType(e.target.value)}
-                                        placeholder="MerkType"
+                                        placeholder="MerkType..."
                                     />
                                 </div>
                             </div>
@@ -96,7 +95,7 @@ const FormAddMatel = () => {
                                         className="input"
                                         value={nopol}
                                         onChange={(e) => setNopol(e.target.value)}
-                                        placeholder="Nopol"
+                                        placeholder="Nopol..."
                                     />
                                 </div>
                             </div>
@@ -108,7 +107,7 @@ const FormAddMatel = () => {
                                         className="input"
                                         value={nosin}
                                         onChange={(e) => setNosin(e.target.value)}
-                                        placeholder="Nosin"
+                                        placeholder="Nosin..."
                                     />
                                 </div>
                             </div>
@@ -120,7 +119,7 @@ const FormAddMatel = () => {
                                         className="input"
                                         value={noka}
                                         onChange={(e) => setNoka(e.target.value)}
-                                        placeholder="Noka"
+                                        placeholder="Noka..."
                                     />
                                 </div>
                             </div>
@@ -132,7 +131,7 @@ const FormAddMatel = () => {
                                         className="input"
                                         value={finance}
                                         onChange={(e) => setFinance(e.target.value)}
-                                        placeholder="Finance"
+                                        placeholder="Finance..."
                                     />
                                 </div>
                             </div>
@@ -144,7 +143,7 @@ const FormAddMatel = () => {
                                         className="input"
                                         value={overdue}
                                         onChange={(e) => setOverdue(e.target.value)}
-                                        placeholder="Overdue"
+                                        placeholder="Overdue..."
                                     />
                                 </div>
                             </div>
