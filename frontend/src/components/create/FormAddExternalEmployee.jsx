@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -62,7 +61,7 @@ const FormAddExternalEmployee = () => {
                                         className="input"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        placeholder="Name"
+                                        placeholder="Nama..."
                                     />
                                 </div>
                             </div>
@@ -102,7 +101,7 @@ const FormAddExternalEmployee = () => {
                                         className="input"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="Email"
+                                        placeholder="Email..."
                                     />
                                 </div>
                             </div>
@@ -114,7 +113,7 @@ const FormAddExternalEmployee = () => {
                                         className="input"
                                         value={sppi}
                                         onChange={(e) => setSPPI(e.target.value)}
-                                        placeholder="No SPPI"
+                                        placeholder="xxxx-xxxxx-xxx-xxxx"
                                     />
                                 </div>
                             </div>
@@ -138,7 +137,7 @@ const FormAddExternalEmployee = () => {
 
                             {preview ? (
                                 <figure className="image is-128x128">
-                                    <img src={preview} alt="Preview Image" />
+                                    <img src={preview} alt="Preview Gambar" />
                                 </figure>
                             ) : (
                                 ""

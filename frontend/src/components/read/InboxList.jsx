@@ -41,7 +41,6 @@ const InboxList = () => {
                         <th>Aksi</th>
                     </tr>
                 </thead>
-
                 {inboxs.map((inbox, index) => (
                     <tbody key={inbox.uuid}>
                         <tr>

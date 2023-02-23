@@ -39,9 +39,7 @@ const FAQList = () => {
                         <th>Jawaban</th>
                         <th>Aksi</th>
                     </tr>
-                </thead>
-
-                {faqs.map((faq, index) => (
+                </thead>                {faqs.map((faq, index) => (
                     <tbody key={faq.uuid}>
                         <tr>
                             <td>{index + 1}</td>

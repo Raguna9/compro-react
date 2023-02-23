@@ -93,7 +93,7 @@ const FormEditGallery = () => {
 
                             {preview ? (
                                 <figure className="image is-128x128">
-                                    <img src={preview} alt="Preview Image" />
+                                    <img src={preview} alt="Preview Gambar" />
                                 </figure>
                             ) : (
                                 ""

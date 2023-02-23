@@ -82,7 +82,7 @@ const FormEditExternalEmployee = () => {
                                         className="input"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        placeholder="Name"
+                                        placeholder="Nama..."
                                     />
                                 </div>
                             </div>
@@ -158,7 +158,7 @@ const FormEditExternalEmployee = () => {
 
                             {preview ? (
                                 <figure className="image is-128x128">
-                                    <img src={preview} alt="Preview Image" />
+                                    <img src={preview} alt="Preview Gambar" />
                                 </figure>
                             ) : (
                                 ""

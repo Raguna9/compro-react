@@ -39,7 +39,7 @@ const UserList = () => {
                         <th>Role</th>
                         <th>Aksi</th>
                     </tr>
-                </thead>
+                </thead>                
                 <tbody>
                     {data.map((user, index) => (
                         <tr key={user.uuid}>

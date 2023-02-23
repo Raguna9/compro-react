@@ -42,7 +42,7 @@ const EmployeeList = () => {
                         <th>Gambar</th>
                         <th>Aksi</th>
                     </tr>
-                </thead>
+                </thead>                
                 <tbody>
                     {employees.map((employee, index) => (
                         <tr key={employee.uuid} style={{ fontSize: '15px' }}>

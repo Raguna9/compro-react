@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -77,7 +76,7 @@ const FormEditPartner = () => {
                                         className="input"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        placeholder="Name"
+                                        placeholder="Nama..."
                                     />
                                 </div>
                             </div>
@@ -101,7 +100,7 @@ const FormEditPartner = () => {
 
                             {preview ? (
                                 <figure className="image is-128x128">
-                                    <img src={preview} alt="Preview Image" />
+                                    <img src={preview} alt="Preview Gambar" />
                                 </figure>
                             ) : (
                                 ""

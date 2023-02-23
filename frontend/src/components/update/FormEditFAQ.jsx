@@ -65,7 +65,7 @@ const FormEditFAQ = () => {
                                         className="input"
                                         value={question}
                                         onChange={(e) => setQuestion(e.target.value)}
-                                        placeholder="Question"
+                                        placeholder="Pertanyaan..."
                                     />
                                 </div>
                             </div>
@@ -76,7 +76,7 @@ const FormEditFAQ = () => {
                                         className="textarea"
                                         value={answer}
                                         onChange={(e) => setAnswer(e.target.value)}
-                                        placeholder="Answer"
+                                        placeholder="Jawaban..."
                                         rows="10">
                                     </textarea>
                                 </div>

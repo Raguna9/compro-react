@@ -138,8 +138,6 @@ const Navbar = () => {
                                 <IoLogOut /> Logout
                             </span>
                         </button>
-
-
                     </div>
                 </div>
             </nav>

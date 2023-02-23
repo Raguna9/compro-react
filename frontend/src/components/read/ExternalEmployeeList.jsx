@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -15,6 +14,7 @@ const ExternalEmployeeList = () => {
 
     useEffect(() => {
         getExternalEmployees();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page]);
 
     const getExternalEmployees = async () => {
@@ -59,7 +59,7 @@ const ExternalEmployeeList = () => {
                         <th>Gambar</th>
                         <th>Aksi</th>
                     </tr>
-                </thead>
+                </thead>                
                 <tbody>
                     {externalEmployees.map((externalEmployee, index) => (
                         <tr key={externalEmployee.uuid} style={{ fontSize: '15px' }}>
@@ -111,7 +111,6 @@ const ExternalEmployeeList = () => {
             }
             {externalEmployees.length > 0 && limit < totalRows && (
                 <div>
-
                     <p>
                         Total Rows: {totalRows} Page: {totalRows ? page + 1 : 0} of {totalPages}
                     </p>

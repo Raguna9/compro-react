@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/iframe-has-title */
 import React from "react";
 import { AiTwotoneMail, AiFillPhone, AiFillYoutube, AiFillInstagram, AiFillFacebook } from "react-icons/ai";
 
@@ -12,7 +11,7 @@ const PublicFooter = () => {
                     {/* <h3 className="subtitle has-text-white-ter has-text-centered pt-6">Tambahan</h3> */}
                     <div className="columns">
                         <div className="column has-text-info is-6">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d986.1561819404212!2d116.4503547291501!3d-8.63197757369828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcc4b65892b54bf%3A0x7e960304214f0785!2sGTN%20Pt.Global%20Litigation%20Nusantara!5e0!3m2!1sen!2sid!4v1676834692241!5m2!1sen!2sid" width="450" height="200" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe title="PT. Global Litigation Nnusantara" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d986.1561819404212!2d116.4503547291501!3d-8.63197757369828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcc4b65892b54bf%3A0x7e960304214f0785!2sGTN%20Pt.Global%20Litigation%20Nusantara!5e0!3m2!1sen!2sid!4v1676834692241!5m2!1sen!2sid" width="450" height="200" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
