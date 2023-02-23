@@ -25,49 +25,51 @@ function GalleryPages() {
     return (
         <React.Fragment>
             <PublicNavbar />
-            <div className="container mt-5 py-6">
-                <nav class="breadcrumb mt-5 pb-2" aria-label="breadcrumbs">
-                    <ul>
-                        <li><a href="/">Beranda</a></li>
-                        <li class="is-active"><a href="#">Gallery</a></li>
-                    </ul>
-                </nav>
-                <div className="columns is-multiline">
-                    {gallerys.slice(0, shows).map(gallery => (
-                        <div key={gallery.uuid} className="column is-one-third">
-                            <div className="card">
-                                <div className="card-image">
-                                    <figure className="image">
-                                        <img src={gallery.urlImage} alt={gallery.description}
-                                            onClick={() => setActiveImage(gallery.urlImage)} style={{ height: '200px', width: '100%', objectFit: 'cover' }} />
-                                    </figure>
-                                </div>
-                                <div className="card-content">
-                                    <p className="title is-6 descGallery2" style={{height: '75px'}}>{gallery.description}</p>
+            <div style={{ background: 'linear-gradient(to bottom, #b4e5f9 2%, #ffffff 65%)', backgroundSize: `cover`, backgroundPosition: `center`, paddingTop: '70px' }}>
+                <div className="container">
+                    <nav class="breadcrumb mt-5 pb-2" aria-label="breadcrumbs">
+                        <ul>
+                            <li><a href="/">Beranda</a></li>
+                            <li class="is-active"><a href="#">Gallery</a></li>
+                        </ul>
+                    </nav>
+                    <div className="columns is-multiline">
+                        {gallerys.slice(0, shows).map(gallery => (
+                            <div key={gallery.uuid} className="column is-one-third">
+                                <div className="card">
+                                    <div className="card-image">
+                                        <figure className="image">
+                                            <img src={gallery.urlImage} alt={gallery.description}
+                                                onClick={() => setActiveImage(gallery.urlImage)} style={{ height: '200px', width: '100%', objectFit: 'cover' }} />
+                                        </figure>
+                                    </div>
+                                    <div className="card-content">
+                                        <p className="title is-6 descGallery2" style={{ height: '75px' }}>{gallery.description}</p>
+                                    </div>
                                 </div>
                             </div>
+                        ))}
+                    </div>
+
+
+                    {activeImage &&
+                        <div className="modal is-active">
+                            <div className="modal-background" onClick={() => setActiveImage(null)} />
+                            <div className="modal-content">
+                                <p className="image">
+                                    <img src={activeImage} alt={activeImage} />
+                                </p>
+                            </div>
+                            <button className="modal-close is-large" aria-label="close"
+                                onClick={() => setActiveImage(null)} />
                         </div>
-                    ))}
+                    }
+                    {gallerys.length > 0 && shows < totalRows && (
+                        <div className='has-text-centered'>
+                            <button className="button is-info is-rounded" onClick={() => setShows(shows + 3)}>Lihat lebih banyak</button>
+                        </div>
+                    )}
                 </div>
-
-
-                {activeImage &&
-                    <div className="modal is-active">
-                        <div className="modal-background" onClick={() => setActiveImage(null)} />
-                        <div className="modal-content">
-                            <p className="image">
-                                <img src={activeImage} alt={activeImage} />
-                            </p>
-                        </div>
-                        <button className="modal-close is-large" aria-label="close"
-                            onClick={() => setActiveImage(null)} />
-                    </div>
-                }
-                {gallerys.length > 0 && shows < totalRows && (
-                    <div className='has-text-centered'>
-                        <button className="button is-info is-rounded" onClick={() => setShows(shows + 3)}>Lihat lebih banyak</button>
-                    </div>
-                )}
             </div>
             <PublicFooter />
         </React.Fragment>

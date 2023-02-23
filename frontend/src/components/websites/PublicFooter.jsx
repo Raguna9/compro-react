@@ -6,9 +6,7 @@ import { AiTwotoneMail, AiFillPhone, AiFillYoutube, AiFillInstagram, AiFillFaceb
 const PublicFooter = () => {
 
     return (
-        <div className="container is-fluid px-6 has-background-light">
-            <footer></footer>
-            <hr />
+        <div className="container is-fluid px-6 has-background-light pt-4">
             <div className="columns" style={{ marginBottom: '0', paddingBottom: '0' }}>
                 <div className="column is-5 is-hidden-mobile">
                     {/* <h3 className="subtitle has-text-white-ter has-text-centered pt-6">Tambahan</h3> */}

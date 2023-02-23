@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+//nerjemahin tag html dilayar
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
@@ -46,14 +48,14 @@ const FormAddBlog = () => {
     return (
         <div>
             <h1 className="title">Blogs</h1>
-            <h2 className="subtitle">Add New Blog</h2>
+            <h2 className="subtitle">Tambah Data Blog</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">
                         <form onSubmit={saveBlog}>
                             <p className="has-text-centered">{msg}</p>
                             <div className="field">
-                                <label className="label">Tittle</label>
+                                <label className="label">Judul</label>
                                 <div className="control">
                                     <input
                                         type="text"
@@ -65,7 +67,7 @@ const FormAddBlog = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Content</label>
+                                <label className="label">Konten</label>
                                 <div className="control">
                                     {/* <textarea
                                         className="textarea"
@@ -80,7 +82,7 @@ const FormAddBlog = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Image</label>
+                                <label className="label">Gambar</label>
                                 <div className="control">
                                     <div className="file">
                                         <label className="file-label">
@@ -90,7 +92,7 @@ const FormAddBlog = () => {
                                                 onChange={loadImage}
                                             />
                                             <span className="file-cta">
-                                                <span className="file-label">Choose a file...</span>
+                                                <span className="file-label">Pilih gambar...</span>
                                             </span>
                                         </label>
                                     </div>
@@ -108,7 +110,7 @@ const FormAddBlog = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success">
-                                        Save
+                                        Simpan
                                     </button>
                                     <ToastContainer limit={1}/>
                                 </div>

@@ -49,7 +49,7 @@ const FormAddExternalEmployee = () => {
     return (
         <div>
             <h1 className="title">External Employees</h1>
-            <h2 className="subtitle">Add New External Employee</h2>
+            <h2 className="subtitle">Tambah Data External Employee</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">
@@ -67,7 +67,7 @@ const FormAddExternalEmployee = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Department</label>
+                                <label className="label">Jabatan</label>
                                 <div className="control">
                                     <div className="select is-fullwidth">
                                         <select
@@ -81,7 +81,7 @@ const FormAddExternalEmployee = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Gender</label>
+                                <label className="label">Jenis Kelamin</label>
                                 <div className="control">
                                     <div className="select is-fullwidth">
                                         <select
@@ -119,7 +119,7 @@ const FormAddExternalEmployee = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Image</label>
+                                <label className="label">Gambar</label>
                                 <div className="control">
                                     <div className="file">
                                         <label className="file-label">
@@ -129,7 +129,7 @@ const FormAddExternalEmployee = () => {
                                                 onChange={loadImage}
                                             />
                                             <span className="file-cta">
-                                                <span className="file-label">Choose a file...</span>
+                                                <span className="file-label">Pilih gambar...</span>
                                             </span>
                                         </label>
                                     </div>
@@ -147,7 +147,7 @@ const FormAddExternalEmployee = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success mt-6">
-                                        Save
+                                        Simpan
                                     </button>
                                     <ToastContainer limit={1}/>
                                 </div>

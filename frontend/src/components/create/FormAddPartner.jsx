@@ -45,7 +45,7 @@ const FormAddPartner = () => {
     return (
         <div>
             <h1 className="title">Partners</h1>
-            <h2 className="subtitle">Add New Partner</h2>
+            <h2 className="subtitle">Tambah Data Partner</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">
@@ -64,7 +64,7 @@ const FormAddPartner = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Image</label>
+                                <label className="label">Gambar</label>
                                 <div className="control">
                                     <div className="file">
                                         <label className="file-label">
@@ -74,7 +74,7 @@ const FormAddPartner = () => {
                                                 onChange={loadImage}
                                             />
                                             <span className="file-cta">
-                                                <span className="file-label">Choose a file...</span>
+                                                <span className="file-label">Pilih gambar...</span>
                                             </span>
                                         </label>
                                     </div>
@@ -92,7 +92,7 @@ const FormAddPartner = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success">
-                                        Save
+                                        Simpan
                                     </button>
                                     <ToastContainer limit={1}/>
                                 </div>

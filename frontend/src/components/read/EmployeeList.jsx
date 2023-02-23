@@ -25,27 +25,27 @@ const EmployeeList = () => {
 
     return (
         <div className="container mr-2">
-            <h1 className="title">Employees</h1>
-            <h2 className="subtitle">List of Employees</h2>
+            <h1 className="title">Tenaga Kerja Internal</h1>
+            <h2 className="subtitle">Daftar Tenaga Kerja Internal</h2>
             <Link to="/employees/add" className="button is-primary mb-2">
-                Add New
+                Tambah Data
             </Link>
             <table className="table is-striped is-fullwidth">
                 <thead>
-                    <tr>
+                    <tr style={{ fontSize: '15px' }}>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Department</th>
-                        <th>Gender</th>
+                        <th>Nama</th>
+                        <th>Jabatan</th>
+                        <th>Jenis Kelamin</th>
                         <th>Email</th>
                         <th>No SPPI</th>
-                        <th>Image</th>
-                        <th>Actions</th>
+                        <th>Gambar</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     {employees.map((employee, index) => (
-                        <tr key={employee.uuid}>
+                        <tr key={employee.uuid} style={{ fontSize: '15px' }}>
                             <td>{index + 1}</td>
                             <td style={{ width: "115px" }}>{employee.name}</td>
                             <td style={{ width: "100px" }}>{employee.department}</td>
@@ -61,7 +61,7 @@ const EmployeeList = () => {
                                     />
                                 </figure>
                             </td>
-                            <td>
+                            <td style={{ width: "150px" }}>
                                 <Link
                                     to={`/employees/edit/${employee.uuid}`}
                                     className="button is-small is-info"
@@ -72,7 +72,7 @@ const EmployeeList = () => {
                                     onClick={() => deleteEmployee(employee.uuid)}
                                     className="button is-small is-danger ml-1"
                                 >
-                                    Delete
+                                    Hapus
                                 </button>
                             </td>
                         </tr>

@@ -87,7 +87,7 @@ const FormEditEmployee = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Department</label>
+                                <label className="label">Jabatan</label>
                                 <div className="control">
                                     <input
                                         type="text"
@@ -99,7 +99,7 @@ const FormEditEmployee = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Gender</label>
+                                <label className="label">Jenis Kelamin</label>
                                 <div className="control">
                                     <div className="select is-fullwidth">
                                         <select
@@ -137,7 +137,7 @@ const FormEditEmployee = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Image</label>
+                                <label className="label">Gambar</label>
                                 <div className="control">
                                     <div className="file">
                                         <label className="file-label">
@@ -147,7 +147,7 @@ const FormEditEmployee = () => {
                                                 onChange={loadImage}
                                             />
                                             <span className="file-cta">
-                                                <span className="file-label">Choose a file...</span>
+                                                <span className="file-label">Pilih gambar...</span>
                                             </span>
                                         </label>
                                     </div>
@@ -165,7 +165,7 @@ const FormEditEmployee = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success mt-6">
-                                        Update
+                                        Perbarui
                                     </button>
                                     <button type="submit" className="button is-danger ml-2 mt-6" onClick={handleCancle}>
                                         Cancel

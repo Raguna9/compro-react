@@ -28,25 +28,25 @@ const BlogList = () => {
 
     return (
         <div className="container mr-2">
-            <h1 className="title">Blogs</h1>
-            <h2 className="subtitle">List of Blogs</h2>
+            <h1 className="title">Blog</h1>
+            <h2 className="subtitle">List data Blog</h2>
             <Link to="/blogs/add" className="button is-primary mb-2">
-                Add New
+                Tambah Data
             </Link>
             <table className="table is-striped is-fullwidth has-shadow">
                 <thead>
-                    <tr>
+                    <tr style={{ fontSize: '15px' }}>
                         <th>No</th>
-                        <th>Tittle</th>
-                        <th>Content</th>
-                        <th>Image</th>
-                        <th>Created By</th>
-                        <th>Actions</th>
+                        <th>Judul</th>
+                        <th>Konten</th>
+                        <th>Gambar</th>
+                        <th>Penulis</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
 
                 {blogs.map((blog, index) => (
-                    <tbody key={blog.uuid}>
+                    <tbody key={blog.uuid} style={{ fontSize: '15px' }}>
                         <tr>
                             <td>{index + 1}</td>
                             <td>
@@ -77,7 +77,7 @@ const BlogList = () => {
                                     onClick={() => deleteBlog(blog.uuid)}
                                     className="button is-small is-danger ml-1"
                                 >
-                                    Delete
+                                    Hapus
                                 </button>
                             </td>
                         </tr>

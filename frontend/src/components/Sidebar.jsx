@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoPerson, IoHome, IoLogOut, } from "react-icons/io5";
@@ -28,30 +29,23 @@ const Sidebar = () => {
 
                 <ul className="menu-list">
                     <li>
-                        <NavLink to={"/dashboard"}>
+                        <NavLink className="navbar-item" to={"/dashboard"}>
                             <span style={{ fontSize: '14px' }}>
-                                <IoHome /> Dashboard
+                                <IoHome /> Beranda
                             </span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to={"/blogs"}>
+                        <NavLink className="navbar-item" to={"/blogs"}>
                             <span style={{ fontSize: '14px' }}>
-                                <FaBloggerB /> Blogs
+                                <FaBloggerB /> Blog
                             </span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to={"/inboxs"}>
+                        <NavLink className="navbar-item" to={"/matels"}>
                             <span style={{ fontSize: '14px' }}>
-                                <BsChatLeftTextFill /> Inboxs
-                            </span>
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={"/faqs"}>
-                            <span style={{ fontSize: '14px' }}>
-                                <RiQuestionAnswerLine /> FAQs
+                                <AiFillBook /> Data Matel
                             </span>
                         </NavLink>
                     </li>
@@ -60,60 +54,76 @@ const Sidebar = () => {
                     <div>
                         <span className="menu-label">Admin</span>
                         <ul className="menu-list">
-                            <NavLink to={"/users"}>
-                                <span style={{ fontSize: '14px' }}>
-                                    <IoPerson /> Users
-                                </span>
-                            </NavLink>
                             <li>
-                                <NavLink to={"/employees"}>
+                                <NavLink className="navbar-item" to={"/inboxs"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <FaUserTie /> Employees
+                                        <BsChatLeftTextFill /> Pesan
                                     </span>
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to={"/externalemployees"}>
+                                <NavLink className="navbar-item" to={"/faqs"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <FaUserFriends /> External Employees
+                                        <RiQuestionAnswerLine /> FAQ
                                     </span>
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to={"/partners"}>
+                                <NavLink className="navbar-item" to={"/employees"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <BsBank /> Partners
+                                        <FaUserTie /> TK Internal
                                     </span>
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to={"/gallerys"}>
+                                <NavLink className="navbar-item" to={"/externalemployees"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <RiGalleryFill /> Gallery
+                                        <FaUserFriends /> TK Eksternal
                                     </span>
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink className="navbar-item" to={"/matels"}>
+                                <NavLink className="navbar-item" to={"/partners"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <AiFillBook /> Data Matel
+                                        <BsBank /> Mitra Kerja
+                                    </span>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink className="navbar-item" to={"/gallerys"}>
+                                    <span style={{ fontSize: '14px' }}>
+                                        <RiGalleryFill /> Galeri
                                     </span>
                                 </NavLink>
                             </li>
                         </ul>
                     </div>
                 )}
-
                 <span className="menu-label">Settings</span>
-                <ul className="menu-list">
-                    <li>
-                        <button onClick={logout} className="button is-white">
-                            <span style={{ fontSize: '14px' }}>
-                                <IoLogOut /> Logout
-                            </span>
-                        </button>
-                    </li>
-                </ul>
+                {user && user.role === "admin" && (
+                    <div>
+                        <ul className="menu-list">
+                            <li>
+                                <NavLink to={"/users"} className="navbar-item is-white has-text-left">
+                                    <span style={{ fontSize: '14px' }}>
+                                        <IoPerson /> Users
+                                    </span>
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </div>
+                )}
+                <div>
+                    <ul className="menu-list">
+                        <li>
+                            <a onClick={logout} className="navbar-item is-white pl-3">
+                                <span style={{ fontSize: '14px' }}>
+                                    <IoLogOut /> Logout
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </aside>
         </div>
     );

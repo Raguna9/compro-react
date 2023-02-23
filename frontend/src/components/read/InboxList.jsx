@@ -28,17 +28,17 @@ const InboxList = () => {
 
     return (
         <div className="container mr-2">
-            <h1 className="title">Inboxs</h1>
-            <h2 className="subtitle">List of Inboxs</h2>
+            <h1 className="title">Pesan</h1>
+            <h2 className="subtitle">Daftar Pesan</h2>
             <table className="table is-striped is-fullwidth has-shadow" style={{ tableLayout: "auto" }}>
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
+                        <th>Nama</th>
                         <th>Email</th>
-                        <th>Message Content</th>
-                        <th>Date</th>
-                        <th>Action</th>
+                        <th>Pesan</th>
+                        <th>Tanggal</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
 
@@ -66,7 +66,7 @@ const InboxList = () => {
                                     onClick={() => deleteInbox(inbox.uuid)}
                                     className="button is-small is-danger ml-1"
                                 >
-                                    Delete
+                                    Hapus
                                 </button>
 
                             </td>

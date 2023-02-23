@@ -82,7 +82,7 @@ const FormEditPartner = () => {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Image</label>
+                                <label className="label">Gambar</label>
                                 <div className="control">
                                     <div className="file">
                                         <label className="file-label">
@@ -92,7 +92,7 @@ const FormEditPartner = () => {
                                                 onChange={loadImage}
                                             />
                                             <span className="file-cta">
-                                                <span className="file-label">Choose a file...</span>
+                                                <span className="file-label">Pilih gambar...</span>
                                             </span>
                                         </label>
                                     </div>
@@ -110,7 +110,7 @@ const FormEditPartner = () => {
                             <div className="field">
                                 <div className="control">
                                     <button type="submit" className="button is-success">
-                                        Update
+                                        Perbarui
                                     </button>
                                     <button type="submit" className="button is-danger ml-2" onClick={handleCancle}>
                                         Cancel

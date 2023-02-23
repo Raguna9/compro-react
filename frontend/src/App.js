@@ -40,7 +40,6 @@ const AboutCompanyPages = lazy(() => import("./pages/website/AboutCompanyPages")
 const SingleBlogPages = lazy(() => import("./pages/website/SingleBlogPages"));
 const MatelPages = lazy(() => import("./pages/website/MatelPages"));
 
-
 function App() {
   return (
     <div>

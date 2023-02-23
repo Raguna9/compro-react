@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "../../features/authSlice";
-import Matel from "../../components/Matel";
+import Matel from "../../components/websites/Matel";
 import PublicNavbar from '../../components/websites/PublicNavbar';
 import PublicFooter from '../../components/websites/PublicFooter';
 
@@ -20,11 +20,13 @@ const MatelPages = () => {
     }, [isError]);
     return (
         <React.Fragment>
-            <PublicNavbar/>
-            <div className="container">
-                <Matel />
+            <PublicNavbar />
+            <div style={{ background: 'linear-gradient(to bottom, #b4e5f9 2%, #ffffff 65%)', backgroundSize: `cover`, backgroundPosition: `center` }}>
+                <div className="container" style={{paddingTop: '15px'}}>
+                    <Matel />
+                </div>
             </div>
-            <PublicFooter/>
+            <PublicFooter />
         </React.Fragment>
     );
 };

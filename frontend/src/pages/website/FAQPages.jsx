@@ -31,34 +31,34 @@ function FAQPages() {
     return (
         <React.Fragment>
             <PublicNavbar />
-            <div className="container mt-6">
-                <section className="section">
-                    <nav class="breadcrumb" aria-label="breadcrumbs">
-                        <ul>
-                            <li><a href="/">Beranda</a></li>
-                            <li class="is-active"><a href="#">FAQ</a></li>
-                        </ul>
-                    </nav>
-                    <h1 className="title is-5 has-text-centered">Frequently Asked Questions</h1>
-                    <p className="subtitle has-text-centered is-">Berikut beberapa pertanyaan yang sering ditanyakan</p>
-                    <div className="columns">
-                        <div className="column">
-                            {faqs.map((faq, index) => (
-                                <div key={index} className="card mt-4">
+            <div style={{ background: 'linear-gradient(to bottom, #b4e5f9 2%, #ffffff 65%)', backgroundSize: `cover`, backgroundPosition: `center`, paddingTop: '100px' }}>
+                <div className="container pb-6">
+                        <nav class="breadcrumb" aria-label="breadcrumbs">
+                            <ul>
+                                <li><a href="/">Beranda</a></li>
+                                <li class="is-active"><a href="#">FAQ</a></li>
+                            </ul>
+                        </nav>
+                        <h1 className="title is-5 has-text-centered">Frequently Asked Questions</h1>
+                        <p className="subtitle has-text-centered is-">Berikut beberapa pertanyaan yang sering ditanyakan</p>
+                        <div className="columns mx-6">
+                            <div className="column">
+                                {faqs.map((faq, index) => (
+                                    <div key={index} className="card mt-4">
                                         <button
                                             className="button is-info is-fullwidth is-outlined"
                                             onClick={() => handleClick(index)}
                                         >
                                             {faq.question}
                                         </button>
-                                    {index === activeQuestion && (
-                                        <p className='px-3 py-3'>{faq.answer}</p>
-                                    )}
-                                </div>
-                            ))}
+                                        {index === activeQuestion && (
+                                            <p className='px-3 py-3'>{faq.answer}</p>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                </section>
+                </div>
             </div>
             <PublicFooter />
         </React.Fragment>

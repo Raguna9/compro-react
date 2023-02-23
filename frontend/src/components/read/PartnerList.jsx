@@ -42,18 +42,18 @@ const PartnerList = () => {
 
     return (
         <div className="container mr-2">
-            <h1 className="title">Partners</h1>
-            <h2 className="subtitle">List of Partners</h2>
+            <h1 className="title">Mitra Kerja</h1>
+            <h2 className="subtitle">Daftar Mitra Kerja</h2>
             <Link to="/partners/add" className="button is-primary mb-2">
-                Add New
+                Tambah Data
             </Link>
             <table className="table is-striped is-fullwidth">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Actions</th>
+                        <th>Gambar</th>
+                        <th>Nama</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,7 +75,7 @@ const PartnerList = () => {
                                     onClick={() => deletePartner(partner.uuid)}
                                     className="button is-small is-danger ml-1"
                                 >
-                                    Delete
+                                    Hapus
                                 </button>
                             </td>
                         </tr>

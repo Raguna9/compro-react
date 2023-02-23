@@ -203,6 +203,10 @@ export const getMatelDetailsPublic = async (req, res) => {
                 noka: {
                     [Op.like]: '%' + search + '%'
                 }
+            }, {
+                kontrak: {
+                    [Op.like]: '%' + search + '%'
+                }
             }]
         }
     });
