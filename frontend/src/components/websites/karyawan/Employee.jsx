@@ -39,7 +39,7 @@ const Employee = () => {
                                 <p style={{ fontSize: "10px" }}>{employee.email}</p>
                                 <p className='pt-2' style={{ fontSize: "12px" }}>{employee.department}</p>
                                 <span style={{ fontSize: "10px" }}>
-                                    <p><strong>No. SPPI  {rows}</strong>
+                                    <p><strong>No. SPPI </strong>
                                         <span className='pl-1'>{employee.sppi}</span>
                                         <a>
                                             <BiLinkExternal className='ml-1' onClick={() => setIsOpen(employee.sppi)} />
