@@ -21,6 +21,9 @@
     -webkit-box-orient: vertical;
 }
 .descGallery3 {
+    font-weight: 450;
+    font-size: 14px;
+    line-height: 24px;
     color: #444444;
     overflow: hidden;
     text-overflow: ellipsis;

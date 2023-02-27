@@ -44,7 +44,7 @@ const GalleryList = () => {
                     {gallerys.map((gallery, index) => (
                         <tr key={gallery.uuid}>
                             <td>{index + 1}</td>
-                            <td style={{ maxWidth: '150px', objectFit: 'cover' }}>
+                            <td style={{ maxWidth: '250px', objectFit: 'cover' }}>
                                 <img src={gallery.urlImage} alt={gallery.uuid} onClick={() => setIsOpen(gallery.urlImage)} />
                             </td>
                             <td>
