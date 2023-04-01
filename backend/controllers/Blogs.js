@@ -212,7 +212,10 @@ export const getListBlogs = async (req, res) => {
     try {
         let response;
         response = await Blog.findAll({
-            attributes: ['id', 'uuid', 'tittle', 'content', 'urlImage', 'userId', 'updatedAt']
+            attributes: ['id', 'uuid', 'tittle', 'content', 'urlImage', 'userId', 'updatedAt'],
+            order: [
+                ['id', 'DESC']
+            ]
         });
 
         res.status(200).json(response);

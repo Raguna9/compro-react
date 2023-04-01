@@ -39,6 +39,8 @@ const FAQPages = lazy(() => import("./pages/website/FAQPages"));
 const AboutCompanyPages = lazy(() => import("./pages/website/AboutCompanyPages"));
 const SingleBlogPages = lazy(() => import("./pages/website/SingleBlogPages"));
 const MatelPages = lazy(() => import("./pages/website/MatelPages"));
+const ContactPages = lazy(() => import("./pages/website/ContactPages"));
+
 
 function App() {
   return (
@@ -55,6 +57,7 @@ function App() {
             <Route path="/faqpages" element={<FAQPages />} />
             <Route path="/aboutpages" element={<AboutCompanyPages />} />
             <Route path="/matelpages" element={<MatelPages />} />
+            <Route path="/contactpages" element={<ContactPages />} />
 
 
 

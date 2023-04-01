@@ -46,7 +46,7 @@ const Welcome = () => {
 
     return (
         <div>
-            <h1 className="title">Beranda</h1>
+            <h1 className="title">Dashboard</h1>
             <h2 className="subtitle">
                 Selamat datang kembali <strong>{user && user.name}</strong>
             </h2>
@@ -70,7 +70,7 @@ const Welcome = () => {
                                 <div className="content" style={{ height: "160px" }}>
                                     <div className="has-text-centered">
                                         <h1 className="title has-text-white-ter">{countMatel}</h1>
-                                        <h4 className="title has-text-white-ter">Data Matel</h4>
+                                        <h4 className="title has-text-white-ter">Data Aset Fidusia</h4>
                                     </div>
                                 </div>
                             </div>

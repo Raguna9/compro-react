@@ -21,10 +21,9 @@ const PublicNavbar = () => {
             window.removeEventListener("scroll", handleNavShadow);
         };
     }, []);
-
     return (
         <div className="container">
-            <nav className={`navbar is-fixed-top ${navShadow ? "has-background-light" : ""}`} style={ navShadow ? { boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' } : { backgroundColor: 'transparent' } } role="navigation" aria-label="main navigation">
+            <nav className={`navbar is-fixed-top ${navShadow ? "has-background-light" : ""}`} style={navShadow ? { boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' } : { backgroundColor: 'transparent' }} role="navigation" aria-label="main navigation">
                 <div className="navbar-brand ml-2">
                     {window.location.pathname === '/' ? (
                         <Link to="home" spy={true} smooth={true} offset={-90} duration={500}>
@@ -73,9 +72,12 @@ const PublicNavbar = () => {
                                 <a className="navbar-item" href="/employeepages">
                                     Tenaga Kerja
                                 </a>
-                                <a className="navbar-item" href="/matelpages">
+                                {/* <a className="navbar-item" href="/matelpages">
                                     Data Aset Fidusia
-                                </a>
+                                </a> */}
+                                <Link className="navbar-item" to="partner" spy={true} smooth={true} offset={-90} duration={500}>
+                                    Mitra Kerja
+                                </Link>
                             </div>
                         </div>
 
@@ -100,7 +102,7 @@ const PublicNavbar = () => {
                         )}
 
                         {window.location.pathname === '/' ? (
-                            <Link className="navbar-item" to="blog" spy={true} smooth={true} offset={-90} duration={500}>
+                            <Link className="navbar-item" to="blog" spy={true} smooth={true} offset={-80} duration={500}>
                                 Blog
                             </Link>
                         ) : (
@@ -108,6 +110,23 @@ const PublicNavbar = () => {
                                 Blog
                             </a>
                         )}
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <a className="navbar-link">Lainnya</a>
+                            <div className="navbar-dropdown has-background-info-light">
+                                {window.location.pathname === '/' ? (
+                                    <Link className="navbar-item" to="kontak" spy={true} smooth={true} offset={-80} duration={500} >
+                                        Hubungi Kami
+                                    </Link>
+                                ) : (
+                                    <a className="navbar-item" href="/contactpages">
+                                        Hubungi Kami
+                                    </a>
+                                )}
+                                <a className="navbar-item" href="/faqpages">
+                                    FAQ
+                                </a>
+                            </div>
+                        </div>
 
                         <a className="navbar-item" href="/login">
                             <button className="button is-primary">Login</button>

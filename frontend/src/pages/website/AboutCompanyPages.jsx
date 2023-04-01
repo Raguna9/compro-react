@@ -75,7 +75,7 @@ const AboutCompanyPages = () => {
                                 <div className="content">
                                     <h3 className="subtitle is-5">Visi</h3>
                                     <p>
-                                        - Menjalin dan menciptakan hubungan kerjasama yang baik untuk kesejahteraaan bersama.
+                                        Menjalin dan menciptakan hubungan kerjasama yang baik untuk kesejahteraaan bersama.
                                     </p>
                                     <h3 className="subtitle is-5">Misi</h3>
                                     <span>

@@ -75,7 +75,7 @@ const Navbar = () => {
                         <span className="menu-label">General</span>
                         <NavLink className="navbar-item" to={"/dashboard"}>
                             <span style={{ fontSize: '14px' }}>
-                                <IoHome /> Beranda
+                                <IoHome /> Dashboard
                             </span>
                         </NavLink>
                         <NavLink className="navbar-item" to={"/blogs"}>
@@ -85,7 +85,7 @@ const Navbar = () => {
                         </NavLink>
                         <NavLink className="navbar-item" to={"/matels"}>
                             <span style={{ fontSize: '14px' }}>
-                                <AiFillBook /> Data Matel
+                                <AiFillBook /> Aset Fidusia
                             </span>
                         </NavLink>
                         {user && user.role === "admin" && (

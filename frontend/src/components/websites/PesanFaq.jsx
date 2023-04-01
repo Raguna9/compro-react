@@ -45,7 +45,7 @@ const PesanFaq = () => {
     return (
         <div style={{ background: 'linear-gradient(to top, #b4e5f9 15%, #ffffff 65%)', backgroundSize: `cover`, backgroundPosition: `center` }}>
             <div className="container pb-6">
-                <section id="faq" className='mx-6 py-4'>
+                <section id="kontak" className='mx-6 py-4'>
                     <h1 className="title is-4">Hubungi Kami</h1>
                     <div className="columns is-multiline">
                         <div className="column is-8">

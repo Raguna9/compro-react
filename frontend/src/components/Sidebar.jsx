@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoPerson, IoHome, IoLogOut, } from "react-icons/io5";
 import { BsBank, BsChatLeftTextFill } from "react-icons/bs";
@@ -13,6 +13,17 @@ const Sidebar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user } = useSelector((state) => state.auth);
+    const [unreadMessages, setUnreadMessages] = useState(0);
+
+    // contoh penggunaan useEffect untuk mendapatkan data pesan dari API
+    useEffect(() => {
+        const fetchInboxs = async () => {
+            const response = await fetch("http://localhost:5000/inboxs");
+            const unreadMessages = response.data.filter((messageContent) => !messageContent.read).length;
+            setUnreadMessages(unreadMessages);
+        };
+        fetchInboxs();
+    }, []);
 
     const logout = () => {
         if (window.confirm("Are you sure for logout?")) {
@@ -31,7 +42,7 @@ const Sidebar = () => {
                     <li>
                         <NavLink className="navbar-item" to={"/dashboard"}>
                             <span style={{ fontSize: '14px' }}>
-                                <IoHome /> Beranda
+                                <IoHome /> Dashboard
                             </span>
                         </NavLink>
                     </li>
@@ -45,7 +56,7 @@ const Sidebar = () => {
                     <li>
                         <NavLink className="navbar-item" to={"/matels"}>
                             <span style={{ fontSize: '14px' }}>
-                                <AiFillBook /> Data Matel
+                                <AiFillBook /> Aset Fidusia
                             </span>
                         </NavLink>
                     </li>
@@ -57,7 +68,10 @@ const Sidebar = () => {
                             <li>
                                 <NavLink className="navbar-item" to={"/inboxs"}>
                                     <span style={{ fontSize: '14px' }}>
-                                        <BsChatLeftTextFill /> Pesan
+                                        <BsChatLeftTextFill /> Pesan{" "}
+                                        {unreadMessages > 0 && (
+                                            <span className="notification">{unreadMessages}</span>
+                                        )}
                                     </span>
                                 </NavLink>
                             </li>

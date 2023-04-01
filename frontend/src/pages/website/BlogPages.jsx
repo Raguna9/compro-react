@@ -66,7 +66,7 @@ function BlogPages() {
                                         </a>
                                     </div>
                                     <div className="column">
-                                        <p># {index + 1}</p>
+                                        <p># {blog.id}</p>
                                         <a href={`/blogpages/${blog.uuid}`}>
                                             <div className="titleBlog2 subtitle is-5 pt-4">
                                                 <strong> {blog.tittle}</strong>

@@ -36,8 +36,8 @@ const Matel = () => {
     };
 
     return (
-        <div className="container my-6 pt-4">
-            <nav className="breadcrumb mt-5" aria-label="breadcrumbs">
+        <div className="container my-6">
+            {/* <nav className="breadcrumb mt-5" aria-label="breadcrumbs">
                 <ul>
                     <li>
                         <a href="/">Beranda</a>
@@ -48,14 +48,14 @@ const Matel = () => {
                         </a>
                     </li>
                 </ul>
-            </nav>
-            <h1 className="title is-5 has-text-centered">
+            </nav> */}
+            <h1 className="title is-4 has-text-centered">
                 Cek Data Aset Fidusia
             </h1>
             <div className="columns">
                 <div className="column is-6">
                     <form onSubmit={searchData} className="box has-background-light">
-                        <h1 className="label is-5 pl-1">Cari Data</h1>
+                        <h1 className="label is-5 pl-1 pt-1 pb-3">Cari Data</h1>
                         <div className="field has-addons">
                             <div className="control is-expanded">
                                 <input
@@ -72,7 +72,7 @@ const Matel = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className="pl-1" style={{ fontSize: '11px' }}>
+                        <div className="pl-1" style={{ fontSize: '12px' }}>
                             <strong>Input dapat berupa : </strong>
                             *no. kontrak / *nopol / *nosin / *noka
                         </div>
@@ -81,7 +81,7 @@ const Matel = () => {
                 <div className="column">
                     <div className="box has-background-warning">
                         <span>
-                            <strong>Note</strong>
+                            <strong>Catatan</strong>
                         </span>
                         <div className="">
                             <p className="pt-3" style={{ fontSize: '14px' }}>

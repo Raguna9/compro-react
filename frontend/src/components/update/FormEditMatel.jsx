@@ -67,8 +67,8 @@ const FormEditMatel = () => {
 
     return (
         <div>
-            <h1 className="title">Matels</h1>
-            <h2 className="subtitle">Edit Matel</h2>
+            <h1 className="title">Aset Fidusia</h1>
+            <h2 className="subtitle">Edit Aset Fidusia</h2>
             <div className="card is-shadowless">
                 <div className="card-content">
                     <div className="content">

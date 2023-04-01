@@ -26,7 +26,7 @@ function GalleryPages() {
         <React.Fragment>
             <PublicNavbar />
             <div style={{ background: 'linear-gradient(to bottom, #b4e5f9 2%, #ffffff 65%)', backgroundSize: `cover`, backgroundPosition: `center`, paddingTop: '70px' }}>
-                <div className="container">
+                <div className="container mb-6">
                     <nav class="breadcrumb mt-5 pb-2" aria-label="breadcrumbs">
                         <ul>
                             <li><a href="/">Beranda</a></li>

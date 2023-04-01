@@ -17,7 +17,7 @@ const Home = () => {
                                 professional and hassle-free services.
                             </h2>
                             <Link
-                                to={`/aboutpages`}
+                                to="/contactpages"
                                 className="button is-info"
                             >
                                 Informasi Selengkapnya
